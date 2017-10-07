@@ -64,3 +64,13 @@ OSの中核となる部分でハードウェアと直接やり取りするもっ
 理由は Amazon Linux は AWS上で利用が推奨されているディストリビューションなので学習を進める上で効率が良いと判断した為です。
 
 使い方も [CentOS](https://www.centos.org/) によく似ています。
+
+## Linuxの学習方法
+
+まずは使って見るのが一番です。
+
+[ojt-linux-vagrant](https://github.com/keita-nishimoto/ojt-linux-vagrant) というリポジトリを用意しました。
+
+こちらは使って学習のほうを進めていきましょう。
+
+使い方や今後の学習内容等はリポジトリのREADMEに記載しておきます。
