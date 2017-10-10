@@ -379,3 +379,45 @@ mv sample2.txt test/sample2.txt
 ```bash
 mv sample.txt sample99.txt
 ```
+
+### find
+
+ファイルの検索を行います。
+
+```bash
+# 今いるディレクトリの直下から拡張子が .txt のファイルを探す
+find . -name *.txt
+```
+
+### grep
+
+ログを漁る時に良く使います。
+
+```text
+grep 検索文字 ファイル名
+```
+
+```bash
+# sample99.txt から 'sample' という文字列を抜き出す
+grep sample sample99.txt
+```
+
+```bash
+# test/ ディレクトリ配下から sample という文字列ある箇所を抽出
+grep -n -r "sample" test/
+```
+
+### top
+
+システム全体のメモリ使用料や負荷状況などが見れます。
+
+Windowsで言うとタスクマネージャーみたいなモノですね。
+
+※ 大事なので後で別ファイル化
+
+### ps
+
+プロセスの実行状態を確認します。
+
+※ 大事なので後で別ファイル化
+
