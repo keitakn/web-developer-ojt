@@ -198,54 +198,55 @@ drwx------ 2 vagrant vagrant 4096 Apr  5  2017 .ssh
 
 このようにオプションには様々な種類があります。
 
-都度ネットで調べても良いですが、一番確実なのは `man` コマンドでオプションを見る事です。
+都度ネットで調べても良いですが、一番確実なのはコマンドでマニュアルやヘルプを見る事です。
 
-例えば `ls` コマンドのオプションは `man ls` で確認出来ます。
+例えば `ls` コマンドのオプションは `man ls` や `ls --help` で確認出来ます。
 
-↓めちゃくちゃ長いので途中までしか載せてませんがこんな感じでオプションの一覧と説明が記載されます。
+↓以下は `ls --help` の結果です。長いので途中までしか載せてませんがこんな感じでオプションの一覧と説明が記載されます。
 
 ```text
-LS(1)                                               User Commands                                               LS(1)
+Usage: ls [OPTION]... [FILE]...
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
 
-NAME
-       ls - list directory contents
-
-SYNOPSIS
-       ls [OPTION]... [FILE]...
-
-DESCRIPTION
-       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of
-       -cftuvSUX nor --sort is specified.
-
-       Mandatory arguments to long options are mandatory for short options too.
-
-       -a, --all
-              do not ignore entries starting with .
-
-       -A, --almost-all
-              do not list implied . and ..
-
-       --author
-              with -l, print the author of each file
-
-       -b, --escape
-              print C-style escapes for nongraphic characters
-
-       --block-size=SIZE
-              scale sizes by SIZE before printing them; e.g., '--block-size=M' prints sizes  in  units  of  1,048,576
-              bytes; see SIZE format below
-
-       -B, --ignore-backups
-              do not list implied entries ending with ~
-
-       -c     with  -lt:  sort  by,  and show, ctime (time of last modification of file status information); with -l:
-              show ctime and sort by name; otherwise: sort by ctime, newest first
-
-       -C     list entries by columns
-
-       --color[=WHEN]
-              colorize the output; WHEN can be 'never', 'auto', or 'always' (the default); more info below
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --all                  do not ignore entries starting with .
+  -A, --almost-all           do not list implied . and ..
+      --author               with -l, print the author of each file
+  -b, --escape               print C-style escapes for nongraphic characters
+      --block-size=SIZE      scale sizes by SIZE before printing them; e.g.,
+                               '--block-size=M' prints sizes in units of
+                               1,048,576 bytes; see SIZE format below
+  -B, --ignore-backups       do not list implied entries ending with ~
+  -c                         with -lt: sort by, and show, ctime (time of last
+                               modification of file status information);
+                               with -l: show ctime and sort by name;
+                               otherwise: sort by ctime, newest first
+  -C                         list entries by columns
+      --color[=WHEN]         colorize the output; WHEN can be 'never', 'auto',
+                               or 'always' (the default); more info below
+  -d, --directory            list directories themselves, not their contents
+  -D, --dired                generate output designed for Emacs' dired mode
+  -f                         do not sort, enable -aU, disable -ls --color
+  -F, --classify             append indicator (one of */=>@|) to entries
+      --file-type            likewise, except do not append '*'
+      --format=WORD          across -x, commas -m, horizontal -x, long -l,
+                               single-column -1, verbose -l, vertical -C
+      --full-time            like -l --time-style=full-iso
+  -g                         like -l, but do not list owner
+      --group-directories-first
+                             group directories before files;
+                               can be augmented with a --sort option, but any
+                               use of --sort=none (-U) disables grouping
+  -G, --no-group             in a long listing, don't print group names
+  -h, --human-readable       with -l, print sizes in human readable format
 ```
+
+`man` と `--help` ですが、基本的な使い方を分かっている前提であれば、 `--help` のほうが見やすい事が多いです。
+
+`man` に関しては マニュアルを表示させるコマンドで 下記に詳しい解説があったので載せておきます。
+
+https://eng-entrance.com/linux-command-man
 
 ### vi(vim)
 
