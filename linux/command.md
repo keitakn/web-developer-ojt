@@ -318,6 +318,14 @@ tail -f ファイル名
 
 抜ける時は `control + C` を実行して下さい。
 
+### head
+
+ファイルの上から10行を表示する機能です。 `tail` の逆ですね。
+
+`head student.txt -n 2` のように利用します。
+
+これは上から2行目まで表示させるという意味になります。
+
 ### less
 
 ファイルの内容をコンソールに出力します。
@@ -477,6 +485,11 @@ $ pgrep sshd
 
 ### sort
 
+入力ファイルの並び替えを行います。
+
+これもログ漁りの時に役に立ちます。
+
+
 | オプション | 意味 |
 |:----------|----:|
 | -r | 逆順に並べる |
@@ -484,7 +497,7 @@ $ pgrep sshd
 | -f | 大文字小文字区別なく並べる |
 | -k | 何列目かを指定する |
 
-以下の内容のテキストファイルがあったと仮定します。
+以下の内容のテキストファイル（student.txt）があったと仮定します。
 
 ```text
 80 John
@@ -514,4 +527,116 @@ sort -nr student.txt
 19 Alex
 80 John
 65 Max
+```
+
+### パイプ
+
+記号の `|` の事です。
+
+これを利用する事で前のコマンドの出力結果をパイプの後ろに来るコマンドの入力として利用する事が出来ます。
+
+例えば `ps` コマンドの時に例に出した `ps aux | grep sshd` という記述。
+
+これは `ps aux` コマンドの出力結果（めちゃめちゃ長いので少し省略しています）↓
+
+```text
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root      2275  0.0  0.0  19136   168 ?        Ss   14:54   0:00 /usr/sbin/atd
+root      2290  0.0  0.1   4308  1444 tty1     Ss+  14:54   0:00 /sbin/mingetty /dev/tty1
+root      2293  0.0  0.1   4308  1400 tty2     Ss+  14:54   0:00 /sbin/mingetty /dev/tty2
+root      2297  0.0  0.1   4308  1440 tty3     Ss+  14:54   0:00 /sbin/mingetty /dev/tty3
+root      2299  0.0  0.1   4308  1440 tty4     Ss+  14:54   0:00 /sbin/mingetty /dev/tty4
+root      2301  0.0  0.1   4308  1496 tty5     Ss+  14:54   0:00 /sbin/mingetty /dev/tty5
+root      2303  0.0  0.1   4308  1464 tty6     Ss+  14:54   0:00 /sbin/mingetty /dev/tty6
+root      4220  0.0  0.1   9360  1428 ?        Ss   14:54   0:00 /sbin/dhclient -nw -q -lf /var/lib/dhclient/dhclient-et
+root      4380  0.0  0.1   9360  1980 ?        Ss   14:54   0:00 /sbin/dhclient -6 -nw -lf /var/lib/dhclient/dhclient6-e
+root      4529  0.0  0.6 119904  6648 ?        Ss   14:54   0:00 sshd: vagrant [priv]
+vagrant   4531  0.0  0.5 119904  5172 ?        S    14:54   0:00 sshd: vagrant@pts/0
+vagrant   4532  0.0  0.3 115352  3352 pts/0    Ss   14:54   0:00 -bash
+root      4619  0.0  0.6 119904  6708 ?        Ss   14:55   0:00 sshd: vagrant [priv]
+vagrant   4621  0.0  0.5 119904  5308 ?        S    14:55   0:00 sshd: vagrant@pts/1
+vagrant   4622  0.0  0.3 115352  3376 pts/1    Ss+  14:55   0:00 -bash
+root      4741  0.0  0.2  79952  2616 ?        Ss   14:55   0:00 /usr/sbin/sshd
+rpc      15858  0.0  0.2  35324  2040 ?        Ss   14:56   0:00 rpcbind -w
+vagrant  25360  0.0  0.2 117220  2576 pts/0    R+   15:46   0:00 ps aux
+```
+
+を元にして `grep` で "sshd" という文字列が含まれる箇所だけを抽出しています。
+
+結果は下記のようになります。
+
+```text
+root      4529  0.0  0.6 119904  6648 ?        Ss   14:54   0:00 sshd: vagrant [priv]
+vagrant   4531  0.0  0.5 119904  5172 ?        S    14:54   0:00 sshd: vagrant@pts/0
+root      4619  0.0  0.6 119904  6708 ?        Ss   14:55   0:00 sshd: vagrant [priv]
+vagrant   4621  0.0  0.5 119904  5308 ?        S    14:55   0:00 sshd: vagrant@pts/1
+root      4741  0.0  0.2  79952  2616 ?        Ss   14:55   0:00 /usr/sbin/sshd
+vagrant  25362  0.0  0.2 110472  2156 pts/0    S+   15:48   0:00 grep --color=auto sshd
+```
+
+パイプは非常に便利で、元々強力なLinuxコマンドの利便性をさらに高い物にしています。
+
+### 標準入出力のリダイレクション
+
+標準入出力とは以下の事を指します。
+
+- 標準入力(キーボードからの命令)
+- 標準出力(画面に表示される結果)
+
+#### `<`
+
+記号の `<` はキーボードからの入力ではなくファイルの内容を利用する時に使います。
+
+以下の内容のテキストファイル（student.txt）があったと仮定します。
+
+```text
+80 John
+19 Alex
+65 Max
+```
+
+`grep 80 < student.txt` とすると スコアが80の行を取得出来ます。
+
+以下は出力結果です。
+
+```text
+80 John
+```
+
+#### `>`
+
+コマンドの結果をテキストファイルに書き出す時に利用します。
+
+結果はファイルに出力されるので画面には表示されません。
+
+`ls -la > ls_result.txt` と実行すると `ls` の結果がファイルに出力されます。
+
+`vi` 等で開くと下記のようなテキストファイルが出来ています。
+
+```text
+total 64
+drwx------ 5 vagrant vagrant 4096 Oct 11 16:06 .
+drwxr-xr-x 3 root    root    4096 Apr  5  2017 ..
+-rw------- 1 vagrant vagrant    0 Oct 10 16:09 .bash_history
+-rw-r--r-- 1 vagrant vagrant   18 Aug 15  2016 .bash_logout
+-rw-r--r-- 1 vagrant vagrant  193 Aug 15  2016 .bash_profile
+-rw-r--r-- 1 vagrant vagrant  124 Aug 15  2016 .bashrc
+-rw-rw-r-- 1 vagrant vagrant   22 Oct 10 15:36 index.html
+-rw------- 1 vagrant vagrant   41 Oct 10 15:28 .lesshst
+-rw-rw-r-- 1 vagrant vagrant    0 Oct 11 16:06 ls_result.txt
+-rw-rw-r-- 1 vagrant vagrant  349 Oct 10 14:24 sample99.txt
+-rw-rw-r-- 1 vagrant vagrant  849 Oct 11 16:05 sample.txt
+drwx------ 2 vagrant vagrant 4096 Apr  5  2017 .ssh
+-rw-rw-r-- 1 vagrant vagrant   23 Oct 11 15:26 student.txt
+drwxrwxr-x 3 vagrant vagrant 4096 Oct 10 15:42 test
+drwxrwxr-x 3 vagrant vagrant 4096 Oct 10 15:40 test2
+-rw------- 1 vagrant vagrant 9127 Oct 11 16:05 .viminfo
+```
+
+ちなみに リダイレクションを両方使い標準入出力を一行で切り替えることも可能です。
+
+下記のような書式になります。
+
+```bash
+command < input_datafile > output_file
 ```
