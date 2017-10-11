@@ -639,6 +639,21 @@ $ chmod +x ファイル名/ディレクトリ名
 
 https://eng-entrance.com/linux-command-chmod
 
+### chown
+
+こちらも権限周りのコマンドでファイルやディレクトリの所有者を変更します。
+
+基本的に root で使わないと権限なしで操作できない場合があるので root（または sudo）で使うモノと認識して良いと思います。
+
+```bash
+# 基本書式
+$ chown 所有者名 ファイル名またはディレクトリ名
+```
+
+下記にキレイにまとまった情報があるので記載しておきます。
+
+https://eng-entrance.com/linux-command-chown
+
 ### パイプ
 
 記号の `|` の事です。
