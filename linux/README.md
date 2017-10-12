@@ -8,7 +8,11 @@ OSとはオペレーティングシステムの略で、コンピュータを操
 
 Linux以外だと [Microsoft Windows](https://ja.wikipedia.org/wiki/Microsoft_Windows) や [macOS](https://ja.wikipedia.org/wiki/MacOS) 等があります。
 
-1991年に当時フィンランドの大学生だった 「リーナス・トーバルズ」氏 により開発・公開されました。
+1991年に当時フィンランドの大学生だった 「リーナス・トーバルズ」氏 によりUNIXを参考に開発・公開されました。
+
+UNIXに関しては [こちらの記事](https://eng-entrance.com/unix_linux) が詳しいので見てみて下さい。
+
+UNIXベースで一番身近なOSだと [macOS](https://ja.wikipedia.org/wiki/MacOS) があります。
 
 ## Linuxの特徴
 
