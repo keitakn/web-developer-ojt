@@ -654,6 +654,63 @@ $ chown 所有者名 ファイル名またはディレクトリ名
 
 https://eng-entrance.com/linux-command-chown
 
+### ln
+
+リンクを貼る為のコマンドです。
+
+Linuxには シンボリックリンクとハードリンクがありますが主に利用するのはシンボリックリンクです。
+
+この2つの違いについては [シンボリックリンクとハードリンクの違い](https://qiita.com/novice/items/fc57eaa9330d318ee342) という記事がありましたのでこちらで共有させて頂きます。
+
+シンボリックリンクを作成する書式です。
+
+```bash
+ln -s リンク元 登録名
+```
+
+```bash
+# /home/vagrant/app → /opt/app
+sudo ln -s /home/vagrant/app /opt/app
+```
+
+`cd` でリンクを貼った先に移動すると以下のように表示されているかと思います。
+
+<img width="594" alt="ln-s" src="https://user-images.githubusercontent.com/11032365/31501417-2fe42416-afa5-11e7-8bf5-53f5cf53c9a7.png">
+
+これを見ると `/home/vagrant/app` と `/opt/app` は実質同じ場所を指している事が分かります。
+
+これ何に使うのと思うかもしれませんが、一番良く利用される用途の1つとしてはコマンドのパスを通すという物があります。
+
+パスについて簡単に説明します。
+
+`echo $PATH` と実行してみて下さい。
+
+そうすると、以下のような結果が返ってくると思います。
+
+`/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/vagrant/.local/bin:/home/vagrant/bin`
+
+このパスが通っている箇所にあるコマンドやファイルはコマンド名をフルパスで入力しなくても実行出来るようになります。
+
+例えば `ssh` というコマンド（これはセキュリティのところで詳しく解説します） これはリモート上にあるサー接続する為のコマンドですが、
+
+`which ssh` と実行すると以下のように表示されるかと思います。
+
+```text
+/usr/bin/ssh
+```
+
+つまり本当は `/usr/bin/ssh` と打つ必要がありますがパスが通っているディレクトリの場合は単純に `ssh` だけでコマンドの実行が出来ます。
+
+ただ通常は標準で使えるコマンドの場合は既にパスが通っていますし、新しいコマンドを `yum` 等でインストールした場合もインストール作業にパスを通す作業も含まれています。
+
+シンボリックリンクでパスを通しているツールの代表に [nodebrew](https://github.com/hokaccha/nodebrew) や [rbenv](https://github.com/rbenv/rbenv) があります。
+
+これらは Node.js, Rubyのバージョンを管理するツールなのですが、バージョンの切り替えにシンボリックリンクが使われています。
+
+`ln` コマンドに関しては下記に詳しい解説がありますのでこちらに記載させて頂きます。
+
+https://eng-entrance.com/linux-command-ln
+
 ### パイプ
 
 記号の `|` の事です。
