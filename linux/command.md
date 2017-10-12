@@ -822,3 +822,145 @@ drwxrwxr-x 3 vagrant vagrant 4096 Oct 10 15:40 test2
 ```bash
 command < input_datafile > output_file
 ```
+
+### ssh
+
+リモート上にあるサーバに接続する際に利用するコマンドです。
+
+重要なのでセキュリティの講習でさらに詳しく説明します。
+
+[インフラエンジニアじゃなくても押さえておきたいSSHの基礎知識](https://qiita.com/tag1216/items/5d06bad7468f731f590e) という良くまとまった資料があるので共有させて頂きます。
+
+### scp
+
+SSHを使用してリモートホストとの間でファイルを転送を行うコマンドです。
+
+[インフラエンジニアじゃなくても押さえておきたいSSHの基礎知識](https://qiita.com/tag1216/items/5d06bad7468f731f590e) にも使い方が載っています。
+
+### rsync
+
+ファイル同期コマンドで、基本的にscpと同じことができ、使い方も同じです。
+が、scpとは以下の点で異なります。
+
+rsyncは、実ファイルを一時ファイルに落とした上でファイルを書き出し、転送が終わり次第実ファイルに反映されます。
+ので、メモリは相応に喰ってしまいますが、scpと違って編集に対して安全にコピーは行えます。
+システムに組み込むならscpではなく、rsyncで。
+
+オプションも結構たくさんあるので、使う前に調べると良いでしょう。
+
+### ifconfig, ip
+
+Redhat 7より小さいバージョンはifconfigコマンドが、7より大きいバージョンの場合はipコマンドがデフォルトで入っています。
+
+ちなみにAmazon Linux は両方入っています。
+
+`ip a` の実行結果です。（`a` は `address` の省略形でアドレスを表示させるという意味です。）
+
+```text
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:af:85:70 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:feaf:8570/64 scope link
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:45:23:17 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.33.100/24 brd 192.168.33.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe45:2317/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+下記は `ifconfig` の実行結果です。
+
+```text
+eth0      Link encap:Ethernet  HWaddr 08:00:27:AF:85:70
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:feaf:8570/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2932 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2314 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:233385 (227.9 KiB)  TX bytes:227632 (222.2 KiB)
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:45:23:17
+          inet addr:192.168.33.100  Bcast:192.168.33.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe45:2317/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:112 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:41 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:21073 (20.5 KiB)  TX bytes:3026 (2.9 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:404 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:404 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:32216 (31.4 KiB)  TX bytes:32216 (31.4 KiB)
+```
+
+### tar
+
+ファイルの所有者、権限、シンボリックリンクを保持した状態でアーカイブするコマンドです。
+
+Windowsだと大きめのファイルをzip化して、、みたいな事をやると思うのですが、Linuxだと `.tar.gz` という拡張子が良く利用されます。
+
+基本的な使い方は下記の通りです。
+
+※ 実際に利用する時に "" は要りません。
+
+```bash
+# ZIP圧縮してアーカイブ
+tar cvzf "xxxx.tar.gz".tar.gz "圧縮対象ディレクトリ"
+# アーカイブを展開
+tar zxvf "xxxx.tar.gz"
+```
+
+[[Linux]ファイルの圧縮、解凍方法](https://qiita.com/supersaiakujin/items/c6b54e9add21d375161f) という記事にいい感じでまとまっていたのでここに記載させて頂きます。
+
+### その他の便利なコマンド
+
+その他の便利なコマンドです、これらは直ちに習得する必要はありませんが、覚えておくとサーバの操作がさらに楽になります。
+
+#### awk
+
+正確にはコマンドではなくプログラム言語です。
+なので、めちゃくちゃ高度なテキスト操作が出来ます。
+
+動画（月額の有料）ですが分かりやすいです。
+
+https://dotinstall.com/lessons/basic_awk_v2
+
+#### sed
+
+こちらも文字列操作系の便利なコマンドです。
+動画（月額の有料）ですが分かりやすいです。
+
+https://dotinstall.com/lessons/basic_sed
+
+#### シェルスクリプト
+
+少しコマンドを練習するとLinuxのコマンドは非常に強力だという事が分かります。
+
+`|` や オプション駆使すれば非常に複雑な操作も可能です。
+
+これらのコマンドをまとめてスクリプトファイルにして実行出来る状態にする事をシェルスクリプトと呼びます。
+
+例によって動画（月額の有料）ですが分かりやすいです。
+
+https://dotinstall.com/lessons/basic_shellscript_v2
+
+メリットとして良く言われるのが、移植性が高い事です。（bashのシェルスクリプトならbashが動く場所なら基本的には動く）
+
+[UNIXという考え方](https://www.amazon.co.jp/dp/4274064069) という書籍でもその移植性の高さをメリットして取り上げています。
+
+ちなみに完全に余談ですが、この [UNIXという考え方](https://www.amazon.co.jp/dp/4274064069) という書籍はプログラミング、設計等、全般的に応用出来るノウハウが載っているのでオススメです。
