@@ -82,3 +82,7 @@ OSの中核となる部分でハードウェアと直接やり取りするもっ
 また体系的に学習をする為には [Linux標準教科書](http://www.lpi.or.jp/linuxtext/text.shtml) を読むのが良いでしょう。
 
 無料でダウンロードが可能です。
+
+それから下記のサイトがかなり分かりやすかったです。
+
+https://eng-entrance.com/category/linux
