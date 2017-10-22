@@ -129,4 +129,4 @@ github上でも多くのスターを獲得しています。
 
 本カリキュラムではこの Airbnbのスタイルで学習を進めていきます。
 
-[日本語版](http://mitsuruog.github.io/javascript-style-guide/) もあります。
+[日本語版](http://mitsuruog.github.io/javascript-style-guide/README.md) もあります。
