@@ -18,17 +18,17 @@ IT技術という物は日々進化していて、同じ言語でも新しい構
 
 しかし知識がまったく0の状態だとそれはそれで困ります。なので、大事なのは暗記ではなく把握をする事だと思います。
 
-例えば JavaScriptには対象のHTMLを書き換える `innerHTML` というメソッドがあります。
+例えば JavaScriptには対象のHTMLを書き換える `innerHTML` というプロパティがあります。
 
-```JavaScript
+```html
 <p id="message">JavaScript</p>
-
-<script>
-document.getElementById('message').innerHTML = 'TypeScript';
-</script>
 ```
 
-暗記指向の考え方だと「innerHTMLはHTMLを書き換えるのか、覚えておこう。」となります。
+```javascript 1.8
+document.getElementById('message').innerHTML = 'TypeScript';
+```
+
+暗記指向の考え方だと「innerHTMLはgetElementByIdで要素を選んで、値を代入して。。覚えなくちゃ・・・」となります。
 
 これは非常にマズイ考え方です。
 
