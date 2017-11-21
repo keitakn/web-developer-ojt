@@ -118,11 +118,11 @@ PSRはいくつかの章に分かれていて、これら全てを合わせて1�
 
 こちらも同じくオートローダーのルールです。
 
+[PSR-0](http://www.infiniteloop.co.jp/docs/psr/psr-0.html) の上位版で、基本的にこちらのルールに従っておけば良いでしょう。
+
 ### [PSR-7](http://www.php-fig.org/psr/psr-7/)
 
 HTTPレスポンス・リクエストに関するルールを定めた物です。
-
-[PSR-0](http://www.infiniteloop.co.jp/docs/psr/psr-0.html) の上位版で、基本的にこちらのルールに従っておけば良いでしょう。
 
 他にも色々なルールがあります。 ※ [PHP PSR一覧 2017年版](https://qiita.com/rana_kualu/items/f41d8f657df7709bda0f) という記事がありましたのでここに載せておきます。
 
