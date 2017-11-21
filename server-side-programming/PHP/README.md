@@ -79,3 +79,60 @@ Javaを学ぶ事自体はもちろん有効なのですが、最初はPHPのよ�
 PHPは利用者が多いので、かなり古い情報がネット上に溢れかえっている状況です。
 
 ここを見ればモダンなPHPの開発手法や現時点でのベストプラクティスが分かるでしょう。
+
+## コーディング規約について
+
+PHPには標準で定められたコーディング規約が存在します。
+
+`PSR-◯◯` という名前が付いています。
+
+なのでこの標準のコーディング規約に準拠して行きましょう。
+
+PSRはいくつかの章に分かれていて、これら全てを合わせて1つのコーディング規約となります。
+
+### [PSR-1](http://www.infiniteloop.co.jp/docs/psr/psr-1-basic-coding-standard.html)
+
+基本的なコーディング規約です。
+
+### [PSR-2](http://www.infiniteloop.co.jp/docs/psr/psr-2-coding-style-guide.html)
+
+こちらもコーディング規約です。なおこの内容は [PSR-1](http://www.infiniteloop.co.jp/docs/psr/psr-1-basic-coding-standard.html) に準拠しているという前提で書かれています。
+
+よって [PSR-1](http://www.infiniteloop.co.jp/docs/psr/psr-1-basic-coding-standard.html) の内容を理解している事が必要です。
+
+## その他のPSR規約
+
+ここからはコーディング規約からは少し離れますが、PHPで開発する上で必要なルールが記載されています。
+
+### [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
+
+アプリケーションログ等のログに関するルールを定めた物です。
+
+ログを出力する際はこの規約に準拠しているライブラリを利用する事で自然と準拠する事が出来ます。
+
+### [PSR-0](http://www.infiniteloop.co.jp/docs/psr/psr-0.html)
+
+オートローダー（プログラム内で利用されているファイルを自動で読み込んでくれる仕組み）を扱う為に必要な規約です。
+
+### [PSR-4](https://qiita.com/rana_kualu/items/f41d8f657df7709bda0f)
+
+こちらも同じくオートローダーのルールです。
+
+### [PSR-7](http://www.php-fig.org/psr/psr-7/)
+
+HTTPレスポンス・リクエストに関するルールを定めた物です。
+
+[PSR-0](http://www.infiniteloop.co.jp/docs/psr/psr-0.html) の上位版で、基本的にこちらのルールに従っておけば良いでしょう。
+
+他にも色々なルールがあります。 ※ [PHP PSR一覧 2017年版](https://qiita.com/rana_kualu/items/f41d8f657df7709bda0f) という記事がありましたのでここに載せておきます。
+
+全部読むと大変なので初めは下記の4つくらいを読んでおきましょう。（流し読みレベルで全然構いません）
+
+- [PSR-1](http://www.infiniteloop.co.jp/docs/psr/psr-1-basic-coding-standard.html)
+- [PSR-2](http://www.infiniteloop.co.jp/docs/psr/psr-2-coding-style-guide.html)
+- [PSR-4](https://qiita.com/rana_kualu/items/f41d8f657df7709bda0f)
+- [PSR-7](https://qiita.com/asaokamei/items/b86e384867bcf0379cea)
+
+このようにたくさんの標準規約がありますが、コーディング規約はJavaScriptと同じようにツールで自動修正出来る物はあるので、そちらを利用していきましょう。
+
+またその他のルールに関してもPSRに準拠しているライブラリを選ぶ事で自然と準拠するようになりましょう。
