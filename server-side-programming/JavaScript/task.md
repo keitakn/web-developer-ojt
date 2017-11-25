@@ -295,3 +295,26 @@ JSON形式でレスポンスが返却されるかと思います。
 >認証している状態ではユーザごとに1時間に1000回まで、認証していない状態ではIPアドレスごとに1時間に60回までリクエストを受け付けます。
 
 とQiitaの公式に書いてあるので、もし予期しないエラーが返ってきたらこの件を疑ってみて下さい。
+
+### 非同期処理について
+
+Qiita APIを使う時に非同期プログラミングについての知識が必要になります。
+
+[axios](https://github.com/axios/axios) はPromiseと呼ばれる非同期処理を行う為のオブジェクトを返してきます。
+
+かなり長いですが [JavaScript Promiseの本](http://azu.github.io/promises-book/) に詳しく仕様が書いてあります。
+
+[MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Using_promises) も確認しておいたほうが良いでしょう。
+
+それから個人的には下記のQiitaの記事がとても分かりやすいと思います。
+
+- [JavaScriptは如何にしてAsync/Awaitを獲得したのか Qiita版](https://qiita.com/gaogao_9/items/5417d01b4641357900c7)
+- [Promiseとasync-awaitの例外処理を完全に理解しよう](https://qiita.com/gaogao_9/items/40babdf63c73a491acbb#_reference-7848204ae40de27d0fc0)
+
+JavaScriptでの非同期処理の書き方の変化が載っていて分かりやすいです。
+
+また `async` `await` というのはPromiseをより便利にした書き方で非同期処理の書き方がシンプルになります。
+
+内部で利用されているのは結局PromiseなのでPromiseの基本的な動きを理解する事が大事です。
+
+このあたりは最初はかなり難しく感じるかと思いますが、JavaScript開発をやる上で非同期プログラミングは避けては通れないので、この課題を通じて理解するようにしましょう。
