@@ -4,7 +4,7 @@ HTTPとは Hyper Text Transfer Protocol の略でブラウザ等のクライア�
 
 この資料ではWebエンジニアには必須であるHTTPの基本的な事を学びます。
 
-# HTTP通信を実際に行ってみる
+## HTTP通信を実際に行ってみる
 
 まずはHTTPサーバとコマンドで通信してみましょう。
 
@@ -59,7 +59,7 @@ DeveloperToolを開いてみると先に実行した `curl` と似たような `
 
 これがHTTPによる通信になります。
 
-## HTTPの基本構成
+## HTTPの通信の流れ
 
 先程の `curl` コマンドを元に解説していきます。
 
@@ -100,3 +100,23 @@ curl: (6) Could not resolve host: aaa
 ```
 
 `Could not resolve host` つまり ホスト名をDNSサーバに問い合わせたけど、IPアドレスが返って来なかったという内容です。名前解決が出来なかった等と言ったりします。
+
+### TCPコネクションの確立
+
+### HTTP Method "GET" によるファイル要求
+
+## HTTPリクエストの構成
+
+### リクエストライン
+
+### Header
+
+### Body
+
+## HTTPレスポンスの構成
+
+### Status
+
+### Header
+
+### Body
