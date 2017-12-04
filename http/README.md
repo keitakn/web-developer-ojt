@@ -62,3 +62,41 @@ DeveloperToolを開いてみると先に実行した `curl` と似たような `
 ## HTTPの基本構成
 
 先程の `curl` コマンドを元に解説していきます。
+
+まずはじめの `*` で始まっている部分に注目してみましょう。
+
+```
+* Rebuilt URL to: http://laravel.jp/
+*   Trying 133.242.20.234...
+* TCP_NODELAY set
+* Connected to laravel.jp (133.242.20.234) port 80 (#0)
+```
+
+こんな感じの記述ですね。
+
+裏側では以下のような動きが行われています。
+
+### DNSによる名前解決
+
+まず初めに `laravel.jp` のIPアドレスをDNSサーバに問い合わせします。
+
+DNSサーバは IPアドレスとドメイン名を紐付ける為のサーバです。DNSサーバは限られた組織内で限定公開のものもあれば、インターネット上で公開されているものもあります。
+
+有名なのは Googleが公開している `8.8.8.8` ですね。
+
+下記図の1の部分、これをDNS Queryといいます。
+
+DNSサーバは応答（DNS Response）を返します。
+
+![http-dns](https://user-images.githubusercontent.com/11032365/33562227-1b803f78-d958-11e7-90a9-e084c16e07a4.png)
+
+ちなみにこの時点でIPアドレスが得られなかった場合は下記のようなエラーが返ります。
+
+```
+* Rebuilt URL to: http://aaa/
+* Could not resolve host: aaa
+* Closing connection 0
+curl: (6) Could not resolve host: aaa
+```
+
+`Could not resolve host` つまり ホスト名をDNSサーバに問い合わせたけど、IPアドレスが返って来なかったという内容です。名前解決が出来なかった等と言ったりします。
