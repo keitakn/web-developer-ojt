@@ -103,6 +103,32 @@ curl: (6) Could not resolve host: aaa
 
 ### TCPコネクションの確立
 
+HTTPはTCPというプロトコルを使っています。
+
+HTTPは80番ポートを使って通信を行うので、クライアントからWebサーバ（この場合 `laravel.jp`）の80ポートに接続します。
+
+その際の手順は下記の図のようになります。
+
+![http-tcp](https://user-images.githubusercontent.com/11032365/33609863-16fafc3a-da0d-11e7-9ff3-7bd00891330e.png)
+
+1. クライアントからWebサーバに `TCP syn` パケットを送信します。
+
+1. Webサーバからクライアントに `TCP syn/ack` が送信されます。
+
+1. クライアントからWebサーバに `TCP ack` を送ります。
+
+これはTCP通信を始める際のルールで [3ウェイ・ハンドシェイク](https://ja.wikipedia.org/wiki/3%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%BB%E3%83%8F%E3%83%B3%E3%83%89%E3%82%B7%E3%82%A7%E3%82%A4%E3%82%AF) と呼ばれます。
+
+友人とLINE等でやり取りする時に例えると分かりやすいです。（AとBの会話）
+
+1. A（クライアント）「今LINE大丈夫？（`TCP syn`）」
+1. B（Webサーバ）「大丈夫だよ！（`TCP syn/ack`）」
+1. A（クライアント）「よかった！今日さー〜〜 （`TCP ack` 通信開始）」
+
+ざっくりとしたイメージはこんな感じです。
+
+※ TCP通信に関してはかなり重要なので、TCP/IPのlessonでさらに詳しく説明します。
+
 ### HTTP Method "GET" によるファイル要求
 
 ## HTTPリクエストの構成
