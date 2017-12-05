@@ -10,7 +10,7 @@ HTTPとは Hyper Text Transfer Protocol の略でブラウザ等のクライア�
 
 ターミナルを開いて以下のコマンドを実行して下さい。
 
-`curl -v https://www.yahoo.co.jp`
+`curl -v http://laravel.jp`
 
 するとめちゃくちゃ長いですが、下記のような結果が表示されているかと思います。
 
