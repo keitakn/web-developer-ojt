@@ -220,6 +220,42 @@ https://qiita.com/api/v2/items
 
 ### Header
 
+クライアントから追加情報をWebサーバに渡す時に利用されます。
+
+ユーザーの入力値を渡すという使い方よりは、補足情報的な情報を渡す事が多いです。
+
+HTTP Headerは キー名と値を `: ` で繋いで設定します。
+
+下記のようにリクエストに `-H` オプションを付けて実行します。
+
+`curl` でリクエストHeaderを設定するには以下のように `-H` オプションを付けて実行します。
+
+※ 例として Qiita APIへのアクセスを行います。
+
+```
+curl -v \
+-X GET \
+-H "Authorization: Bearer rgnbfncaidaih4umxfn9yf7znfkx788ax7k55ttg" \
+https://qiita.com/api/v2/users/qiita
+```
+
+こちらは [Qiita API](https://qiita.com/api/v2/docs#アクセストークン) を `Authorization` に設定している例です。
+
+※ アクセストークンの値はデタラメですので上記のリクエストをコピーして実行しても403エラーが返ってくると思います。実際にご自身でアクセストークンを発行して試してみましょう。 ※ [Qiita API 認証認可](https://qiita.com/api/v2/docs#認証認可) を参照。
+
+Qiitaでは `Authorization` に有効なアクセストークンが入っているとAPIが利用出来る範囲が広まったり、1時間あたりに呼び出せる回数が増えたりします。
+
+以下 Qiita公式より抜粋。
+
+>利用制限
+認証している状態ではユーザごとに1時間に1000回まで、認証していない状態ではIPアドレスごとに1時間に60回までリクエストを受け付けます。
+
+このように `Authorization` HeaderはクライアントとWebサーバ間の認証に利用されます。
+
+他にもいくつか標準で定められているHeaderがあるので、詳しくは [MDN HTTP ヘッダー](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers) を参照しましょう。
+
+後でセキュリティのところでやりますが `Set-Cookie` や `Cookie` 等は利用頻度が高いので自然と覚えると思います。
+
 ### Body
 
 ## HTTPレスポンスの構成
