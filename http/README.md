@@ -258,6 +258,71 @@ Qiitaでは `Authorization` に有効なアクセストークンが入ってい�
 
 ### Body
 
+リクエストの本文です。
+
+先程に例に挙げた `https://qiita.com/api/v2/users/qiita` へのリクエスト等はパラメータであるユーザーID（"qiita" の部分がユーザーID）をURLのパスとして指定しましたが、URLにくっ付ける方法だとデータが大きい場合に非常に長いURLになってしまい分かりにくいという問題や一部のブラウザではURLの長さに制限があったりします。
+
+よって大きなデータを送信する際はリクエストボデイにデータを入れるという方法で対応を行います。
+
+例えば、こんなWebフォームを作ってsubmitボタンをクリックすると↓
+
+![qiita-form](https://user-images.githubusercontent.com/11032365/33724500-e88b0d20-dbb2-11e7-854e-c8bac2a469df.png)
+
+```html
+<form method="post" id="qiita-user-form">
+  <div class="form-group ">
+    <label class="form-control-label" for="userId">ユーザーID</label>
+    <input
+      type="text"
+      class="form-control form-control-danger"
+      id="userId"
+      name="userId"
+      placeholder="QiitaのユーザーIDを入れて下さい"
+      value=""
+    >
+</div>
+  <button type="submit" class="btn btn-primary">送信</button>
+</form>
+```
+
+formが存在するURLに対してPOSTリクエストを送ります。（form の `action` にはURLパスを設定出来るので他のURLに対しても送信出来ます。）
+
+この時に `value` にユーザーが入力した値が送信されますので、Webサーバ側は `name` に指定されている `userId` というキー名でユーザーの入力値を受取る事が出来ます。
+
+同じ事を `curl` で行う為には以下のようにオプションを設定すれば実現出来ます。
+
+URLは  `https://sample.com/qiita/users` だと仮定（実際には存在しません）
+
+```
+curl -v \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "userId=qiita" \
+https://sample.com/qiita/users
+```
+
+このフォームデータの送信に関しては、かなりよく利用するので [MDN フォームデータを送信する](https://developer.mozilla.org/ja/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data) を確認しておくと良いでしょう。
+
+また、階層構造がある複雑なデータを送信したい際は `Content-Type: application/json` を利用するのが有効です。
+
+※ JSONに関してはデータ形式の1種です。詳しくは [こちら](https://dev.classmethod.jp/etc/concrete-example-of-json/) を参照して下さい。
+
+```
+curl -kv \
+-X POST \
+-H "Content-Type: application/json" \
+-d \
+'
+{
+  "subject": "{userId}",
+  "password": "{userPassword}"
+}
+' \
+https://XXXX.execute-api.ap-northeast-1.amazonaws.com/dev/auth/authentication
+```
+
+このくらいのデータだと対した差はないですが、Bodyの構造が複雑であれば、JSONを利用したほうが分かりやすくてオススメです。
+
 ## HTTPレスポンスの構成
 
 ### Status
