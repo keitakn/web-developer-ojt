@@ -308,14 +308,14 @@ https://sample.com/qiita/users
 ※ JSONに関してはデータ形式の1種です。詳しくは [こちら](https://dev.classmethod.jp/etc/concrete-example-of-json/) を参照して下さい。
 
 ```
-curl -kv \
+curl -k \
 -X POST \
 -H "Content-Type: application/json" \
 -d \
 '
 {
-  "subject": "{userId}",
-  "password": "{userPassword}"
+  "userId": "qiita",
+  "list": [10, 100, 200]
 }
 ' \
 https://XXXX.execute-api.ap-northeast-1.amazonaws.com/dev/auth/authentication
