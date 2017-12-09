@@ -323,6 +323,20 @@ https://XXXX.execute-api.ap-northeast-1.amazonaws.com/dev/auth/authentication
 
 このくらいのデータだと対した差はないですが、Bodyの構造が複雑であれば、JSONを利用したほうが分かりやすくてオススメです。
 
+### Query String
+
+単に `query` と呼ばれる事も多いです。
+
+これはURLの後ろにパラメータをくっつけて送信する方法です。
+
+`curl -v https://qiita.com/api/v2/schema?locale=ja` のようにURLの後ろに `?locale=ja` とします。
+
+こうするとWebサーバ側では `locale` というキー名で `ja` という値が取得出来ます。
+
+複数繋げる場合は `?page=1&per_page=20` のように `&` で繋げます。
+
+基本的には `GET` でオプションパラメータ的な値を送信する際に利用される事が多いです。
+
 ## HTTPレスポンスの構成
 
 [HTTP メッセージ](https://developer.mozilla.org/ja/docs/Web/HTTP/Messages) にあるように基本的に3つの要素で構成されます。
