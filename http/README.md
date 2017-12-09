@@ -363,4 +363,35 @@ Webサーバの管理対象が自分ではない場合はWebサーバの管理�
 
 ### Header
 
+レスポンスに含まれるHTTPHeaderです。
+
+一番初めに例に上げた `curl -v http://laravel.jp` の結果で言うと下記の部分になります。
+
+```
+< Date: Mon, 04 Dec 2017 15:28:21 GMT
+< Server: Apache/2.2.22 (Ubuntu)
+< X-Powered-By: PHP/5.3.10-1ubuntu3.25
+< Set-Cookie: laravel_session=tskf6tvimo2unifp6jb6tj3j01; expires=Mon, 04-Dec-2017 17:28:21 GMT; path=/; HttpOnly
+< Set-Cookie: laravel_session=tskf6tvimo2unifp6jb6tj3j01; expires=Mon, 04-Dec-2017 17:28:21 GMT; path=/; httponly
+< Cache-Control: no-cache
+< Set-Cookie: docs_versions=eyJpdiI6InhoQ1NoMTZDN2lJMHJBcTNyaXZIWGdET21PZXR1TTVrQ3F5cG5GZjAwQ1E9IiwidmFsdWUiOiJuSUtLbmdVSEJSK1N3WlVqZ3pncnRMTGxLTzZUUVBYQk1RRXBnaThMRzFBPSIsIm1hYyI6ImIwYWI2M2RjMDk3MjRiZGI4NGJmNWRkMTBjOWUzMGVkYjQwZjkwNDBhZDE2MzJhZTM3ZjE0ZjViOTAzZThkZGYifQ%3D%3D; path=/; httponly
+< Vary: Accept-Encoding
+< Transfer-Encoding: chunked
+< Content-Type: text/html; charset=UTF-8
+```
+
+たくさんの種類が多いので詳しくは [こちら](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers) を参照して下さい。
+
+[HTTPレスポンスヘッダによるセキュリティ対策](https://qiita.com/mint__/items/a4039d3cc659959d9231) に書いてあるようにセキュリティ対策目的で付与されるケースも多いです。
+
+RFCで定義されている物以外にも、Webサーバの実装者が独自のHeaderを定義する事が出来ます。MDNに以下の記述があります。
+
+>'X-' 接頭辞を使用して独自のヘッダーを追加できますが、この慣習は 2012 年 6 月に非推奨になりました。これは、RFC 6648 で非標準のフィールドが標準になったときに発生した不便さのためです。
+
+ただし現行でも `X` から始まる独自のResponseHeaderは結構使われています。（AWSのサービスとか特に独自のHeaderが結構あります。）
+
+例を1つ挙げると `X-Request-Id` というRequestの識別を行う事を目的とした物があります。
+
+これは [Ruby on Rails](http://rubyonrails.org/) という有名なWebアプリケーションを利用した際に自動的にResponseHeaderに含まれます。
+
 ### Body
