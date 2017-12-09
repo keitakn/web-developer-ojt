@@ -415,3 +415,54 @@ Responseのデータそのものです。
 返ってくるデータ形式はHTMLやJSONをはじめとして様々な物があります。
 
 ResponseHeaderの `Content-Type` を見ると、どのような形式のデータかが分かります。
+
+## Webサーバ
+
+Webサービスを作成する為にはWebサーバが必要になります。
+
+Node.js のような単体でWebサーバとしての機能を備えている物もありますが、基本的には全面にWebサーバを置いてWebサービスを配信するケースが多いです。
+
+ここでは代表的な2つを紹介します。
+
+### [Apache](https://ja.wikipedia.org/wiki/Apache_HTTP_Server)
+
+おそらく世界で最も使われているWebサーバです。
+
+[日本語の公式ドキュメント](https://httpd.apache.org/docs/2.4/ja/) はこちらになります。
+
+利用用途としてはApache経由でPHP等のプログラムを実行してそれをWebサービスとして配信する形が最も多いです。
+
+特徴としてはプロセス駆動アーキテクチャでマルチプロセス。
+
+各リクエストをプロセスに割り当てて処理を行う方法です。
+
+この為、各プロセスは独立しており、サーバ側のプログラミングはシンプルになりますが、一度に大量のリクエストが来るとメモリ不足になりやすい等の欠点を抱えています。
+
+### [nginx](https://ja.wikipedia.org/wiki/Nginx)
+
+こちらも有名なWebサーバです。
+
+- [公式ドキュメント](http://nginx.org/en/)
+- [日本語ドキュメントLink](http://nginx-ug.jp/link/)
+
+イベント駆動アーキテクチャ、シングルスレッドモデル。
+
+イベントループ方式で起動します。
+
+詳しくは下記の記事を参照して下さい。
+
+https://blog.mosuke.tech/entry/2016/06/04/180122/
+
+同時接続数が増えても消費メモリは少なく、非同期処理なので高速に動作しますが、リクエストの処理時間が長いとキューにリクエストが溜まってしまい、性能が劣化します。
+
+よって一度のリクエストで時間がかかるような処理が多いサービスには向いていません。
+
+## [Apache](https://ja.wikipedia.org/wiki/Apache_HTTP_Server) と [nginx](https://ja.wikipedia.org/wiki/Nginx) どちらを採用するべきか？
+
+どちらも長所と短所があり、どちらが優れているという話ではありません。
+
+下記のような記事を参考にどちらを採用するか考えると良いでしょう。
+
+- [Apacheとnginxどちらを採用すべきかメリット・デメリット比較](https://qiita.com/pink/items/7709218310b5cf11eabe)
+- [NginxとApache HTTP Serverの違いメモ](https://qiita.com/tomoyamachi/items/06b2eca14987a30b8fda)
+- [ApacheとNginxについての比較](https://www.marineroad.com/staff-blog/8095.html)
