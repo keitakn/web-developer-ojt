@@ -466,3 +466,24 @@ https://blog.mosuke.tech/entry/2016/06/04/180122/
 - [Apacheとnginxどちらを採用すべきかメリット・デメリット比較](https://qiita.com/pink/items/7709218310b5cf11eabe)
 - [NginxとApache HTTP Serverの違いメモ](https://qiita.com/tomoyamachi/items/06b2eca14987a30b8fda)
 - [ApacheとNginxについての比較](https://www.marineroad.com/staff-blog/8095.html)
+
+## HTTPの学習をさらに進めるには？
+
+HTTPは単純なように見えてかなり奥の深い技術です。
+
+しかし、Webエンジニアにとっては基本となる非常に大切な技術なので、本格的に学習しておく事をオススメします。
+
+※ 一度習得してしまえば、長く使える技術なので非常にオススメです。
+
+学習を進める上で最もオススメなのは [Real World HTTP](https://github.com/oreilly-japan/real-world-http) という書籍です。
+
+HTTPの歴史から、最新仕様であるHTTP2まで対応しているので非常にオススメです。
+
+また [Webを支える技術](https://www.amazon.co.jp/dp/4774142042) という書籍もオススメです。
+
+こちらはHTTPの事だけでなく、良いURLの設計やJSON等のデータフォーマットに関しても記述があるのでWebエンジニアの最初の一冊としても最適だと思います。
+
+ただし内容が少し古い点があるので、以下の点に注意しましょう。
+
+- HTMLは最新仕様の5ではなく古い4系の記述なのでこれをそのまま開発に活かす事は難しいです。開発ではHTMLの5系の記述でマークアップしましょう。
+- XMLの説明に第11章〜第13章までのかなり長いページ数を割いていますが、現在ではデータフォーマットに使われるのはJSONが主流なので、このあたりは軽く読んでおけば問題ありません。（逆にJSONについての知識は現在のWeb開発において非常に重要です。）
