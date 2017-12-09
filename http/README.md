@@ -395,3 +395,9 @@ RFCで定義されている物以外にも、Webサーバの実装者が独自�
 これは [Ruby on Rails](http://rubyonrails.org/) という有名なWebアプリケーションを利用した際に自動的にResponseHeaderに含まれます。
 
 ### Body
+
+Responseのデータそのものです。
+
+返ってくるデータ形式はHTMLやJSONをはじめとして様々な物があります。
+
+ResponseHeaderの `Content-Type` を見ると、どのような形式のデータかが分かります。
