@@ -318,3 +318,198 @@ JavaScriptでの非同期処理の書き方の変化が載っていて分かり�
 内部で利用されているのは結局PromiseなのでPromiseの基本的な動きを理解する事が大事です。
 
 このあたりは最初はかなり難しく感じるかと思いますが、JavaScript開発をやる上で非同期プログラミングは避けては通れないので、この課題を通じて理解するようにしましょう。
+
+# 課題4 Qiita APIを使って記事の一覧ページを作成する
+
+これがJavaScript基礎の最終課題になります。
+
+まずは [完成品](http://ec2-13-115-160-223.ap-northeast-1.compute.amazonaws.com:3000/qiita/items) を見てみましょう。
+
+こんな感じで Qiitaの記事の一覧を取得し、表示させます。
+
+初期状態で表示させるのは5件で「次の5件を表示する」をクリックされたら、次の5件を表示して下さい。
+
+Qiita APIとの通信中はプログレスバーを表示させて下さい。
+
+HTMLは [完成品](http://ec2-13-115-160-223.ap-northeast-1.compute.amazonaws.com:3000/qiita/items) を参考にして頂ければ問題ありません。
+
+また [トップページ](http://ec2-13-115-160-223.ap-northeast-1.compute.amazonaws.com:3000/) へのリンクの追加も忘れずにお願いします。（Qiita投稿一覧）
+
+## 最初に `/qiita/items` に遷移した時の挙動
+
+この課題は サーバ側の実装とクライアント側（ブラウザで動くJavaScript）の両方を実装する必要があります。
+
+最初に `/qiita/items` にページ遷移した際は 課題3で作った Qiitaクラスを使って、Qiitaから最新記事の一覧を取得します。
+
+この時に利用するAPIは `https://qiita.com/api/v2/items` です。
+
+QiitaクラスにこのAPIを使って、記事の一覧を取得するメソッドを実装しましょう。
+
+このAPIの結果を画面に表示させます。
+
+`src/views/qiita_items.ejs` というファイルを新規で作成しこのテンプレートに結果を渡して表示して下さい。
+
+なお、記事の取得に失敗した場合（APIの結果が 200以外だったら）以下のようにエラー画面を表示させます。
+
+![qiita-items-sync-error](https://user-images.githubusercontent.com/11032365/34081525-2a1adc58-e391-11e7-9665-c36308e92c7e.png)
+
+エラーの表示用に `src/views/qiita_error.ejs` というエラー用のテンプレートファイルを別途用意して下さい。
+
+ここまでの実装は サーバ側のプログラムだけで実現出来るハズです。
+
+## ブラウザから次の5件を取得するリクエストが来た時の挙動
+
+ここからが結構複雑なので、以下のシーケンス図を用いて説明します。
+
+![javascript-task4](https://user-images.githubusercontent.com/11032365/34081565-bc3cba2a-e391-11e7-8f3c-8adfbadf290a.jpg)
+
+### 1. POST /api/qiita/items へリクエストを送信する
+
+ブラウザから サーバ側に対してリクエストを送信します。
+
+このリクエストを送信する処理は `/public/js/qiita.js` というファイルを新規で作成しそこで行いましょう。
+
+要求する際に ページパラメータを渡してあげる必要があります。
+
+リクエストBodyに `page` を含めて下さい。
+
+ここで `page` に渡す値は初期値が1なので、最初は2、二回目にButtonがクリックされた際は3と1づつ増えていきます。
+
+直接 Qiita APIにリクエストを行うのではなく、Node.jsのサーバを通じて行うのがポイントです。
+
+`/api/qiita/items` というルーティングを定義しましょう。受け付けるリクエストメソッドはPOSTです。
+
+何故直接、Qiita APIに通信するのが駄目なのか？という理由ですが、このあたりはセキュリティの学習の際に説明します。
+
+ともかくこうする事で、Qiitaクラスに作成した記事の一覧を取得するメソッドを使いまわす事が出来るハズです。
+
+### Qiita APIから次のページの記事一覧を取得
+
+シーケンス図で言うところの2, 3の実装です。
+
+`/api/qiita/items` でQiitaクラスを使って記事の一覧を取得しましょう。
+
+結果をJSON形式で返却しましょう。
+
+下記のようなJSONデータが返すように実装出来ればOKです。
+
+```json
+{
+  "items": [
+    { "id": "545da3485f05598461b9", "title": "記事1", "url": "https://qiita.com/t-mochizuki/items/562a758e5e23f25f7899"},
+    { "id": "545da3485f05598461b1", "title": "記事2", "url": "https://qiita.com/t-mochizuki/items/545da3485f05598461b1"},
+    { "id": "545da3485f05598461b2", "title": "記事3", "url": "https://qiita.com/t-mochizuki/items/545da3485f05598461b2"},
+    { "id": "545da3485f05598461b3", "title": "記事4", "url": "https://qiita.com/t-mochizuki/items/545da3485f05598461b3"},
+    { "id": "545da3485f05598461b4", "title": "記事5", "url": "https://qiita.com/t-mochizuki/items/545da3485f05598461b4"}
+  ]
+}
+```
+
+`page` パラメータにはバリデーションが必要です。
+
+課題3の時と同じくQiitaクラスにバリデーションを用意しましょう。
+
+バリデーションエラーになった場合は以下のようにエラーを示すJSON形式のデータを返しましょう。
+
+```json
+{ "code": 422, "message": "Unprocessable Entity" }
+```
+
+`page` は 1から100の整数型を受け付けるようにしましょう。
+
+文字列の "1" 等は受け付けても良いですが、 "abc" のような文字列や -1 等の範囲外の数値は受け付けないようにしましょう。
+
+### Qiita APIからの結果を元にJSONを解析してHTMLを生成する
+
+シーケンス図で言うところの4, 5の実装です。
+
+`/public/js/qiita.js` で `/api/qiita/items` からの通信結果を受け取り、HTMLを組み立てます。
+
+[insertAdjacentHTML](https://developer.mozilla.org/ja/docs/Web/API/Element/insertAdjacentHTML) という機能を利用します。
+
+似たような機能に `innerHTML` がありますが、こちらよりも insertAdjacentHTML が高速に動作するのでこちらを利用します。
+
+なお通信結果がエラーだった場合は以下のようにエラーメッセージを表示させましょう。
+
+![qiita-async-error](https://user-images.githubusercontent.com/11032365/34082328-3af58f38-e39f-11e7-9146-6b962409f195.png)
+
+## 課題4で作成するファイルまとめ
+
+新規で作成するファイルは以下の通りです。
+
+- `public/js/qiita.js` （クライアント側のメインロジック）
+- `src/views/qiita_items.ejs` （記事を表示させる為のテンプレート）
+- `src/views/qiita_error.ejs` （記事取得でエラーが発生した際に利用するテンプレート）
+
+他にも Qiitaクラスが実装されている `src/server/domain/Qiita.js` や それに対応するテストコード `src/tests/server/domain/Qiita.test.js` や `app.js` の修正対象になるかと思います。
+
+## 注意点
+
+以下のような点に注意して実装を行って下さい。
+
+- 課題3と同じくQiitaクラスのメソッドには単体テストを用意しましょう。
+
+- 「次の5件を表示する」を連続で押されると、Qiita APIにリクエストが連続で行われてしまいます。
+よって通信終了まではButtonを非表示にする等の対策を実施しましょう。
+
+- `/public/js/qiita.js`（ブラウザ）から `/api/qiita/items`（サーバ） に通信する際は [Fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch) を利用しましょう。
+まだ実装されていないブラウザもありますが今後こちらのAPIがブラウザからHTTP通信を行う為の標準APIになりますので使い方を覚えておきましょう。
+
+- クライアントからサーバに通信する際にもCSRF対策が必要です。課題3と同じく実装を行いましょう。
+
+## ヒント
+
+この課題は課題3よりさらに難易度が高い為、つまりそうな箇所を予め記載しておきます。
+
+### Ajaxについて
+
+クライアント側からサーバ側に通信を行い、通信結果を元にJavaScriptでHTMLを組み立てるような手法を [Ajax](https://ja.wikipedia.org/wiki/Ajax) と呼びます。
+
+HTML全体を書き換えるのではなく、必要な部分だけを書き換えるので、ページ全体を書き換えるより時間を短縮出来るのと、通信中もユーザー操作が可能な点がメリットです。
+
+Ajaxでググると、おそらく [jQuery.ajax](http://api.jquery.com/jquery.ajax/) が引っかかる事が多いと思います。
+
+jQueryは昔流行ったJavaScriptのライブラリで一時期はこれなしでは、Web開発は出来ないとまで言われた程でしたが、今では標準のJavaScriptが十分に高機能になったので、このライブラリを利用しない流れになっています。
+
+AjaxでCSRF対策を行う際に `csurf` を利用している場合は `X-CSRF-Token` というHTTPHeaderを送信する必要があります。
+
+`curl` で言うと下記のように送信する必要があります。
+
+```bash
+curl -v http://localhost:3000/api/qiita/items \
+-X POST \
+-H "Content-Type: application/json" \
+-H "X-CSRF-Token: 0s4oYoa0-85zSh6fJUr3Qkv8-WQ9ljc56ilo" \
+-d '{"page": "1"}'
+```
+
+このあたりを理解する為には HTTPの基礎的な知識が必須となります。
+
+本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
+
+また `csurf` を利用している場合は `csurf` のドキュメントも良く読んでおく必要があります。
+
+### 大きな課題を分離する能力の重要性
+
+課題3と同じく、プルリクエスト（PR）は複数回に分けて送信しましょう。
+
+今回はこちらからPRの分離方法を指定しませんので、課題をやる皆さんがPRをどのような単位で分けるかを考えてみましょう。
+
+課題を分ける際には以下のような事を意識すると良いです。
+
+- まず正常に動く状態を一刻も早く作る事、色々な条件はありますが、バリデーションエラーやCSRFエラー等のエラー発生時の挙動は後回しにする事で問題が単純化出来ます。
+- 単独でテストが出来る物は分離しやすいので、ユニットテストが可能な範囲は分離する。
+
+この「複雑な課題をいくつかの単純な課題に分離する能力」は開発者にとって非常に重要なスキルです。
+
+身につけようと思っても一朝一夕で身につく物ではありません。
+
+よって普段から意識しておく事が大事です。
+
+[アジャイルな見積りと計画づくり](https://www.amazon.co.jp/dp/B00IR1HYGW/ref=dp_kinw_strp_1) の「ユーザーストーリーの分割」がもっとも参考になりました。
+
+下記のスライドも参考になるでしょう。
+
+https://www.slideshare.net/aratafuji/ss-38057768
+
+課題の分離方法に悩む場合はメンターに相談しましょう。
