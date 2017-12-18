@@ -457,6 +457,17 @@ QiitaクラスにこのAPIを使って、記事の一覧を取得するメソッ
 
 - クライアントからサーバに通信する際にもCSRF対策が必要です。課題3と同じく実装を行いましょう。
 
+## この課題で身につける事
+
+- 高機能なUIを作成する為に必要不可欠なサーバ通信を行うJavaScriptアプリケーションの開発の基礎
+- ブラウザからHTTP通信を行う基礎的な技術
+
+近年では [SPA(Single Page Application)](https://qiita.com/takanorip/items/82f0c70ebc81e9246c7a) と呼ばれる手法で開発を行う事が多くなってきました。
+
+この課題の設計・実装方法は少々古いやり方ではありますが、モダンなSPAを開発する為にはこの基礎が重要となります。
+
+完成後、課題3で作成したアプリケーションの性質と何が違うかを見比べてみましょう。
+
 ## ヒント
 
 この課題は課題3よりさらに難易度が高い為、つまりそうな箇所を予め記載しておきます。
@@ -488,6 +499,14 @@ curl -v http://localhost:3000/api/qiita/items \
 本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
 
 また `csurf` を利用している場合は `csurf` のドキュメントも良く読んでおく必要があります。
+
+### 見本で読み込まれているJavaScriptファイルについて
+
+[完成品](http://ec2-13-115-160-223.ap-northeast-1.compute.amazonaws.com:3000/qiita/items) のJavaScriptをGoogleDeveloperTool等で見てみると、非常に読みにくい JavaScriptFileが読み込まれているかと思います。
+
+このJavaScriptファイルは難読化の処理が施してある為です。
+
+課題を行う皆さんはこのような難読化の処理を行う必要はありませんので、普通に `/public/js/qiita.js` を開発して頂いて問題はありません。
 
 ### 大きな課題を分離する能力の重要性
 
