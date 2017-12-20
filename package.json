@@ -5,7 +5,7 @@
   "description": "Web開発者向けのOJT",
   "scripts": {
     "lint": "textlint",
-    "lint": "textlint --fix"
+    "lint:fix": "textlint --fix"
   },
   "repository": {
     "type": "git",
