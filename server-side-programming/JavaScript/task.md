@@ -486,11 +486,11 @@ https://qiita.com/api/v2/docs
 
 オススメは [アクセストークンによる認証認可を行う](https://qiita.com/api/v2/docs#%E8%AA%8D%E8%A8%BC%E8%AA%8D%E5%8F%AF) です。
 
-ユーザーの管理画面からトークンを発行出来るので一時的にこのトークンをプログラムに埋め込む事で認証付きのリクエストが行え、利用制限に引っかかる事はまずなくなります。
+ユーザーの管理画面からトークンを発行出来るので一時的にこのトークンをプログラムに埋め込む事で認証付きのリクエストを行うことが可能になり、利用制限に引っかかる事はまずなくなります。
 
-ただしアクセストークンは外に漏れると、自信のQiitaアカウントが悪用されてしまうリスクがあるので、GitRepositoryには登録しないようが良いでしょう。
+ただしアクセストークンは外に漏れると、自信のQiitaアカウントが悪用されてしまうリスクがあるので、GitRepositoryには登録しないように注意しましょう。
 
-※ 特にpublicなRepositoryで作業している場合、アクセストークンをGitRepositoryには登録する行為は絶対に避けるべきです。
+※ 特にpublicなRepositoryで作業している場合、アクセストークンをGitRepositoryに登録する行為は絶対に避けるべきです。
 
 ### Ajaxについて
 
@@ -518,7 +518,7 @@ curl -v http://localhost:3000/api/qiita/items \
 
 本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
 
-また `csurf` を利用している場合は `csurf` のドキュメントも良く読んでおく必要があります。
+また `csurf` を利用している場合は `csurf` のドキュメントにも目を通しておきましょう。
 
 ### 見本で読み込まれているJavaScriptファイルについて
 
