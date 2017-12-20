@@ -8,7 +8,7 @@ OSとはオペレーティングシステムの略で、コンピュータを操
 
 Linux以外だと [Microsoft Windows](https://ja.wikipedia.org/wiki/Microsoft_Windows) や [macOS](https://ja.wikipedia.org/wiki/MacOS) 等があります。
 
-1991年に当時フィンランドの大学生だった 「リーナス・トーバルズ」氏 によりUNIXを参考に開発・公開されました。
+1991年に当時フィンランドの大学生だった「リーナス・トーバルズ」氏によりUNIXを参考に開発・公開されました。
 
 UNIXに関しては [こちらの記事](https://eng-entrance.com/unix_linux) が詳しいので見てみて下さい。
 
@@ -26,11 +26,11 @@ UNIXベースで一番身近なOSだと [macOS](https://ja.wikipedia.org/wiki/Ma
 
 オープンソースという特性上、世界中の様々な箇所で使われています。
 
-一番身近な例だと スマートフォンに搭載されている、AndroidはGoogleが開発したLinuxベースのOSです。
+一番身近な例だとスマートフォンに搭載されている、AndroidはGoogleが開発したLinuxベースのOSです。
 
 ## Linuxを学ぶ目的
 
-WebエンジニアにとってもWebサービスを提供する為のWebサーバ や データを永続化する為のデータベースサーバを作成する際に Linux を利用するのが一般的です。
+WebエンジニアにとってもWebサービスを提供する為のWebサーバや データを永続化する為のデータベースサーバを作成する際にLinuxを利用するのが一般的です。
 
 よってWebエンジニアにとってはLinuxは必須スキルとなります。
 
@@ -46,26 +46,26 @@ OSの中核となる部分でハードウェアと直接やり取りするもっ
 
 そこでカーネルに様々なオープンソースソフトウェアを組み合わせて、インストーラーと一緒に配布しています。
 
-これを Linuxディストリビューション と呼びます。
+これをLinuxディストリビューションと呼びます。
 
 ### Linuxディストリビューションの種類
 
 [Linuxディストリビューション](https://ja.wikipedia.org/wiki/Linux%E3%83%87%E3%82%A3%E3%82%B9%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
 にはたくさんの種類があります。
 
-主に Debian系, Red Hat系, Slackware系 があります。
+主にDebian系、 Red Hat系、 Slackware系があります。
 
-※ Slackware系は 玄人向けで現状はあまり利用されていない。
+※ Slackware系は玄人向けで現状はあまり利用されていない。
 
 それぞれが目的にあったカスタマイズがされており、その中から用途にあった物を選ぶのが良いでしょう。
 
 例えば普通の個人PCとして利用するなら、Debian系の[Ubuntu](https://www.ubuntulinux.jp/) 、
 
-サーバ用途として利用するなら RedHat系の[CentOS](https://www.centos.org/) 等を選択します。
+サーバ用途として利用するならRedHat系の[CentOS](https://www.centos.org/) 等を選択します。
 
-本カリキュラムでは RedHat系の [Amazon Linux](https://aws.amazon.com/jp/amazon-linux-ami/) を利用して学習を進めます。
+本カリキュラムではRedHat系の [Amazon Linux](https://aws.amazon.com/jp/amazon-linux-ami/) を利用して学習を進めます。
 
-理由は Amazon Linux は AWS上で利用が推奨されているディストリビューションなので学習を進める上で効率が良いと判断した為です。
+理由はAmazon LinuxはAWS上で利用が推奨されているディストリビューションなので学習を進める上で効率が良いと判断した為です。
 
 使い方も [CentOS](https://www.centos.org/) によく似ています。
 

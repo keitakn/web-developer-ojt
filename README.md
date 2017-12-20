@@ -4,7 +4,7 @@
 
 ## 目標
 
-未経験者が0からWebサービスを開発しリリース、運用まで出来るだけの技術を身につける為に必要な学習内容をまとめます。
+未経験者が0からWebサービスを開発しリリース、運用まで出来るだけの技術を身につける為、必要な学習内容をまとめます。
 
 ## 事前準備
 
@@ -17,9 +17,9 @@
 - [Google](https://accounts.google.com/SignUp?hl=ja)
 - [AWS](https://aws.amazon.com/jp/account/)
 
-[Qiita](https://qiita.com/about) は GoogleアカウントやGitHubアカウント があれば簡単に作る事が出来ます。
+[Qiita](https://qiita.com/about) はGoogleアカウントやGitHubアカウントがあれば簡単に作る事が出来ます。
 
-今後、様々なサービスのアカウントが出てきますが、なるべく GoogleアカウントやGitHubアカウントで登録するようにするとアカウントの管理が楽になるのでオススメです。
+今後、様々なサービスのアカウントが出てきますが、なるべくGoogleアカウントやGitHubアカウントで登録するようにするとアカウントの管理が楽になるのでオススメです。
 
 反面不正利用された時のダメージが大きいので、各アカウントには二段階認証の設定を行っておきましょう。
 
@@ -41,9 +41,9 @@
 1. iOSアプリの開発（本件では触れませんが将来的にiOSエンジニアになる可能性もある為）
 1. [UNIX](https://ja.wikipedia.org/wiki/UNIX) ベースなのでサーバでよく使うコマンドがほぼそのまま使えるしローカルに開発環境を作る敷居が低い
 
-4に関しては Windows 10からBashシェルが使えるようになったらしいので、ともかくとしても、3に関しては今後もサポートされる可能性は低いでしょう。
+4に関してはWindows 10からBashシェルが使えるようになったらしいので、ともかくとしても、3に関しては今後もサポートされる可能性は低いでしょう。
 
-これは個人の主観ですが、Web開発においては まだまだ `Windows < Mac` だと筆者は思います。
+これは個人の主観ですが、Web開発においてはまだまだ `Windows < Mac` だと筆者は感じています。
 
 新たに購入する際のスペックの選び方ですが、CPU、SSDは低めに抑えても、メモリは最低でも16GB積んでおく事をオススメします。
 
@@ -71,7 +71,7 @@
 
 ### 5. アルゴリズムとデータ構造
 
-### 6. TCP/IP の基礎
+### 6. TCP/IPの基礎
 
 ### 7. HTTPの基礎
 
@@ -93,3 +93,44 @@ MySQLを使う予定です。
 ### 13. 最終課題
 
 実際に使えるWebサービスとして公開します。
+
+## 間違った内容を見つけたら
+
+PR大歓迎です。（誤字、脱字が結構多いので修正大歓迎です）
+
+もしくは [こちら](https://github.com/keita-nishimoto/web-developer-ojt/issues) からissueを作成して頂いても問題ありません。
+
+issueの内容は「こういう観点も必要」等の内容も大歓迎です。（ただし筆者の力量不足でそれが叶えられない可能性はあります…）
+
+## PRの際の注意点
+
+PRを作成する前に、textlintによる文書校正を行って下さい。
+
+以下のコマンドで実行が可能です。
+
+- 校正のみを行う場合
+
+```
+yarn run lint [実行対象のファイル名、もしくはディレクトリ名]
+```
+
+- 校正ルールに従って修正を行う場合（ただし自動で修正されるのは、一部のルールだけです）
+
+```
+yarn run lint:fix [実行対象のファイル名、もしくはディレクトリ名]
+```
+
+校正ルールに関しては以下の内容を利用しております。
+
+- [textlint-rule-max-ten](https://github.com/textlint-ja/textlint-rule-max-ten)
+- [textlint-rule-no-mix-dearu-desumasu](https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu)
+- [textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)
+- [textlint-rule-preset-jtf-style](https://github.com/textlint-ja/textlint-rule-preset-JTF-style)
+
+Atomを使っている場合、[linter-textlint](https://atom.io/packages/linter-textlint) をインストールするとリアルタイムで校正を行ってくれるのでオススメです。
+
+既存文書でもtextlintに違反しまくっている文書が多々あります。
+
+この辺は時間があれば徐々に修正していきますのでご了承下さい。（それよりもカリキュラムを最後まで作り上げる事を優先したいので）
+
+※ textlintの導入に関しては [快適なMarkdown編集環境](https://qiita.com/daichiii/items/d36f52c45c744177eb7c) という記事を参考にさせて頂きました。

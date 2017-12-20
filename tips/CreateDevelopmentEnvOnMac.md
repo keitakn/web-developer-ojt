@@ -22,7 +22,7 @@ Mac用のパッケージマネージャーです。
 
 インストール方法は [公式サイト](https://brew.sh/index_ja.html) を見れば簡単に分かるのでここでは割愛させて頂きます。
 
-※ Homebrew に関して詳しい解説が載っている記事がありますのでこちらに記載させて頂きました。
+※ Homebrewに関して詳しい解説が載っている記事がありますのでこちらに記載させて頂きました。
 
 https://qiita.com/omega999/items/6f65217b81ad3fffe7e6
 
@@ -42,7 +42,7 @@ github社が開発したエディタで各種Pluginを駆使すれば、最新�
 
 私のオススメは [Sourcetree](https://ja.atlassian.com/software/sourcetree) です。
 
-Atlassianという会社が作成していて同社の bitbucket や githubとの連携も出来るので使いやすいです。
+Atlassianという会社が作成していて同社のbitbucketやgithubとの連携も出来るので使いやすいです。
 
 ただ [Sourcetree](https://ja.atlassian.com/software/sourcetree) のようなツールを使う場合でも裏でどのようなGitコマンドが使われているかは理解するようにしておいたほうが良いです。
 
@@ -74,18 +74,18 @@ Macに標準搭載されているターミナルでも十分ですがより高�
 
 私は今まで様々なIDEやエディタを試しましたがこれに勝る物はなかったです。
 
-唯一の欠点を言えば有料だと言う事です。（IntelliJ IDEA Ultimateを購入した場合、初年度は$149 , 2年目は以降は更新量が安くなっていきます。）
+唯一の欠点を言えば有料だと言う事です。（IntelliJ IDEA Ultimateを購入した場合、初年度は$149 , 2年目は以降は更新量が安くなっていきます）
 詳しくは公式サイトをご覧下さい。
 
 https://www.jetbrains.com/idea/buy/#edition=personal
 
-エディタで十分とか （[達人プログラマー](https://www.amazon.co.jp/dp/427421933X) というめちゃくちゃ有名な書籍がありますがこの中ではエディタ推してます。） 有料ソフト等買いたくないとか、様々な意見を言う人がいます。
+エディタで十分とか（[達人プログラマー](https://www.amazon.co.jp/dp/427421933X) というめちゃくちゃ有名な書籍がありますがこの中ではエディタ推してます）有料ソフト等買いたくないとか、様々な意見を言う人がいます。
 
-エディタを十分に使える事は確かに良いプログラマの条件の1つだと言う事は分かります、しかし初心者のうちはなるべく早いうちに全体像を把握して開発全体の流れを把握したほうが良いため、 エディタを極めるとかは後でやれば良いと思います。（IDEは高機能なのでプログラミング自体の負荷はかなり下がります。）
+エディタを十分に使える事は確かに良いプログラマの条件の1つだと言う事は分かります、しかし初心者のうちはなるべく早いうちに全体像を把握して開発全体の流れを把握したほうが良いため、 エディタを極めるとかは後でやれば良いと思います。（IDEは高機能なのでプログラミング自体の負荷はかなり下がります）
 
 有料である点も [IntelliJ IDEA](https://www.jetbrains.com/idea/) は費用に見合う価値は十分にあると思いますので、購入をオススメします。
 
-参考までに [IntelliJ IDEA](https://www.jetbrains.com/idea/) の使い方を書いた記事をいくつか紹介させて頂きます。（中には私が書いた物もあります。）
+参考までに [IntelliJ IDEA](https://www.jetbrains.com/idea/) の使い方を書いた記事をいくつか紹介させて頂きます。（中には私が書いた物もあります）
 
 - [IntelliJ IDEAのインストールと日本語化](https://qiita.com/keita-nishimoto/items/31e8af9ccb4b3bdd74d0)
 - [IntelliJ IDEA初期設定（主にエディタ）](https://qiita.com/keita-nishimoto/items/5968b9eee4177c302481)
@@ -93,16 +93,16 @@ https://www.jetbrains.com/idea/buy/#edition=personal
 - [IntelliJ IDEA Rubyの開発環境を作成する](https://qiita.com/keita-nishimoto/items/76d6707db7d23fe4ca85)
 - [IntelliJ IDEA PHP7の開発環境を作成する](https://qiita.com/keita-nishimoto/items/638b080a1420b401c315)
 
-※ 一番最初に 日本語化の方法が書いてありますが日本語化は不具合が発生する可能性があるのでオススメしません。
+※ 一番最初に日本語化の方法が書いてありますが日本語化は不具合が発生する可能性があるのでオススメしません。
 プログラマにとって英語はかなり重要なので英語に慣れる意味でも英語のまま利用する事を推奨します。
 
 ## dnsmasq
 
 自身のPC上に構築した環境に接続する際にIPアドレスではなく利用予定のドメイン名を用いて接続したいケースが良くあります。
 
-DNS登録されていないドメインに接続する為には `/etc/hosts` に IPアドレスとドメイン名を記載して名前解決出来るようにする必要があります。
+DNS登録されていないドメインに接続する為には `/etc/hosts` にIPアドレスとドメイン名を記載して名前解決出来るようにする必要があります。
 
-その際に このdnsmasqがあると便利なのでインストール ＆ 初期設定しておきましょう。
+その際にこのdnsmasqがあると便利なのでインストール ＆ 初期設定しておきましょう。
 
 ※ DNSが何なのかはネットワークの基礎のことろで説明します。
 
@@ -112,7 +112,7 @@ DNS登録されていないドメインに接続する為には `/etc/hosts` に
 
 Macはなるべくキーボードで操作出来るようになったほうが効率が良いので、ランチャーアプリを使う事を推奨します。
 
-Alfred は無料で使える高機能なランチャーアプリです。
+Alfredは無料で使える高機能なランチャーアプリです。
 
 参考になりそうな記事を載せておきますので参考にインストールしておく事をオススメします。
 
@@ -120,4 +120,4 @@ Alfred は無料で使える高機能なランチャーアプリです。
 
 ## GoogleChrome（Webブラウザ）
 
-[Chrome DevTools](https://saruwakakun.com/html-css/basic/chrome-dev-tool) の使い勝手やPluginの豊富さ、情報量等あらゆる面で他のブラウザを上回っているので Web開発では GoogleChromeを使う事を推奨します。
+[Chrome DevTools](https://saruwakakun.com/html-css/basic/chrome-dev-tool) の使い勝手やPluginの豊富さ、情報量等あらゆる面で他のブラウザを上回っているのでWeb開発ではGoogleChromeを使う事を推奨します。
