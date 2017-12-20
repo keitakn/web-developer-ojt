@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "max-ten": {
+      "max": 3
+    },
+    "preset-jtf-style": true,
+    "no-mix-dearu-desumasu": true,
+    "preset-ja-technical-writing": true
+  }
+}
