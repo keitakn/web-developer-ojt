@@ -93,3 +93,44 @@ MySQLを使う予定です。
 ### 13. 最終課題
 
 実際に使えるWebサービスとして公開します。
+
+## 間違った内容を見つけたら
+
+PR大歓迎です。（誤字、脱字が結構多いので修正大歓迎です）
+
+もしくは [こちら](https://github.com/keita-nishimoto/web-developer-ojt/issues) からissueを作成して頂いても問題ありません。
+
+issueの内容は「こういう観点も必要」等の内容も大歓迎です。（ただし筆者の力量不足でそれが叶えられない可能性はあります…）
+
+## PRの際の注意点
+
+PRを作成する前に、textlintによる文書校正を行って下さい。
+
+以下のコマンドで実行が可能です。
+
+- 校正のみを行う場合
+
+```
+yarn run lint [実行対象のファイル名、もしくはディレクトリ名]
+```
+
+- 校正ルールに従って修正を行う場合（ただし自動で修正されるのは、一部のルールだけです）
+
+```
+yarn run lint:fix [実行対象のファイル名、もしくはディレクトリ名]
+```
+
+校正ルールに関しては以下の内容を利用しております。
+
+- [textlint-rule-max-ten](https://github.com/textlint-ja/textlint-rule-max-ten)
+- [textlint-rule-no-mix-dearu-desumasu](https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu)
+- [textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)
+- [textlint-rule-preset-jtf-style](https://github.com/textlint-ja/textlint-rule-preset-JTF-style)
+
+Atomを使っている場合、[linter-textlint](https://atom.io/packages/linter-textlint) をインストールするとリアルタイムで校正を行ってくれるのでオススメです。
+
+既存文書でもtextlintに違反しまくっている文書が多々あります。
+
+この辺は時間があれば徐々に修正していきますのでご了承下さい。（それよりもカリキュラムを最後まで作り上げる事を優先したいので）
+
+※ textlintの導入に関しては [快適なMarkdown編集環境](https://qiita.com/daichiii/items/d36f52c45c744177eb7c) という記事を参考にさせて頂きました。
