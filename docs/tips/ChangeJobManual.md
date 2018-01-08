@@ -196,6 +196,8 @@ http://kenjasyukatsu.com/mensetsu_situmon
 
 これなら検索にヒットしないし、必要な人間だけにURLを共有するだけで情報共有が可能です。
 
+GitHub管理の他には [LinkedIn](https://jp.linkedin.com/) のようなサービスを使う事もオススメです。
+
 ### 文書形式
 
 GitHubで管理するならマークダウン形式がオススメです。
