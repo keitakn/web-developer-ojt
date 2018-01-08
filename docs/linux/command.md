@@ -252,7 +252,7 @@ https://eng-entrance.com/linux-command-man
 
 長いので別のファイルにまとめました。
 
-[こちら](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/linux/vim.md) を参照して下さい。
+[こちら](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/linux/vim.md) を参照して下さい。
 
 ### which
 

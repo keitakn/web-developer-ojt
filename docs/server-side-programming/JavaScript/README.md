@@ -72,7 +72,7 @@ JavaScriptは [ECMAScript](https://ja.wikipedia.org/wiki/ECMAScript) という�
 
 まずはREADMEの手順の通りに動かしてみて下さい。
 
-※ 動作させるには [こちらの課題](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/linux/task.md) が終わっている必要があります。
+※ 動作させるには [こちらの課題](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/linux/task.md) が終わっている必要があります。
 
 ## 学習の際に参考にするリンク
 
