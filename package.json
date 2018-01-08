@@ -5,7 +5,9 @@
   "description": "Web開発者向けのOJT",
   "scripts": {
     "lint": "textlint",
-    "lint:fix": "textlint --fix"
+    "lint:fix": "textlint --fix",
+    "lint:all": "textlint 'docs/**/*.md' 'README.md'",
+    "lint:all:fix": "textlint --fix 'docs/**/*.md' 'README.md'"
   },
   "repository": {
     "type": "git",
