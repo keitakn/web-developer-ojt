@@ -208,6 +208,7 @@ WordとかExcelとかは極力触りたくないですし管理もやりにく�
 
 - https://github.com/okoysm/Curriculum-Vitae-template
 - https://dev.classmethod.jp/etc/curriculum-vitae-oss/
+- https://github.com/Sa2Knight/Curriculum-Vitae
 
 どのような情報を載せるかについてですが、私は下記のような情報が乗っていれば十分だと考えます。
 
