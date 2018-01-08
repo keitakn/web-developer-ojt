@@ -516,7 +516,7 @@ curl -v http://localhost:3000/api/qiita/items \
 
 このあたりを理解する為にはHTTPの基礎的な知識が必須となります。
 
-本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
+本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/docs/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
 
 また `csurf` を利用している場合は `csurf` のドキュメントにも目を通しておきましょう。
 
