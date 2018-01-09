@@ -262,9 +262,19 @@ GitHub上に公開出来る物としては以下のような物があります�
 
 ただし [IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) に記載してあるように普段から高品質なコードを書くように心がけましょう。（難しいアルゴリズムしか書いたらダメとかそういう事ではない）
 
-最近は履歴書や職務経歴書よりもGitHubのアカウントで審査を行う「GitHub採用」を行う企業も出てきています。
+適当なコードを書いているとマイナスに受け取られ書類審査で落ちてしまう可能性をかえって高めてしまう場合もあります。
 
-- [Gihub採用をしている企業まとめ](https://matome.naver.jp/odai/2150981068141527301)
+[意外！IT転職の職務経歴書にGitHubを載せない方が良い3つの理由](https://tenshoku-seikou.jp/github/)
+
+余談ですが、最近は履歴書や職務経歴書よりもGitHubのアカウントで審査を行う「GitHub採用」を行う企業も出てきています。
+
+- [GitHub採用をしている企業まとめ](https://matome.naver.jp/odai/2150981068141527301)
+
+### Qiitaやブログの記事
+
+GitHubと同じくこちらも重要なアウトプットです。
+
+GitHubにも同じ事が言えますが急に用意しようと思っても出来ないので普段の積み重ねが重要になります。
 
 ## やってはいけない事
 
