@@ -242,6 +242,30 @@ GitHubのページを印刷するくらいはやってもいいですが（本�
 
 ## アウトプットの重要性
 
+職務経歴書や履歴書よりも圧倒的に重要なのは今まで作ってきたアウトプットです。
+
+雇用する側からすると職務経歴書や履歴書はいくらでも嘘を書けるがアウトプットは普段の積み重ねが必要なので相手の実力・情熱をより正確に判定が出来るからです。
+
+アウトプットには下記のような物があります。
+
+### GitHub上に公開したコード
+
+[IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも書いたようにGitHub上でコードを公開する事は学習効果が大きいので非常にオススメです。
+
+GitHub上に公開出来る物としては以下のような物があります。
+
+- [paiza](https://paiza.jp/) で書いたアルゴリズムのコード
+- [ドットインストール](https://dotinstall.com/) 等で作成した成果物
+- 自作したオープンソースのライブラリ
+
+もちろん上記以外の物でも構いません。
+
+ただし [IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) に記載してあるように普段から高品質なコードを書くように心がけましょう。（難しいアルゴリズムしか書いたらダメとかそういう事ではない）
+
+最近は履歴書や職務経歴書よりもGitHubのアカウントで審査を行う「GitHub採用」を行う企業も出てきています。
+
+- [Gihub採用をしている企業まとめ](https://matome.naver.jp/odai/2150981068141527301)
+
 ## やってはいけない事
 
 ## 質問への返答例
