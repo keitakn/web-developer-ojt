@@ -110,14 +110,58 @@ ECMAScript 2015以降では下記のように `const` を使っての変数宣�
 const myName = 'K';
 ```
 
+現代的なJavaScriptを書く上でいくつか参考になりそうな記事を載せておきます。
+
+### [イマドキのJavaScriptの書き方2018](https://qiita.com/shibukawa/items/19ab5c381bbb2e09d0d9)
+
+少々極端な主張ですが、記事の内容は概ね同意出来ます。（筆者の方があえてそうしているのだと思っています。）
+
+一点気になったのは、`function` による宣言は完全に捨てて良いと書いてあるところです。
+
+確かにこの記事の通り `const` とアロー関数のみでだいたいの場面は対応出来ますが、ジェネレータ等一部ではまだ `function` が必要だったりします。
+
+[関数宣言 vs 関数式 | ES2015+](https://qiita.com/raccy/items/aac3b8e3981564bbd1fa) でも関数宣言の方法は `const f = () => {};` を基本的に利用するのが良いと結論を出しています。
+
+### [JavaScript 長く使える系の知識](https://qiita.com/yamadar/items/bfdfc58cec49bf2690e1)
+
+基本を抑えておくという意味で一読しておくと良いと思います。
+
+この記事に書いてある言葉で非常に良いと思った内容を引用させて頂きます。
+
+>冒頭にも書きましたが、基礎知識は土台の様なものです。土台があれば、その上にあるものは自分で考えられます。新しい技術を目にしても、理解が容易になります。
+
+まさにその通りだと私も考えます。
+
+[IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも基礎を重視した学習オススメしています。
+
+### [JavaScript初級者のためのコーディングガイド](https://qiita.com/raccy/items/bf590d3c10c3f1a2846b)
+
+コメント欄でも白熱した議論がなされていますが、ここに書いてある事は概ね同意出来ると思いました。
+
+一部の方が言われていますが、この記事には「何故そうするのか」という理由が記載されていません。（筆者の方があえてそうしている）
+
+徐々にで良いので、1つ1つの項目に対して「何故そうするのか」を考えるようにしましょう。
+
+疑問を持ち自ら考える事はエンジニアにとって非常に大切な事だと私は考えます。
+
+例えば [「JavaScript初級者のためのコーディングガイド」に補足を試みる](https://qiita.com/ms2sato/items/94ed459640a1d89cb4de) を書いた方のように、自分なりの意見をアプトプット出来るようになると理想です。
+
+### [【2018年版】今押さえておきたいフロントエンド関連](https://qiita.com/sawadays0118/items/88efc7c85caeb6d1bbd1)
+
+こちらはJavaScriptに特化しているというよりはフロントエンドのWeb全般での最新テクニックが載っています。
+
+内容盛りだくさんなので、ストックしておいてざっと眺めておくと良いでしょう。
+
 ## コーディング規約について
 
 様々なコーディング規約がありますが、私のオススメは [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) です。
 
 オープンな議論を通じてスタイルが決定していること、スタイルについてパフォーマンスに関するエビデンスがあることがオススメの理由です。
 
-github上でも多くのスターを獲得しています。
+GitHub上でも多くのスターを獲得しています。
 
 本カリキュラムではこのAirbnbのスタイルで学習を進めていきます。
 
 [日本語版](http://mitsuruog.github.io/javascript-style-guide/README.md) もあります。
+
+ちなみに [JavaScript初級者のためのコーディングガイド](https://qiita.com/raccy/items/bf590d3c10c3f1a2846b) でもAirbnbのスタイルを推しています。
