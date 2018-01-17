@@ -306,14 +306,16 @@ Qiita APIを使う時に非同期プログラミングについての知識が�
 
 [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Using_promises) も確認しておいたほうが良いでしょう。
 
-それから個人的には下記のQiitaの記事がとても分かりやすいと思います。
+参考になりそうなQiitaの記事を何個か載せておきます。
 
-- [JavaScriptは如何にしてAsync/Awaitを獲得したのか Qiita版](https://qiita.com/gaogao_9/items/5417d01b4641357900c7)
-- [Promiseとasync-awaitの例外処理を完全に理解しよう](https://qiita.com/gaogao_9/items/40babdf63c73a491acbb#_reference-7848204ae40de27d0fc0)
-
-JavaScriptでの非同期処理の書き方の変化が載っていて分かりやすいです。
+- [JavaScriptのPromise](https://qiita.com/ysk_1031/items/888a84cb259cec4e0625)
+- [JavaScriptの同期、非同期、コールバック、プロミス辺りを整理してみる](https://qiita.com/YoshikiNakamura/items/732ded26c85a7f771a27)
 
 また `async` `await` というのはPromiseをより便利にした書き方で非同期処理の書き方がシンプルになります。
+
+下記の記事が参考になります。
+
+- [async/await 入門（JavaScript）](https://qiita.com/soarflat/items/1a9613e023200bbebcb3)
 
 内部で利用されているのは結局PromiseなのでPromiseの基本的な動きを理解する事が大事です。
 
