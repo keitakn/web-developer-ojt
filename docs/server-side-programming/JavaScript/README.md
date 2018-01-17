@@ -110,15 +110,6 @@ ECMAScript 2015以降では下記のように `const` を使っての変数宣�
 const myName = 'K';
 ```
 
-このあたりは下記の記事に詳しく記載されていたので、こちらに載せさせて頂きます。
-
-- [旧石器時代のJavaScriptを書いてる各位に告ぐ、現代的なJavaScript超入門 Section1 ～すぐにでも現代っぽく出来るワンポイントまとめ～](https://qiita.com/gaogao_9/items/ec2b867d6941173fd0b1)
-- [旧石器時代のJavaScriptを書いてる各位に告ぐ、現代的なJavaScript超入門 Section5 ～ES2015文法を覚えよう](https://qiita.com/gaogao_9/items/18b20ad9b76c9c81b5fa)
-
-この旧石器時代のJavaScriptシリーズは今までのJavaScriptの歴史からどのような背景で進化していったのかの仮定が書かれており、読み物としても非常に面白い内容になっています。
-
-興味がある方は読んでみて下さい。（今の時点で意味が全て分からなくても大丈夫です。後のlessonで理解出来ます）
-
 ## コーディング規約について
 
 様々なコーディング規約がありますが、私のオススメは [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) です。
