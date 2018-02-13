@@ -669,3 +669,13 @@ https://kimisuka.com/contents/column/2513
 
 - https://jobtalk.jp/
 - https://www.vorkers.com/
+
+#### 2018-02-13追記
+
+最近、参考になる記事を見つけたので載せておきます。
+
+- [エンジニアが転職する時に必ずチェックしたい募集要項(2017年版)
+](https://findy-code.io/engineer-lab/tenshoku-bosyu-yoko-2017)
+- [絶対にエンジニアが転職してはいけない会社の募集要項](https://findy-code.io/engineer-lab/tenshoku-ng-jd)
+
+この記事を書いている [Findy](https://findy-code.io/) という会社はGitHubアカウントを審査してエンジニアに転職先を紹介している面白いサービスです。
