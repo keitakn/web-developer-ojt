@@ -1,7 +1,7 @@
 {
   "name": "web-developer-ojt",
   "version": "1.0.0",
-  "private": "true",
+  "private": true,
   "description": "Web開発者向けのOJT",
   "scripts": {
     "lint": "textlint",
