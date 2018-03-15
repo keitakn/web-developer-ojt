@@ -12,7 +12,7 @@ Webの機能に特化している分、Webサービスを作る事は得意で�
 
 Javaに似たオブジェクト指向の書き方も出来るし、HTMLに簡単に埋め込んで使う事も出来ます。
 
-詳しくは [wikipedia](https://ja.wikipedia.org/wiki/PHP_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E) を見て下さい。
+詳しくは [wikipedia](https://ja.wikipedia.org/wiki/PHP_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)) を見て下さい。
 
 ## PHPを学習する理由
 
