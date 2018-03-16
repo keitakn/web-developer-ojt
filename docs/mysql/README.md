@@ -54,3 +54,53 @@ RDBMSはRelational DataBase Management Systemの略です。
 
 本カリキュラムではWeb開発でもっとも多く利用されている [MySQL](https://ja.wikipedia.org/wiki/MySQL) を利用します。
 
+## MySQL公式サイト
+
+世界で最も普及しているオープンソースのRDBMSです。
+
+[こちら](https://dev.mysql.com/) が公式サイトになります。
+
+## MySQLのインストール
+
+`yum` を使ってインストールするのが最も簡単です。
+
+https://dev.mysql.com/downloads/repo/yum/ より公式提供されているyumリポジトリを利用しましょう。
+
+※ なお、本カリキュラムでは [Amazon Linux AMI 2017.09](https://aws.amazon.com/jp/blogs/news/now-available-amazon-linux-ami-2017-09/) を利用している前提で話を進めさせて頂きます。
+
+他のLinuxディストリビューションを利用している場合はインストール方法が多少変わってきます。
+
+インストールするMySQLのバージョンは5.7系です。
+
+以下のコマンドを実行します。
+
+```bash
+sudo yum install https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm
+```
+
+これで公式のyumリポジトリがインストールされました。
+
+続いてMySQLの本体をインストールします。
+
+```bash
+sudo yum install mysql-community-client mysql-community-common mysql-community-devel mysql-community-libs mysql-community-server
+```
+
+多少時間がかかりますがインストールが完了するまで待ちましょう。
+
+エラーが出なければインストールが完了しています。
+
+## MySQLの起動
+
+以下のコマンドで起動を行います。
+
+```bash
+sudo service mysqld start
+```
+
+以下のように表示されれば起動は成功です。
+
+```
+Initializing MySQL database:                               [  OK  ]
+Starting mysqld:                                           [  OK  ]
+```
