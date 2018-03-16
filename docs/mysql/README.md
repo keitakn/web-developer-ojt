@@ -263,3 +263,88 @@ rootパスワードを忘れると結構面倒な作業をしなければなら�
 
 - [MySQL の root パスワード忘れた時](https://qiita.com/y1row/items/994ecf8b478b7aac4c7d)
 - [MySQL5.7でrootパスワード初期化変更メモ / 2017年10月](https://qiita.com/ononoy/items/7732a2e97b3901eb9d57)
+
+## データベースとユーザーの作成
+
+次にデータベースとユーザーを作成します。
+
+MySQLサーバにrootユーザーでログインを行います。
+
+最初にテーブルを格納する為のデータベースを作成します。
+
+データベース名は `ojt_db` とします。
+
+MySQLを操作する為には [SQL](https://ja.wikipedia.org/wiki/SQL) という言語を利用します。
+
+SQLはStructured English Query Languageの略でリレーショナルデータベースと対話する為の言語です。
+
+データベースを作るには以下のSQLを実行します。
+
+```sql
+CREATE DATABASE ojt_db;
+```
+
+以下のように表示されれば成功です。
+
+```
+mysql> create database ojt_db;
+Query OK, 1 row affected (0.00 sec)
+```
+
+SQLは小文字でも大文字でも動きますが、SQLで使われている文法と利用者が決めたデータベース名、テーブル名等と区別する為、大文字で記載する事が多いです。
+
+同様の理由からテーブル名やデータベース名には小文字と `_` のみを使って命名するケースが多いです。
+
+次にユーザーの作成を行います。
+
+以下のSQLを実行します。
+
+```sql
+GRANT CREATE, SELECT, UPDATE, INSERT, DELETE ON ojt_db.* TO `ojt_user`@`localhost` IDENTIFIED BY '(YourPassword999)';
+```
+
+意味を簡単に説明すると以下のようになります。
+
+- ユーザー名： ojt_user
+- パスワード： (YourPassword999)
+- 操作権限があるデータベースとテーブル： ojt_dbに存在する全てのテーブル
+- 実行可能なSQL： CREATE、SELECT、UPDATE、INSERT、DELETE
+- 有効な接続元： localhost
+
+`CREATE、SELECT` 等は実行出来るSQLの種類を表します。
+
+例えば `CREATE` はテーブルの新規作成、`SELECT` はテーブルからデータを閲覧出来る権限です。
+
+[こちら](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html) を参照して下さい。
+
+`ALL` とすると全てのSQLが実行可能になりますが基本的には必要な権限だけを追加するのがセキュリティ的に推奨されます。
+
+ユーザー名は `ユーザー名@接続元ホスト` でユニークになります。
+
+その為、ホスト名が異なれば同じユーザー名を使う事が出来ます。
+
+例えば下記のようなSQLを実行すると、IPアドレスが `192.168.` から始まる全てのサーバから `ojt_db` にアクセス出来る `ojt_user` が作成されます。
+
+```sql
+GRANT CREATE, SELECT, UPDATE, INSERT, DELETE ON ojt_db.* TO `ojt_user`@`192.168.%` IDENTIFIED BY '(YourPassword999)';
+```
+
+一度MySQLサーバからログアウトして今度は作成した `ojt_user` でログイン出来るか確認しましょう。
+
+`mysql -u ojt_user -p` でパスワードを入力します。
+
+ログインが出来たら `SHOW DATABASES;` というSQLを実行します。
+
+```
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ojt_db             |
++--------------------+
+2 rows in set (0.00 sec)
+```
+
+`SHOW DATABASES;` は存在するデータベースの一覧を表示させる命令ですが、この時に接続権限がないデータベースは表示されません。
+
+このようにMySQLではユーザーに適切な権限を与える事で不正な操作を予め防ぐ事が出来ます。
