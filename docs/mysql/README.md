@@ -264,6 +264,367 @@ rootパスワードを忘れると結構面倒な作業をしなければなら�
 - [MySQL の root パスワード忘れた時](https://qiita.com/y1row/items/994ecf8b478b7aac4c7d)
 - [MySQL5.7でrootパスワード初期化変更メモ / 2017年10月](https://qiita.com/ononoy/items/7732a2e97b3901eb9d57)
 
+## MySQLサーバの設定
+
+MySQLを使う上で事実上必須になっている設定を行っていきます。
+
+### 文字コードの設定
+
+MySQLサーバにログインを行い `SHOW VARIABLES LIKE 'char%';` というSQLを実行してみて下さい。
+
+初期状態では下記のような状態になっている事が確認出来ます。
+
+```
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | latin1                     |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | latin1                     |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+```
+
+`latin1` という文字コードはMySQLのデフォルト設定なのですが、これだと日本語を正しく扱う事が出来ません。
+
+MySQL5.7系で日本語を含めたマルチバイト文字を正しく扱えるのは `utf8mb4` だけです。
+
+`utf8mb4` は 👌や🐱等の4バイト文字も扱う事が可能です。
+
+最も多くの言語にも対応しているので文字コードは `utf8mb4` の一択で問題ありません。
+
+他にもいくつか変更すべき設定項目があるので、設定ファイルを修正し設定を変更します。
+
+rootユーザーで `/etc/my.cnf` というファイルを `vim` 等で開いて下さい。
+
+初期状態は下記のようになっています。
+
+```
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+
+[mysqld]
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+```
+
+以下の記述を追記して下さい。
+
+```
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+skip-character-set-client-handshake
+default-storage-engine=InnoDB
+innodb_file_per_table=1
+innodb_large_prefix=1
+innodb_file_format=Barracuda
+innodb_default_row_format=DYNAMIC
+default_password_lifetime = 0
+slow_query_log = 1
+long_query_time = 0.1
+slow_query_log_file = /var/log/mysql-slow-query.log
+
+[mysql]
+auto-rehash
+default-character-set = utf8mb4
+
+[mysqldump]
+default-character-set = utf8mb4
+```
+
+### 文字コードに関する設定
+
+追記した内容のうち文字コードに関する設定は以下になります。
+
+```
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+skip-character-set-client-handshake
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqldump]
+default-character-set = utf8mb4
+```
+
+`[mysql]` 、`[mysqldump]` セクションに記載してあるのはそのまま文字コードを `utf8mb4` に設定するという意味です。
+
+- `skip-character-set-client-handshake`
+
+MySQLのクライアント側（接続側）が設定する文字コード設定を無効化する事が出来ます。
+
+常にMySQLサーバ側の設定（ここでは `utf8mb4`）が設定されて欲しいのでこの設定を有効にします。
+
+https://dev.mysql.com/doc/refman/5.6/ja/faqs-cjk.html
+
+- `character-set-server`
+
+MySQLサーバ側の文字コード設定です。
+
+- `collation-server`
+
+文字の照合規則・照合順序（並べ替えルールみたいなもの）を表す項目です。
+
+MySQLでマルチバイト文字を扱うには考慮しておくべき問題があります。
+
+- 絵文字の 🍣と🍺が同様のデータとして扱われてしまう「🍣🍺問題」
+- カタカナの「ハ」と「パ」が同じものとして扱われてしまう「ハハパパ問題」
+
+現状、この2つを解決する設定は `collation-server=utf8mb4_bin` のみです。
+
+これを設定する事によりデフォルト状態とは少し違う挙動になります。
+
+MySQLは通常 `a` と `A` を同じ物として認識する仕様です。
+
+`utf8mb4_bin` を設定すると明確に別の文字として扱われるようになりますので注意が必要です。
+
+普通にプログラムを組んでいればこの点が問題になる事は少ないハズです。
+
+MySQLの文字コードに関しては [こちらのスライド](https://www.slideshare.net/tmtm/mysql-62004569) が参考になります。
+
+### ストレージエンジンに関する設定
+
+ストレージエンジンとはRDBMSの核になる部分で主にデータの格納形式等を決定している部分です。
+
+詳しくは下記の記事を参考にして下さい。
+
+- [徹底比較!! MySQLエンジン](https://thinkit.co.jp/free/article/0608/1/1/)
+- [公式](https://dev.mysql.com/doc/refman/5.6/ja/storage-engines.html) を
+
+結論から言うとよほど特殊な状況化を除き `InnoDB` の一択で良いです。
+
+理由はRDBMSで重要な機能であるトランザクションを扱えるのはこのエンジンだけだからです。
+
+ちなみにテーブルを作成する時もストレージエンジンを設定する事は可能です。
+
+万が一特定のテーブルだけ別のストレージエンジンを利用したい場合はテーブル作成時に指定する方法を取れば良いでしょう。
+
+### innodb_file_per_table
+
+ストレージエンジン `InnoDB` に関する設定の1つです。
+
+`innodb_file_per_table` はテーブルごとに専用のテーブルスペースを作成する為の設定です。
+
+これを設定しておかないと古いデータを消してディスク容量を確保したい時にかなり面倒です。
+
+詳しくは下記の記事を参考にして下さい。
+
+- [【AWS】RDS for MySQLで共有テーブルスペースに構成変更する際の所要時間を実測してみた](https://dev.classmethod.jp/server-side/db/rds-mysql-innodb_file_per_table/)
+- [【MySQL】肥大化したInnoDBテーブルを圧縮機能で縮小する方法！](https://engineers.weddingpark.co.jp/?p=622)
+
+### innodb_file_format
+
+ストレージエンジン `InnoDB` に関する設定の1つです。
+
+圧縮機能が利用可能になる `Barracuda` へ変更しておきます。
+
+### innodb_default_row_format
+
+ストレージエンジン `InnoDB` に関する設定の1つです。
+
+ここでは `DYNAMIC` を指定しています。
+
+ちなみに圧縮機能が有効なのは `COMPRESSED` です。
+
+圧縮機能を有効にすれば確かにテーブルのデータ容量を節約する事は出来ますが、パフォーマンスが低下するという弱点があります。
+
+その為、普段は `DYNAMIC`を指定しておくのが無難だと私は考えます。
+
+テーブル作成時に `ROW_FORMAT=COMPRESSED` を指定すれば圧縮機能を有効に出来ます。
+
+詳しくは [こちらの記事](https://engineers.weddingpark.co.jp/?p=622) を参考にして下さい。
+
+### default_password_lifetime
+
+デフォルト設定だと365日でパスワードを強制変更するようにMySQLからエラーが出るようになっています。
+
+運用中にこのエラーが出るとサービスが止まってしまうのでこの設定を明示的に無効化しています。
+
+※ MySQL 5.7.11からはデフォルトで0に設定が変更されたようなのでこの設定は不要ですが念の為記載しておきます。
+
+### auto-rehash
+
+LinuxのようにTABキーでテーブル名やSQLの補完が出来るようになります。
+
+よって設定しておきましょう。
+
+### slow_query_log
+
+スロークエリを出力する設定です。
+
+名前の通り時間がかかっているSQLをログとして出力する為の設定です。
+
+### long_query_time
+
+どの程度時間がかかったらスロークエリと見なすかの設定です。
+
+個人的には厳し目の設定にしておくのが良いと考えます。
+
+ここでは0.1秒を設定しています。
+
+遅いSQLはそれだけサーバのリソースを消費し、ユーザー体験にも悪影響を与えるので厳し目に設定を行っておき常に監視しておくのが良いでしょう。
+
+### slow_query_log_file
+
+スロークエリが出力されるファイルパスです。
+
+ここでは `/var/log/mysql-slow-query.log` を設定しています。
+
+スロークエリは `mysqldumpslow` というコマンドで集計する事が可能です。
+
+詳しくは [こちらの記事](https://webmake.info/mysql%E3%81%AE%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%AD%E3%82%B0%E3%82%92mysqldumpslow%E3%81%A7%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B/) を参考にして下さい。
+
+## 設定を反映する
+
+説明が長くなってしまいましたが、以上がMySQLで最低限設定しておくべき項目です。
+
+設定内容を反映した `/etc/my.cnf` を載せておきます。
+
+```
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+
+[mysqld]
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+skip-character-set-client-handshake
+default-storage-engine=InnoDB
+innodb_file_per_table=1
+innodb_large_prefix=1
+innodb_file_format=Barracuda
+innodb_default_row_format=DYNAMIC
+default_password_lifetime = 0
+slow_query_log = 1
+long_query_time = 0.1
+slow_query_log_file = /var/log/mysql-slow-query.log
+
+[mysql]
+auto-rehash
+default-character-set = utf8mb4
+
+[mysqldump]
+default-character-set = utf8mb4
+```
+
+スロークエリログの設定に関しては `slow_query_log_file` で指定したファイルを作成し書き込み権限を与えておく必要があります。
+
+以下のコマンドを実行しておきましょう。
+
+```bash
+sudo touch /var/log/mysql-slow-query.log
+sudo chown mysql:mysql /var/log/mysql-slow-query.log
+
+```
+
+準備が終わったら、MySQLサーバの再起動を行いましょう。
+
+```bash
+sudo service mysqld restart
+```
+
+続いてMySQLサーバにログインを行い、設定が反映されているか確認を行います。
+
+`SHOW VARIABLES LIKE 'char%';` で文字コードの確認を行います。
+
+以下のように表示されていればOKです。
+
+```
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8mb4                    |
+| character_set_connection | utf8mb4                    |
+| character_set_database   | utf8mb4                    |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8mb4                    |
+| character_set_server     | utf8mb4                    |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.01 sec)
+```
+
+※ `character_set_system` と `character_set_system` に関しては `utf8mb4` になっていなくてもOKです。
+
+続いて `SHOW VARIABLES LIKE 'slow%';` でスロークエリの設定を確認します。
+
+以下のように `slow_query_log` が `ON` になっていればOKです。
+
+```
++---------------------+-------------------------------+
+| Variable_name       | Value                         |
++---------------------+-------------------------------+
+| slow_launch_time    | 2                             |
+| slow_query_log      | ON                            |
+| slow_query_log_file | /var/log/mysql-slow-query.log |
++---------------------+-------------------------------+
+3 rows in set (0.00 sec)
+```
+
+`SHOW VARIABLES LIKE 'long_query%';` でスロークエリの秒数設定を確認します。
+
+以下のように表示されていればOKです。
+
+```
++-----------------+----------+
+| Variable_name   | Value    |
++-----------------+----------+
+| long_query_time | 0.100000 |
++-----------------+----------+
+1 row in set (0.00 sec)
+```
+
 ## データベースとユーザーの作成
 
 次にデータベースとユーザーを作成します。
