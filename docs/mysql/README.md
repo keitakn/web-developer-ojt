@@ -633,6 +633,8 @@ sudo service mysqld restart
 
 興味がある方はより詳しく調べてみると良いでしょう。
 
+特に `innodb_buffer_pool` は重要な設定項目の1つです。
+
 （参考）[MySQL 5.7 インストールと設定メモ](https://blog.apar.jp/linux/6769/)
 
 ## データベースとユーザーの作成
