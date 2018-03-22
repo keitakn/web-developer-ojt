@@ -730,6 +730,8 @@ GRANT CREATE, SELECT, UPDATE, INSERT, DELETE ON ojt_db.* TO `ojt_user`@`192.168.
 
 mysqlサーバにログインを行い以下のSQLを実行しましょう。
 
+`USE ojt_db;` を実行してデータベースの選択をするのを忘れないようにしましょう。
+
 ```mysql
 CREATE TABLE `products_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
