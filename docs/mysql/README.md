@@ -1049,3 +1049,57 @@ mysql> SELECT * FROM products WHERE id = 2;
 ※ 戻す方法がない訳ではありませんが、それなりに時間はかかります。
 
 （参考）[13.2.2 DELETE 構文](https://dev.mysql.com/doc/refman/5.6/ja/delete.html)
+
+## バックアップとリカバリ
+
+データベースはバックアップが非常に重要になります。
+
+データを誤って消してしまった場合はこのバックアップが頼りになります。
+
+最も簡単なバックアップ方法は `mysqldump` を使う方法です。
+
+MySQLサーバからログアウトした状態で以下のコマンドを実行して下さい。
+
+※ MySQLのrootパスワードを求められるので入力して下さい。
+
+```bash
+mysqldump --add-drop-table -q -c -h localhost -u root -p ojt_db > ojt_db.sql
+```
+
+そうすると `ojt_db.sql` というファイルが生成されている事が確認出来ます。
+
+中身を確認すると今まで作成したテーブルやデータの中身が全て記録されている事が確認出来ます。
+
+次にバックアップからリカバリする方法を試してみましょう。
+
+mysqlサーバにrootでログインして以下のSQLを実行して下さい。
+
+`DROP DATABASE ojt_db;`
+
+これはデータベースを削除するSQLです。
+
+続いて再度 `CREATE DATABASE ojt_db;` を実行します。
+
+次にMySQLサーバからログアウトした状態で以下のコマンドを実行して下さい。
+
+※ MySQLのrootパスワードを求められるので入力して下さい。
+
+```bash
+mysql -u root -h localhost -p ojt_db < ojt_db.sql
+```
+
+再度MySQLサーバにログインすると先程消したデータやテーブルが復元されている事が確認出来ます。
+
+ここで紹介したのは手動でバックアップを取る一番簡単な方法です。
+
+（参考）[7.4.1 mysqldump による SQL フォーマットでのデータのダンプ](https://dev.mysql.com/doc/refman/5.6/ja/mysqldump-sql-format.html)
+
+他にもバックアップの方法は様々な物があります。
+
+（参考）[第 7 章 バックアップとリカバリ](https://dev.mysql.com/doc/refman/5.6/ja/backup-and-recovery.html)
+
+最近では [Amazon RDS](https://aws.amazon.com/jp/rds/) 等のバックアップを自動でやってくれる便利なサービスもあります。
+
+バックアップは運用を行っていく上で非常に大切です。
+
+少々コストがかかりますが本番環境での運用時にはこのようなサービスを利用する事をオススメします。
