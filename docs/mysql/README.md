@@ -891,3 +891,121 @@ ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint f
 他にも例えば数値型のカラムに文字列を入れると起こるTypeError等があります。
 
 このように様々な制約があるおかげで不整合データの発生を未然に防ぐ事が可能です。
+
+## データを取得する
+
+次にデータを取得する方法を見ていきます。
+
+データ取得は `SELECT` を利用します。
+
+以下のSQLを実行してみましょう。
+
+```sql
+mysql> SELECT * FROM products;
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+| id | category_id | name      | price | lock_version | created_at          | updated_at          |
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+|  1 |           1 | コーラ    |   150 |            0 | 2018-03-22 14:08:08 | 2018-03-22 14:08:08 |
+|  2 |           2 | ポテチ    |   100 |            0 | 2018-03-22 14:08:08 | 2018-03-22 14:08:08 |
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+```
+
+これは `products` テーブルのデータを全件取得する命令になります。
+
+`SELECT` の後にはカラム名が入ります。 `*` は全てのカラムという意味になります。
+
+以下のように見たいカラムだけを指定すれば見たいカラムだけを抽出出来ます。
+
+```sql
+mysql> SELECT id, name, price FROM products;
++----+-----------+-------+
+| id | name      | price |
++----+-----------+-------+
+|  1 | コーラ    |   150 |
+|  2 | ポテチ    |   100 |
++----+-----------+-------+
+2 rows in set (0.00 sec)
+```
+
+`FROM` の後にはテーブル名が入ります。
+
+今のようにデータ量が少ない場合は `SELECT * FROM products;` で全件取得で問題ないですが、現実的にはデータ量はどんどん増えていきます。
+
+その度に全件取得を行っていてはデータベースにも負担がかかるので通常は条件を指定してデータを抽出します。
+
+そういう時は `WHERE` を使います。
+
+```sql
+mysql> SELECT * FROM products WHERE id = 1;
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+| id | category_id | name      | price | lock_version | created_at          | updated_at          |
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+|  1 |           1 | コーラ    |   150 |            0 | 2018-03-22 14:08:08 | 2018-03-22 14:08:08 |
++----+-------------+-----------+-------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+```
+
+この例ではidが1番のデータを取得してという意味です。
+
+`products` テーブルには商品カテゴリを示す `category_id` が入っています。
+
+しかし人間にも分かりやすい、カテゴリ名は `products_categories` テーブルに入っています。
+
+次は2つのテーブルを結合する方法を見ていきましょう。
+
+今までより少し長いですが、以下のSQLを実行してみましょう。
+
+```mysql
+SELECT
+  products.id,
+  products.category_id,
+  products.name,
+  products.price,
+  products_categories.name AS category_name 
+FROM
+  products 
+LEFT JOIN
+  products_categories
+ON
+  products.category_id = products_categories.id;
+```
+
+以下のように別テーブルにあるカテゴリ名を同じ表として扱う事が出来ます。
+
+```sql
+mysql> SELECT
+    ->   products.id,
+    ->   products.category_id,
+    ->   products.name,
+    ->   products.price,
+    ->   products_categories.name AS category_name
+    -> FROM
+    ->   products
+    -> LEFT JOIN
+    ->   products_categories
+    -> ON
+    ->   products.category_id = products_categories.id;
++----+-------------+-----------+-------+---------------+
+| id | category_id | name      | price | category_name |
++----+-------------+-----------+-------+---------------+
+|  1 |           1 | コーラ    |   150 | ドリンク      |
+|  2 |           2 | ポテチ    |   100 | お菓子        |
++----+-------------+-----------+-------+---------------+
+2 rows in set (0.00 sec)
+```
+
+`LEFT JOIN` という記述がテーブルとテーブルを繋ぐ為の構文になります。
+
+ここで使った `LEFT JOIN` は外部結合と呼ばれる方法です。
+
+他にも `INNER JOIN` や `OUTER JOIN` もあります。
+
+ここでは詳しく解説しませんので参考になりそうな記事を載せておきます。
+
+- [13.2.9.2 JOIN 構文](https://dev.mysql.com/doc/refman/5.6/ja/join.html)
+- [これでわかった!? LEFT / RIGHT JOIN.](https://qiita.com/zaburo/items/548b3c40fee68cd1e3b7)
+
+最初のうちは `LEFT JOIN` と `INNER JOIN` が理解出来れば、だいたいの状況に対応出来ます。
+
+JOINやWHEREを使い様々な条件でデータを抽出出来るようになりましょう。
