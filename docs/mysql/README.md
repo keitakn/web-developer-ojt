@@ -825,3 +825,69 @@ INSERT INTO products (`category_id`, `name`, `price`) VALUES(2, 'ポテチ', 100
 INSERT INTO [テーブル名] (`カラム名`, `カラム名`, ...) VALUES ([値], [値], ...);
 ```
 
+### データ登録の制限
+
+RDBMSはテーブル構造に様々な制約を持たせる事が可能です。
+
+制約がある事で不整合データの混入を防止しています。
+
+#### プライマリーキー違反
+
+テーブルには必ずプライマリーキーと呼ばれるカラムが必要です。
+
+正確にはプライマリーキーがなくてもテーブルを作る事は可能なのですが、データ整合性を保つ事が困難になる為、事実上必須と言えます。
+
+`CREATE TABLE` を実行した時の以下の記述に注目して下さい。
+
+`id int(10) unsigned NOT NULL AUTO_INCREMENT`
+
+これはAUTO_INCREMENTと呼ばれる形でDBが勝手に重複しない連番を作ってくれる形式です。
+
+先程の `INSERT INTO` 実行時にidカラムの指定をしなくてもエラーにならなかったのは、AUTO_INCREMENT機能が働いていた為になります。
+
+プライマリーキーはテーブル内で必ずユニーク（重複しない）事が保証されます。
+
+つまり下記のSQLを実行するとエラーになります。
+
+```sql
+mysql> INSERT INTO products (`id`, `category_id`, `name`, `price`) VALUES(1, 1, 'ファンタ', 150);
+ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+```
+
+#### NOT NULL制約違反
+
+以下の記述に注目しましょう。
+
+`name varchar(255) COLLATE utf8mb4_bin NOT NULL`
+
+`NOT NULL` というのはNULLデータの追加を認めないという意味になります。
+
+なので、以下のSQLはエラーになります。
+
+```sql
+mysql> INSERT INTO products (`category_id`, `name`, `price`) VALUES(1, null, 150);
+ERROR 1048 (23000): Column 'name' cannot be null
+```
+
+#### 外部キー制約違反
+
+`products` テーブルの下記に注目しましょう。
+
+`CONSTRAINT fk_products_01 FOREIGN KEY (category_id) REFERENCES products_categories (id)`
+
+このテーブル構造では `products` テーブルに `products_categories` のidを一緒に保存する事で商品カテゴリが分かるようになっています。
+
+その為、`products.category_id` に存在しない `category_id` を入れられると不整合データが発生してしまいます。
+
+それを防ぐ為の仕組みが外部キー制約（FOREIGN KEY）です。
+
+つまり以下のSQLはエラーになります。
+
+```sql
+mysql> INSERT INTO products (`category_id`, `name`, `price`) VALUES(100, 'ファンタ', 150);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ojt_db`.`products`, CONSTRAINT `fk_products_01` FOREIGN KEY (`category_id`) REFERENCES `products_categories` (`id`))
+```
+
+他にも例えば数値型のカラムに文字列を入れると起こるTypeError等があります。
+
+このように様々な制約があるおかげで不整合データの発生を未然に防ぐ事が可能です。
