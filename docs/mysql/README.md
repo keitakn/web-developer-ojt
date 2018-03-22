@@ -721,3 +721,52 @@ GRANT CREATE, SELECT, UPDATE, INSERT, DELETE ON ojt_db.* TO `ojt_user`@`192.168.
 `SHOW DATABASES;` は存在するデータベースの一覧を表示させる命令ですが、この時に接続権限がないデータベースは表示されません。
 
 このようにMySQLではユーザーに適切な権限を与える事で不正な操作を予め防ぐ事が出来ます。
+
+## テーブルの作成
+
+ますは簡単なテーブルを作成してみましょう。
+
+この資料の最初で例に上げた商品テーブルを作成するSQLは下記のようになります。
+
+mysqlサーバにログインを行い以下のSQLを実行しましょう。
+
+```mysql
+CREATE TABLE `products_categories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+```
+
+```mysql
+CREATE TABLE `products` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `price` int(10) unsigned NOT NULL DEFAULT '0',
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_products_01` FOREIGN KEY (`category_id`) REFERENCES `products_categories` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+```
+
+`SHOW TABLES;` を実行してみましょう。
+
+テーブルが作成されている事が確認出来ます。
+
+```sql
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_ojt_db    |
++---------------------+
+| products            |
+| products_categories |
++---------------------+
+2 rows in set (0.00 sec)
+```
+
