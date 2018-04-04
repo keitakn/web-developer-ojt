@@ -127,3 +127,7 @@
 参考までに私が過去に書いた物を共有させて頂きます。
 
 - [aws-serverless-prototype](https://github.com/keitakn/aws-serverless-prototype)
+
+他にも必要なドキュメントを作成する事は問題ありません。
+
+ただし出来る限りソースコードから自動生成出来ないか考えるようにしましょう。
