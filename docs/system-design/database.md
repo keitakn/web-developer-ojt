@@ -37,3 +37,26 @@ RDBMS設計には既に様々なノウハウが確立されています。
 良い名前を付けるというのは、データベース設計でも重要になります。
 
 [データベースオブジェクトの命名規約](https://qiita.com/genzouw/items/35022fa96c120e67c637) という記事を参考にすると良いでしょう。
+
+また良く使われる項目には既に世の中に標準的な仕組みがあったりします。
+
+例えば、性別は [ISO 5218](https://en.wikipedia.org/wiki/ISO/IEC_5218) で仕様が決められています。
+
+以下が正しい仕様です。
+
+```
+0 = not known
+1 = male
+2 = female
+9 = not applicable
+```
+
+man、womanではなくmale、femaleです。
+
+良く使うユーザー属性名も [OpenIDConnect 5.1.Standard Claims](http://openid-foundation-japan.github.io/openid-connect-core-1_0.ja.html#StandardClaims) で物理名が定められています。
+
+日本国内のみで利用する想定であれば [データベース列名の名前付け（英単語での）採用例を集めてみた](https://qiita.com/otagaisama-1/items/4d7e2eb5c274e9fce664) も参考になります。
+
+世の中の流れはグローバル化なので今後サービス開発を行う時は多言語に対応する事がマストになってくると考えられます。
+
+[OpenIDConnect 5.1.Standard Claims](http://openid-foundation-japan.github.io/openid-connect-core-1_0.ja.html#StandardClaims) のような国際的に利用されているものがあれば日本独自の慣例よりも国際基準を優先したほうが良いでしょう。
