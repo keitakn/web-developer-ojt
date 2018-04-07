@@ -125,6 +125,7 @@ ENUMを使うとそのカラムに対する拡張性は完全に失われるの�
 
 - メールアドレスはユーザー1人につき、1つまで登録可能
 - メールアドレスは全ユーザーでユニークになる必要がある
+- 電話番号は1人のユーザーが何個でも登録出来る
 
 普通に考えると下記のようなテーブル構造になります。
 
@@ -183,8 +184,8 @@ CREATE TABLE `users_phone_numbers` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uq_users_phone_numbers_01` (`user_id`),
-  UNIQUE KEY `uq_users_phone_numbers_02` (`phone_number`),
+  KEY `idx_users_phone_numbers_01` (`user_id`),
+  KEY `idx_users_phone_numbers_02` (`phone_number`),
   CONSTRAINT `fk_users_phone_numbers_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 ```
@@ -277,6 +278,107 @@ CONSTRAINT `fk_users_emails_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`
 これはバグのないプログラムしか書かないという前提の考えの元にのみ成り立つ考えで非常に危険な考え方です。
 
 人間が書くプログラムにミスがあってもデータベース側でエラーを出してくれたほうがミスに早い段階で気がつけるので良いと考えます。
+
+### indexを適切に利用する
+
+RDMBSにはindexという検索を効率的に行う為の仕組みがあります。
+
+`users_phone_numbers` テーブルの以下の記述に注目しましょう。
+
+```sql
+KEY `idx_users_phone_numbers_01` (`user_id`),
+KEY `idx_users_phone_numbers_02` (`phone_number`),
+```
+
+ここでは詳しい説明は割愛しますが内部では「B木」と呼ばれるアルゴリズムが利用されています。
+
+（参考）[MySQL with InnoDB のインデックスの基礎知識とありがちな間違い](http://techlife.cookpad.com/entry/2017/04/18/092524)
+
+簡潔に言うとテーブルの特定カラムに対してindex（索引）を追加する事で効率良くデータを見つけるように出来る仕組みです。
+
+`users_phone_numbers` テーブルの場合、ユーザーIDと電話番号でSELECTする事が想定されます。
+よって `user_id` と `phone_number` にindexを付けています。
+
+SQLを作る際はindexが適切に利用されているかを確認する必要があります。
+
+確認方法ですが、下記のようにSQLの前に `EXPLAIN ` を付けます。
+
+```sql
+mysql> EXPLAIN SELECT * FROM users_phone_numbers WHERE user_id = 3;
++----+-------------+---------------------+------------+------+----------------------------+----------------------------+---------+-------+------+----------+-------+
+| id | select_type | table               | partitions | type | possible_keys              | key                        | key_len | ref   | rows | filtered | Extra |
++----+-------------+---------------------+------------+------+----------------------------+----------------------------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | users_phone_numbers | NULL       | ref  | idx_users_phone_numbers_01 | idx_users_phone_numbers_01 | 4       | const |    1 |   100.00 | NULL  |
++----+-------------+---------------------+------------+------+----------------------------+----------------------------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+```
+
+見方ですが、まず `type` という部分に注目しましょう。
+
+以下の値のどれかが入ります。
+
+- const
+- eq_ref
+- ref
+- range
+- index
+- ALL
+
+上から効率の良い順番に並んでいます。
+
+`const` が最も効率が良く、 `ALL` が最も効率が悪いという事です。
+
+（参考1）[8.8.2 EXPLAIN 出力フォーマット](https://dev.mysql.com/doc/refman/5.6/ja/explain-output.html)
+（参考2）[EXPLAINを見て気をつけること（自分なりの忘付録）](https://qiita.com/Tsuji_Taku50/items/43eb2a41915d03173773)
+（参考3）[MySQL EXPLAINのそれぞれの項目についての覚書](https://qiita.com/kzbandai/items/ea02727f4bb539fcedb5)
+
+数百件程度のデータなら `const` でも `ALL` でもほとんど変わりません。
+
+しかし件数が多くなると人間でも感じる程にSQLの性能は劣化していきます。
+
+SQLを作った際は `EXPLAIN` で効率が悪いSQLを書いていないか確認を行いましょう。
+
+ちなみに `UNIQUE KEY` や `PRIMARY KEY` はindexが付いている状態と同様の効果（それ以上の効果）があるので、indexを付ける必要はありません。
+
+#### 全てのカラムにindexを付けるのはダメ
+
+SELECTのパフォーマンスが良くなるからと言って、全てのカラムにindexを付けてはダメです。
+
+indexを増やすとINSERTやUPDATEのSQLにオーバーヘッドが生じてパフォーマンスが劣化します。
+
+またメモリ使用量が増えるのでデータベース全体のメモリ容量が不足する要因になります。
+
+ビジネス要件に対して適切なindexを付けるようにしましょう。
+
+#### 無意味なindexを作らない
+
+良く言われる事は「カーディナリティが低いカラムには作るべきではない」という事です。
+
+カーディナリティとは「あるカラムにおける、取りうる値の種類」のことです。
+
+性別を表すカラムがあり、「男性」「女性」の2種類があったとします。
+
+男女比がほぼ1対1になる場合、性別カラムにindexを作ってもほとんど効果がありません。
+
+また日本の都道府県と当道府県コードを管理するようなレコード数が極端に少ない（最大で47件）テーブルもindexを作る意味はないでしょう。
+
+このようなテーブルは `ALL` で検索する前提のテーブル構造だからです。
+
+- [MySQL with InnoDB のインデックスの基礎知識とありがちな間違い](http://techlife.cookpad.com/entry/2017/04/18/092524)
+- [MySQL(InnoDB)でカーディナリティの低いカラムにINDEXを張る](https://qiita.com/hmatsu47/items/2d44c173a9114fd06853)
+
+ちなみにindexはテーブル作成時だけでなく、後で追加する事も可能です。
+
+`ALTER TABLE テーブル名 ADD INDEX インデックス名(カラム名);`
+
+詳しくは下記の記事を参考にして下さい。
+
+（参考）[14.11.1 オンライン DDL の概要](https://dev.mysql.com/doc/refman/5.6/ja/innodb-create-index-overview.html)
+（参考）[MySQLのスキーマ変更をオンラインでやるための選択肢比較](https://qiita.com/masamasa/items/0dc0c7f35f2bffc02db1)
+
+単純にindexを追加するだけなら問題ないですが、大きな変更をシステム稼働中に行うのはリスクがあります。
+
+可能ならば一度システムをメンテナンス状態にして書き込みが全く起こらない状況を作ってから、テーブル構造を変更したほうがより安全です。
 
 ### 必ず作るカラム
 
