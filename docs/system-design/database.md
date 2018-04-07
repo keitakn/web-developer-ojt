@@ -60,3 +60,39 @@ man、womanではなくmale、femaleです。
 世の中の流れはグローバル化なので今後サービス開発を行う時は多言語に対応する事がマストになってくると考えられます。
 
 [OpenIDConnect 5.1.Standard Claims](http://openid-foundation-japan.github.io/openid-connect-core-1_0.ja.html#StandardClaims) のような国際的に利用されているものがあれば日本独自の慣例よりも国際基準を優先したほうが良いでしょう。
+
+### 適切なデータ型を利用する
+
+たまに全てを文字列型で保存しているような設計を見かけますが、数値を扱うのであれば数値型を入れるべきだし、日付を扱うなら日付型を使うべきです。
+
+細かい事を言うと数値型だけでも以下のようにたくさんの種類があります。
+
+- INTEGER
+- INT
+- SMALLINT
+- TINYINT
+- MEDIUMINT
+- BIGINT
+
+これらは扱える数値の範囲が異なります。（詳しくは [公式ドキュメント](https://dev.mysql.com/doc/refman/5.6/ja/integer-types.html) を参照）
+
+これらも踏まえて適切なデータ型を利用しましょう。
+
+データ型については [公式ドキュメント](https://dev.mysql.com/doc/refman/5.6/ja/data-types.html) を参考にして下さい。
+
+ただし [ENUM型](https://dev.mysql.com/doc/refman/5.6/ja/enum.html) は注意して利用しましょう。
+
+テーブル定義は後で変更する事も可能ではありますが、プログラムと比較して後で変更するコストが大きいです。
+
+ENUMを使うとそのカラムに対する拡張性は完全に失われるので注意して利用しましょう。
+
+ちなみに先程紹介した性別コードのようにコードが決まっている物は数値型で管理したほうがデータベースの容量は少なくて済みます。
+
+数値型のほうが文字列よりもデータを検索する効率も良い事を覚えておきましょう。
+
+```
+0 = not known
+1 = male
+2 = female
+9 = not applicable
+```
