@@ -111,6 +111,91 @@ ENUMを使うとそのカラムに対する拡張性は完全に失われるの�
 
 #### NOT NULL制約
 
+ユーザー情報を管理するテーブルを例に説明します。
+
+ユーザー情報には以下の3つがあります。
+
+- ユーザーID
+- メールアドレス
+- 電話番号
+
+この中でユーザーIDとメールアドレスは必須ですが、電話番号の登録が必須ではありません。
+
+普通に考えると下記のようなテーブル構造になります。
+
+```mysql
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(128) COLLATE utf8mb4_bin NOT NULL,
+  `phone_number` varchar(32) COLLATE utf8mb4_bin,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_users_01` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+```
+
+結論から言うとこのテーブル構造は良い構造ではありません。
+
+電話番号登録がないユーザー数だけ `phone_number` カラムに `NULL` が登録されます。
+
+`NULL` は未知を表すデータ型です。
+
+データベースは既知の事実を記録する仕組みです。
+
+また `NULL` を許可するとプログラム側で常に `NULL` かどうかをチェックするコードが必要になり、複雑化の原因になります。
+
+このようなケースでは下記のようなテーブル構造にするのが良いでしょう。
+
+```mysql
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `users_emails` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `email` varchar(128) COLLATE utf8mb4_bin NOT NULL,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_users_emails_01` (`user_id`),
+  UNIQUE KEY `uq_users_emails_02` (`email`),
+  CONSTRAINT `fk_users_emails_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `users_phone_numbers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `phone_number` varchar(32) COLLATE utf8mb4_bin,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_users_phone_numbers_01` (`user_id`),
+  UNIQUE KEY `uq_users_phone_numbers_02` (`phone_number`),
+  CONSTRAINT `fk_users_phone_numbers_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+```
+
+テーブルを3つに分けました。
+
+これで電話番号を登録しないユーザーがいたとしても、`users_phone_numbers` テーブルにデータが登録されないだけで `NULL` データを回避する事が出来ます。
+
+さらにこの構造にした事で後で要件が変化してメールアドレスの登録が必須でなくなったとしても対応が可能になっています。
+
+データベース設計には正規化と呼ばれるテクニックがあります。
+
+詳しくは [4ステップで作成する、DB論理設計の手順とチェックポイントまとめ](https://qiita.com/nishina555/items/a79ece1b54faf7240fac) を見て下さい。
+
+しかし正規化の知識がない状態であったとしても、`NOT NULL` 制約の利用を徹底する事で自然と正規化されたテーブル設計になります。
+
 #### ユニーク制約
 
 #### 外部キー制約s
