@@ -277,3 +277,41 @@ CONSTRAINT `fk_users_emails_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`
 これはバグのないプログラムしか書かないという前提の考えの元にのみ成り立つ考えで非常に危険な考え方です。
 
 人間が書くプログラムにミスがあってもデータベース側でエラーを出してくれたほうがミスに早い段階で気がつけるので良いと考えます。
+
+### 必ず作るカラム
+
+私の場合以下のカラムを必ず全てのテーブルに作ります。
+
+```
+`lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+```
+
+これらはビジネス上必要なデータというよりはデータを管理する上で必要なカラムです。
+
+- lock_version
+  - [楽観的ロック](https://qiita.com/qsona/items/01feada22c8f9fe17c7b) を実装する際に利用
+  - [Ruby on Rails](http://rubyonrails.org/) ではこのカラムがあると楽観ロックを自動で行ってくれる
+- created_at
+  - いつレコードが登録されたかを調査する際に利用する
+- updated_at
+  - いつレコードが更新されたかを調査する際に利用する
+
+場合によってはこれらのカラムがなくても成り立つケースもあるでしょう。
+
+その場合はこれらのカラムを無理に作成する必要はありません。
+
+例えば仕様的にデータを貯めるだけのテーブルで更新が発生しないケースの場合は `lock_version` と `updated_at` は意味のないデータです。
+
+また全てのテーブルの主キーに `id` カラムを利用しています。
+
+これも [Ruby on Rails](http://rubyonrails.org/) を意識した作りです。
+
+本カリキュラムでは [Ruby on Rails](http://rubyonrails.org/) を強く意識している為、このような構造になっています。
+
+全テーブルの主キーを `id` にする手法は [SQLアンチパターン](https://www.amazon.co.jp/dp/4873115892) で [IDリクワイアド](https://qiita.com/fatomy/items/cf048fc0461224ddfbd7) と呼ばれるアンチパターンです。
+
+[Ruby on Rails](http://rubyonrails.org/) 等を利用しない場合はこれも避けたほうが良い設計です。
+
+このあたりは利用するフレームワークの規約等を見て最適な手法を取って頂ければと考えます。
