@@ -2,7 +2,7 @@
 
 ## アウトプット
 
-[ojt-linux-vagrant](https://github.com/keita-nishimoto/ojt-linux-vagrant) 上にPHPの実行環境を作成して下さい。
+[ojt-linux-vagrant](https://github.com/keitakn/ojt-linux-vagrant) 上にPHPの実行環境を作成して下さい。
 
 また作成の手順をQiitaの記事として公開して下さい。（最初は限定共有公開でメンターレビュー後に全公開でOK）
 
@@ -10,14 +10,14 @@
 
 以下の条件を満たしていた時に課題は完了となります。
 
-- [ojt-php](https://github.com/keita-nishimoto/ojt-php) のクイックスタートを参考に `http://192.168.33.100:8080` へアクセスして正常にHTML形式のレスポンスが確認出来る事
+- [ojt-php](https://github.com/keitakn/ojt-php) のクイックスタートを参考に `http://192.168.33.100:8080` へアクセスして正常にHTML形式のレスポンスが確認出来る事
 - `/etc/php.ini` にタイムゾーンの設定と日本語を扱う為の設定が行われている事
 - `/etc/php.ini` でエラーログが出力されるように設定されている事
 - 作成したQiitaの記事の手順を踏む事で環境構築を再現出来る事
 
-Node.jsの時と同じく [ojt-php](https://github.com/keita-nishimoto/ojt-php) は [ojt-linux-vagrant](https://github.com/keita-nishimoto/ojt-linux-vagrant) の共有ディレクトリに設定されています。
+Node.jsの時と同じく [ojt-php](https://github.com/keitakn/ojt-php) は [ojt-linux-vagrant](https://github.com/keitakn/ojt-linux-vagrant) の共有ディレクトリに設定されています。
 
-もしもvagrant上で [ojt-php](https://github.com/keita-nishimoto/ojt-php) を確認出来ない時は最新のリポジトリを取り込んで下さい。
+もしもvagrant上で [ojt-php](https://github.com/keitakn/ojt-php) を確認出来ない時は最新のリポジトリを取り込んで下さい。
 
 ## ヒント
 
@@ -78,7 +78,7 @@ Zend Engine v3.2.0, Copyright (c) 1998-2017 Zend Technologies
     with Xdebug v2.6.0beta1, Copyright (c) 2002-2017, by Derick Rethans
 ```
 
-少々バージョンが古いですが過去に [私が書いた記事](https://qiita.com/keita-nishimoto/items/7d0a8d6e24c1861d799f#php%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) が参考になるでしょう。
+少々バージョンが古いですが過去に [私が書いた記事](https://qiita.com/keitakn/items/7d0a8d6e24c1861d799f#php%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) が参考になるでしょう。
 
 ### `/etc/php.ini` の設定
 

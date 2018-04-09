@@ -73,7 +73,7 @@ OSの中核となる部分でハードウェアと直接やり取りするもっ
 
 まずは使って見るのが一番です。
 
-[ojt-linux-vagrant](https://github.com/keita-nishimoto/ojt-linux-vagrant) というリポジトリを用意しました。
+[ojt-linux-vagrant](https://github.com/keitakn/ojt-linux-vagrant) というリポジトリを用意しました。
 
 こちらは使って学習のほうを進めていきましょう。
 

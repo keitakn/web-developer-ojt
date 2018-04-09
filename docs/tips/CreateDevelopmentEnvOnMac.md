@@ -87,11 +87,11 @@ https://www.jetbrains.com/idea/buy/#edition=personal
 
 参考までに [IntelliJ IDEA](https://www.jetbrains.com/idea/) の使い方を書いた記事をいくつか紹介させて頂きます。（中には私が書いた物もあります）
 
-- [IntelliJ IDEAのインストールと日本語化](https://qiita.com/keita-nishimoto/items/31e8af9ccb4b3bdd74d0)
-- [IntelliJ IDEA初期設定（主にエディタ）](https://qiita.com/keita-nishimoto/items/5968b9eee4177c302481)
-- [IntelliJ IDEA ショートカットリンク集（随時更新）](https://qiita.com/keita-nishimoto/items/b9a77efbcc17f8844081)
-- [IntelliJ IDEA Rubyの開発環境を作成する](https://qiita.com/keita-nishimoto/items/76d6707db7d23fe4ca85)
-- [IntelliJ IDEA PHP7の開発環境を作成する](https://qiita.com/keita-nishimoto/items/638b080a1420b401c315)
+- [IntelliJ IDEAのインストールと日本語化](https://qiita.com/keitakn/items/31e8af9ccb4b3bdd74d0)
+- [IntelliJ IDEA初期設定（主にエディタ）](https://qiita.com/keitakn/items/5968b9eee4177c302481)
+- [IntelliJ IDEA ショートカットリンク集（随時更新）](https://qiita.com/keitakn/items/b9a77efbcc17f8844081)
+- [IntelliJ IDEA Rubyの開発環境を作成する](https://qiita.com/keitakn/items/76d6707db7d23fe4ca85)
+- [IntelliJ IDEA PHP7の開発環境を作成する](https://qiita.com/keitakn/items/638b080a1420b401c315)
 
 ※ 一番最初に日本語化の方法が書いてありますが日本語化は不具合が発生する可能性があるのでオススメしません。
 プログラマにとって英語はかなり重要なので英語に慣れる意味でも英語のまま利用する事を推奨します。

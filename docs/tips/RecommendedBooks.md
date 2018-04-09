@@ -1,6 +1,6 @@
 # オススメの書籍
 
-[学習方法のアンチパターン](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md) では書籍から学習するのはオススメ出来ないと批判的な意見を書きました。
+[学習方法のアンチパターン](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md) では書籍から学習するのはオススメ出来ないと批判的な意見を書きました。
 
 しかしあくまでも最初の一歩としてはオススメ出来ないという話であって、ある程度その技術に触れた事があるのであれば書籍を読む事は有効な学習方法です。
 

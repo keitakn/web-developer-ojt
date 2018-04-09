@@ -1,6 +1,6 @@
 # 課題1内容
 
-[ojt-linux-vagrant](https://github.com/keita-nishimoto/ojt-linux-vagrant) を使い以下の環境を構築して頂きます。
+[ojt-linux-vagrant](https://github.com/keitakn/ojt-linux-vagrant) を使い以下の環境を構築して頂きます。
 
 作成するのはNode.jsの実行環境 + OSの基本設定です。
 
@@ -20,7 +20,7 @@
 
 ※ インターネット上に公開されてしまうので抵抗がある場合は限定共有投稿でも構いません。
 
-あまり良い書き方でもないですが参考までに私が過去に書いた記事 [Rails5,MySQLの開発環境構築を行う](https://qiita.com/keita-nishimoto/items/b19bf134ff76e6e579eb) を共有させて頂きます。
+あまり良い書き方でもないですが参考までに私が過去に書いた記事 [Rails5,MySQLの開発環境構築を行う](https://qiita.com/keitakn/items/b19bf134ff76e6e579eb) を共有させて頂きます。
 
 記事は下記の点に注意して作成して下さい。
 

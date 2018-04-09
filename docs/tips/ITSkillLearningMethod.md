@@ -266,7 +266,7 @@ IT技術の習得は手を動かす事が最も重要です。
 
 などなど、アウトプットした内容は積極的に外部に公開する事です。
 
-参考までに私が過去に書いた記事 [Amazon API Gateway の Custom Authorizer で ServerlessなAPIを作ってみた](https://qiita.com/keita-nishimoto/items/508744fe7dc3b5f75d4c) を共有させて頂きます。
+参考までに私が過去に書いた記事 [Amazon API Gateway の Custom Authorizer で ServerlessなAPIを作ってみた](https://qiita.com/keitakn/items/508744fe7dc3b5f75d4c) を共有させて頂きます。
 
 ※ これはGitHub上にサンプルコードを作成して、その設計思想等をQiitaの記事で説明しています。
 

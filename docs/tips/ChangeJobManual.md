@@ -6,7 +6,7 @@
 
 ## 転職をすべきタイミング
 
-[学習方法のアンチパターン](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md) でも触れましたが、終身雇用という考え方は既に幻想です。
+[学習方法のアンチパターン](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md) でも触れましたが、終身雇用という考え方は既に幻想です。
 
 一度も転職を経験しないで人生を終えるという事はまずないでしょう。（仮に出来たとしてもしないほうがいいです）
 
@@ -256,7 +256,7 @@ GitHubのページを印刷するくらいはやってもいいですが（本�
 
 ### GitHub上に公開したコード
 
-[IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも書いたようにGitHub上でコードを公開する事は学習効果が大きいので非常にオススメです。
+[IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも書いたようにGitHub上でコードを公開する事は学習効果が大きいので非常にオススメです。
 
 GitHub上に公開出来る物としては以下のような物があります。
 
@@ -266,7 +266,7 @@ GitHub上に公開出来る物としては以下のような物があります�
 
 もちろん上記以外の物でも構いません。
 
-ただし [IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) に記載してあるように普段から高品質なコードを書くように心がけましょう。（難しいアルゴリズムしか書いたらダメとかそういう事ではない）
+ただし [IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) に記載してあるように普段から高品質なコードを書くように心がけましょう。（難しいアルゴリズムしか書いたらダメとかそういう事ではない）
 
 適当なコードを書いているとマイナスに受け取られ書類審査で落ちてしまう可能性をかえって高めてしまう場合もあります。
 

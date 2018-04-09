@@ -66,13 +66,13 @@ JavaScriptは [ECMAScript](https://ja.wikipedia.org/wiki/ECMAScript) という�
 
 ## 学習の進め方
 
-[ojt-node](https://github.com/keita-nishimoto/ojt-node) というリポジトリを作りました。
+[ojt-node](https://github.com/keitakn/ojt-node) というリポジトリを作りました。
 
 こちらを利用して学習を進めて行きましょう。
 
 まずはREADMEの手順の通りに動かしてみて下さい。
 
-※ 動作させるには [こちらの課題](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/linux/task.md) が終わっている必要があります。
+※ 動作させるには [こちらの課題](https://github.com/keitakn/web-developer-ojt/blob/master/docs/linux/task.md) が終わっている必要があります。
 
 ## 学習の際に参考にするリンク
 
@@ -132,7 +132,7 @@ const myName = 'K';
 
 まさにその通りだと私も考えます。
 
-[IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも基礎を重視した学習オススメしています。
+[IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) でも基礎を重視した学習オススメしています。
 
 ### [JavaScript初級者のためのコーディングガイド](https://qiita.com/raccy/items/bf590d3c10c3f1a2846b)
 

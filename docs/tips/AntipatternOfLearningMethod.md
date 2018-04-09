@@ -1,6 +1,6 @@
 # 学習方法のアンチパターン
 
-[IT技術の学習方法](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) では学習方法の具体例等を紹介しましたが、ここで紹介するのは逆にやってはいけない学習方法になります。
+[IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) では学習方法の具体例等を紹介しましたが、ここで紹介するのは逆にやってはいけない学習方法になります。
 
 私の経験を元に書かせて頂きます。
 
