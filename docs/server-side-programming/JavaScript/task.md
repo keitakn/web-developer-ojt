@@ -1,10 +1,10 @@
 # 課題1パスワードジェネレータ機能の作成
 
-[ojt-node](https://github.com/keita-nishimoto/ojt-node) 上にパスワードジェネレータと呼ばれるランダムでパスワードを生成するWebフォームを追加して頂きたいです。
+[ojt-node](https://github.com/keitakn/ojt-node) 上にパスワードジェネレータと呼ばれるランダムでパスワードを生成するWebフォームを追加して頂きたいです。
 
 ## アウトプット
 
-[ojt-node](https://github.com/keita-nishimoto/ojt-node) をcloneして自身のgithubに取り込み、プルリクエストのレビュワーにメンターを追加して下さい。
+[ojt-node](https://github.com/keitakn/ojt-node) をcloneして自身のgithubに取り込み、プルリクエストのレビュワーにメンターを追加して下さい。
 
 ※ フォークすると私のRepositoryに対してプルリクエストを出す事になるので、あくまで自身のRepositoryに対してマージされるようになってしまうので面倒ですが、cloneしてから自身のgithub上に上げる事をオススメします。
 
@@ -46,13 +46,13 @@
 
 逆にHTMLの見た目やデザイン等は手を多少手を抜いて良いです。（今回の課題の本質ではないので）
 
-[ojt-node](https://github.com/keita-nishimoto/ojt-node) のsampleのページではbootstrapというCSSフレームワークを使っています。
+[ojt-node](https://github.com/keitakn/ojt-node) のsampleのページではbootstrapというCSSフレームワークを使っています。
 
 [こちら](http://getbootstrap.com/docs/4.0/components/alerts/) がドキュメントになります。
 
 # 課題2バイナリサーチを行う関数の実装
 
-[ojt-node](https://github.com/keita-nishimoto/ojt-node) 上に [バイナリサーチ](https://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2) を行う関数の実装をお願いします。
+[ojt-node](https://github.com/keitakn/ojt-node) 上に [バイナリサーチ](https://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2) を行う関数の実装をお願いします。
 
 - src/algorithm/search.js内に `binarySearch` を追加
 - src/tests/algorithm/search.test.js内に作った関数のテストコードを追加
@@ -89,7 +89,7 @@
 
 完了の条件を満たしているプルリクエストを送り、メンターのレビューを通過する事。
 
-※ [ojt-node](https://github.com/keita-nishimoto/ojt-node) 上に作成して下さい。
+※ [ojt-node](https://github.com/keitakn/ojt-node) 上に作成して下さい。
 
 ## 完了条件
 
@@ -518,7 +518,7 @@ curl -v http://localhost:3000/api/qiita/items \
 
 このあたりを理解する為にはHTTPの基礎的な知識が必須となります。
 
-本カリキュラムの [HTTP](https://github.com/keita-nishimoto/web-developer-ojt/blob/docs/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
+本カリキュラムの [HTTP](https://github.com/keitakn/web-developer-ojt/blob/docs/master/http/README.md) 等を読み、HTTP通信の基礎を理解しておきましょう。
 
 また `csurf` を利用している場合は `csurf` のドキュメントにも目を通しておきましょう。
 
