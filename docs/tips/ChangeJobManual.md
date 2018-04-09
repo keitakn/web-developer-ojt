@@ -91,7 +91,7 @@ http://kenjasyukatsu.com/mensetsu_situmon
 
 全ての面接対策本がそうだと断言する事は出来ませんが、面接対策本は極めて社畜的な思想が色濃く出ているのが特徴でエンジニアの立場では全く参考になりません。
 
-※　私が考える社畜に関しては [学習方法のアンチパターン](https://github.com/keita-nishimoto/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md) に定義があります。
+※　私が考える社畜に関しては [こちら](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/Shachiku.md) に定義があります。
 
 「私はこういう事が出来ます。あなたには私を雇う事でこのようなメリットがあります」という事が伝えられれば十分です。
 
