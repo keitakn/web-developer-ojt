@@ -274,6 +274,8 @@
 
 - https://twitter.com/dennou_kurage/status/961090246820626444
 - [社畜以外が会社にいるのが許せない! 「ゾンビ型社畜」への対処法](https://news.mynavi.jp/article/datsushachiku-12/)
+- [みんなが不幸になる日本の「同調圧力」は、絶対悪だ](http://www.amamiyashion.com/entry/2016/07/30/193000)
+- [日本の同調圧力は異常すぎる|これでは誰も幸せになれない](https://kaihoudebut.jp/retire/retiremind/7812/)
 
 ## 社畜にならない為にはどうすべきか
 
