@@ -272,10 +272,12 @@
 
 真の強調性とは多様性を認める事、そして自分の強みを活かしてチームに貢献する事です。
 
-- https://twitter.com/dennou_kurage/status/961090246820626444
-- [社畜以外が会社にいるのが許せない! 「ゾンビ型社畜」への対処法](https://news.mynavi.jp/article/datsushachiku-12/)
-- [みんなが不幸になる日本の「同調圧力」は、絶対悪だ](http://www.amamiyashion.com/entry/2016/07/30/193000)
-- [日本の同調圧力は異常すぎる|これでは誰も幸せになれない](https://kaihoudebut.jp/retire/retiremind/7812/)
+同調圧力に支配された組織は少数化の正しい意見が殺され、集団で間違った方向に進む危険性が高いです。
+
+- （参考）https://twitter.com/dennou_kurage/status/961090246820626444
+- （参考）[社畜以外が会社にいるのが許せない! 「ゾンビ型社畜」への対処法](https://news.mynavi.jp/article/datsushachiku-12/)
+- （参考）[みんなが不幸になる日本の「同調圧力」は、絶対悪だ](http://www.amamiyashion.com/entry/2016/07/30/193000)
+- （参考）[日本の同調圧力は異常すぎる|これでは誰も幸せになれない](https://kaihoudebut.jp/retire/retiremind/7812/)
 
 ## 社畜にならない為にはどうすべきか
 
