@@ -117,9 +117,10 @@ ENUMを使うとそのカラムに対する拡張性は完全に失われるの�
 
 - ユーザーID
 - メールアドレス
+- 誕生日
 - 電話番号
 
-この中でユーザーIDとメールアドレスは必須ですが、電話番号の登録が必須ではありません。
+この中でユーザーIDとメールアドレスは必須ですが、誕生日と電話番号の登録が必須ではありません。
 
 さらに以下の条件を満たしている必要があると仮定します。
 
@@ -127,13 +128,15 @@ ENUMを使うとそのカラムに対する拡張性は完全に失われるの�
 - メールアドレスは全ユーザーでユニークになる必要がある
 - 電話番号は1人のユーザーが何個でも登録出来る
 
+ユーザーIDと誕生日を保存するテーブルを考えてみましょう。
+
 普通に考えると下記のようなテーブル構造になります。
 
 ```mysql
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(128) COLLATE utf8mb4_bin NOT NULL,
-  `phone_number` varchar(32) COLLATE utf8mb4_bin,
+  `birthdate` date,
   `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -144,7 +147,7 @@ CREATE TABLE `users` (
 
 結論から言うとこのテーブル構造は良い構造ではありません。
 
-電話番号登録がないユーザー数だけ `phone_number` カラムに `NULL` が登録されます。
+誕生日がないユーザー数だけ `birthdate` カラムに `NULL` が登録されます。
 
 `NULL` は未知を表すデータ型です。
 
@@ -176,10 +179,22 @@ CREATE TABLE `users_emails` (
   CONSTRAINT `fk_users_emails_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
+CREATE TABLE `users_birthdates` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `birthdate` date NOT NULL,
+  `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_users_birthdates_01` (`user_id`),
+  CONSTRAINT `fk_users_birthdates_01` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+
 CREATE TABLE `users_phone_numbers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
-  `phone_number` varchar(32) COLLATE utf8mb4_bin,
+  `phone_number` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `lock_version` int(10) unsigned NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -190,9 +205,9 @@ CREATE TABLE `users_phone_numbers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 ```
 
-テーブルを3つに分けました。
+テーブルを4つに分けました。
 
-これで電話番号を登録しないユーザーがいたとしても、`users_phone_numbers` テーブルにデータが登録されないだけで `NULL` データを回避する事が出来ます。
+これで誕生日を登録しないユーザーがいたとしても、`users_birthdates` テーブルにデータが登録されないだけで `NULL` データを回避する事が出来ます。
 
 さらにこの構造にした事で後で要件が変化してメールアドレスの登録が必須でなくなったとしても対応が可能になっています。
 
@@ -339,6 +354,14 @@ mysql> EXPLAIN SELECT * FROM users_phone_numbers WHERE user_id = 3;
 SQLを作った際は `EXPLAIN` で効率が悪いSQLを書いていないか確認を行いましょう。
 
 ちなみに `UNIQUE KEY` や `PRIMARY KEY` はindexが付いている状態と同様の効果（それ以上の効果）があるので、indexを付ける必要はありません。
+
+さらに高度なテクニックとして `rows_examined` を見て性能を判断する方法もあります。
+
+詳しくは [MySQLのクエリの良し悪しはrows_examinedで判断する](http://blog.kamipo.net/entry/2018/03/22/084126) をご覧下さい。（非常に良い記事です）
+
+データを1件返すだけの比較的単純なSQLであれば `EXPLAIN` で十分です。
+
+複数件のデータを返す可能性があり、かつ性能が求められる場合は上記記事で紹介されている `rows_examined` を確認する事も検討してみて下さい。
 
 #### 全てのカラムにindexを付けるのはダメ
 
