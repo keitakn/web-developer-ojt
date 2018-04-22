@@ -166,7 +166,6 @@
 したくない事に時間を使うのはもったいないのでそれだけは避けるように意識しましょう。
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">1つの社会にしか属さないと視野が狭くなってしまって、理不尽なことでも「自分が悪いのかも…？自分さえ我慢すれば…」ってなっちゃうから、全く関係のない別の組織にいくつか加わっておいた方がいいです。<br>広い視野で判断できるようになるし、1つだめになっても「他いくか」って強くなれるから。</p>&mdash; むちょこ webエンジニア (@aya_lachelier) <a href="https://twitter.com/aya_lachelier/status/985141665038991361?ref_src=twsrc%5Etfw">2018年4月14日</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 権威主義による弊害
 
@@ -286,7 +285,6 @@
 - （参考）[日本の同調圧力は異常すぎる|これでは誰も幸せになれない](https://kaihoudebut.jp/retire/retiremind/7812/)
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「みんな本当は嫌だけど、我慢してやってるからお前も我慢してやれ」というのは最悪のロジックだと思う。これはもはやロジックとは言わず、思考停止というのでは。</p>&mdash; 日野瑛太郎 (@dennou_kurage) <a href="https://twitter.com/dennou_kurage/status/961090246820626444?ref_src=twsrc%5Etfw">2018年2月7日</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 社畜にならない為にはどうすべきか
 
