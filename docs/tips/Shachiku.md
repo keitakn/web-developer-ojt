@@ -165,6 +165,9 @@
 
 したくない事に時間を使うのはもったいないのでそれだけは避けるように意識しましょう。
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">1つの社会にしか属さないと視野が狭くなってしまって、理不尽なことでも「自分が悪いのかも…？自分さえ我慢すれば…」ってなっちゃうから、全く関係のない別の組織にいくつか加わっておいた方がいいです。<br>広い視野で判断できるようになるし、1つだめになっても「他いくか」って強くなれるから。</p>&mdash; むちょこ webエンジニア (@aya_lachelier) <a href="https://twitter.com/aya_lachelier/status/985141665038991361?ref_src=twsrc%5Etfw">2018年4月14日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## 権威主義による弊害
 
 社畜が持つ特徴の中で最も悪影響なのがこの権威主義です。
