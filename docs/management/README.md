@@ -117,6 +117,28 @@
 
 ### 年齢という概念に囚われ過ぎている
 
+無能なマネージャーは必要以上に年齢を気にします。
+
+例えば下記のような発言です。
+
+- もう◯◯歳なんだからそろそろ管理職にならないと
+- あいつはまだ若いからリーダーは早いな
+- もういい歳なのにまだこんな事やってるのか
+
+見破る特徴として、やたらと人に年齢を聞いたりするのが特徴的です。
+
+このようなマネージャーには注意したほうが良いでしょう。
+
+業務遂行において能力があるかないかが全てであり、その人が何歳であるかは全く関係がありません。
+
+そんな無能なマネージャーには下記のTweetを見せましょう。
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">agree to disagreeなんだけど「もう○歳なのだから、○○すべきだ」みたいなラベルは自分だけに貼ってほしいよね。<br>年齢が価値だと思う人もいれば、そうでない人もいる。<br>生きて重ねた月日を「いい歳」なんて言わないでほしいよね。</p>&mdash; あやにー / Ayaka Kato (@ayanie_jp) <a href="https://twitter.com/ayanie_jp/status/987695234703179776?ref_src=twsrc%5Etfw">2018年4月21日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「もう○歳なのに」とか「いい歳して」みたいな年齢フィルタリングをしていいのは自分自身に対してだけで、他人にするのはとても失礼で侮辱的な行為。<br><br>セクハラやパワハラなどいろんなハラスメントが話題になりますが全てにおいて「他人を自分軸で評価、批判する」が根本なんじゃないか、と。</p>&mdash; あやにー / Ayaka Kato (@ayanie_jp) <a href="https://twitter.com/ayanie_jp/status/987694370420736001?ref_src=twsrc%5Etfw">2018年4月21日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">中学卒業したばかりの15歳の女の子でも、GitHubに公開されたソースコードがすごかったら、年収800万で即採用するIT企業なんてたくさんある。GitHub採用主義というトレンドは、学歴偏重も性差別も年功序列も全てを吹き飛ばす究極に風通しのいい社会を創り出すすごい社会的イノベーションだと思う。</p>&mdash; ふろむだ🍀執筆中 (@fromdusktildawn) <a href="https://twitter.com/fromdusktildawn/status/971637800817717248?ref_src=twsrc%5Etfw">2018年3月8日</a></blockquote>
+
 ## マネジメントで生きるという選択肢について
 
 ## 無能なマネージャーが多い理由
