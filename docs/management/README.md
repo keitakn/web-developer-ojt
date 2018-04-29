@@ -236,6 +236,10 @@
 
 こういう考え方はリモートワーク導入の足枷にしかならないので本当に止めて欲しいです。
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">日本の働き方がいびつなのは出社時間には厳しいけど退社時間にはゆるいところ。働き方改革では退社時間を厳しくする方向になっているけど、エンジニアのようなアウトプットを重視する職種の場合、退社時間の厳格化ではなく出社時間の寛容化のほうがパフォーマンスは上がると思う。</p>&mdash; ひさじゅ@すたてく社長（PG） (@hisaju01) <a href="https://twitter.com/hisaju01/status/983853956991369216?ref_src=twsrc%5Etfw">2018年4月10日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">社員を性悪説で管理しなくてはいけないような会社はマネジメント能力が足りてないか採用が間違ってるかのどっちかだな。営業の売り上げ目標も開発の納期もキツキツにしないで3年トラブルも退職者もないよ。</p>&mdash; INST石野@29日は大原イサキ (@ishiko618) <a href="https://twitter.com/ishiko618/status/968603938411835392?ref_src=twsrc%5Etfw">2018年2月27日</a></blockquote>
+
 ## マネジメントで生きるという選択肢について
 
 マネージャーになりたいという人はそれを目指すのも良いでしょう。
