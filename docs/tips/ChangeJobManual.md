@@ -667,6 +667,8 @@ https://kimisuka.com/contents/column/2513
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">ブラック企業と言うのは低賃金、高残業などの待遇面だけではありません。<br><br>短観的な物の見方を押し付け、社員を世間知らずにして見えない鎖に繋ぐやり方もあります。<br><br>自分の手綱を自分で持てない会社も十分ブラック体質です。社員なのだから会社の方針に完全に従えと言うのは、ただの奴隷契約です。</p>&mdash; 金子 周平 (@skaneko414) <a href="https://twitter.com/skaneko414/status/990784684719144960?ref_src=twsrc%5Etfw">2018年4月30日</a></blockquote>
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/kimutakura?ref_src=twsrc%5Etfw">@kimutakura</a> 私の経験では生産性を発揮させるのに有効なのは強制ではなく自由です。規範は必要なこともあるでしょうが、あくまでも自発的なものです。</p>&mdash; Yukihiro Matsumoto (@yukihiro_matz) <a href="https://twitter.com/yukihiro_matz/status/24545235240?ref_src=twsrc%5Etfw">2010年9月15日</a></blockquote>
+
 ### 避けたほうが良い企業まとめ
 
 正直正確に判定するのはかなり難しいです。
