@@ -223,4 +223,10 @@ PRを細かい単位で出すように心がければ、1日30分程度の作業
 （参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
 （参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
 
+# アンチパターン
+
+## 無理にモチベーションを上げようとしない
+
+## 他者にモチベーションを依存しない
+
 # 最後の言葉
