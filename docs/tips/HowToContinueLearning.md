@@ -146,8 +146,81 @@ Twitterやブログで情報発信を行っている時点で学習している�
 
 ## 学習を習慣化する
 
+モチベーションを高める事は重要ですが、モチベーションというのは時間と共に低下していくのが普通です。
+
+よってモチベーションだけで学習を継続する事はかなり難しいでしょう。
+
+モチベーションに依存せず学習を続ける為の方法として学習を習慣化してしまう方法があります。
+
+毎日歯を磨かないと気持ち悪いような感覚で学習をしないと気持ち悪いとか、落ち着かないという状態を目指しましょう。
+
 ### 1日1つアウトプットを出す
 
+毎日必ず1つのアウトプットを出すようにしましょう。
+
+アウトプットは何でも構いませんが、インターネット上で公開出来る形になっている事が重要です。
+
+例えば下記のような物です。
+
+- ブログやQiitaの記事
+- GitHub上のPR
+
+何でも構いません、とにかく1日1アウトプットのルールを自分の中に作りましょう。
+
 ### GitHubを用いた方法の紹介
+
+私が行っているGitHub学習法を紹介します。
+
+私は定期的にGitHubにコードを上げています。
+
+GitHubにはcontributionを可視化する機能があります。
+
+[GitHubAccount](https://github.com/keitakn) の「contributions in the last year」という部分に注目して下さい。
+
+![contributions](https://user-images.githubusercontent.com/11032365/39643278-3bbae83c-500f-11e8-9b91-c9c3cb4191f3.png)
+
+緑色の部分が直近1年間でのGitHub活動履歴です。（PCで見ないと見れません）
+
+濃い緑色になっている日は活動回数が多く、白になっている部分は活動していない事を示しています。
+
+contributionが増える条件は [こちら](https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/) になります。
+
+簡単に言うと、主に以下の行動でcontributionが増えます。
+
+- GitHub上でPRを作成する
+- GitHub上にコミットを行う（masterにマージする）
+- GitHub上でissueを追加する
+
+[IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) にも書いてあるようにアウトプットによる学習効果は非常に大きいのでオススメです。
+
+また完全に自己満足ですが、contributionが可視化されるのはモチベーション維持効果があります。
+
+書くコードの内容は何でも構いません、例えば下記のような物です。
+
+- 有名なアルゴリズムを色んな言語で書いた物
+- 書籍のサンプルコードを [写経](https://qiita.com/yuya_takeyama/items/b8a8c548a4a1c6a05531) した物
+- [paiza](https://paiza.jp/) 等のオンラインサービスの問題
+- [ドットインストール](https://dotinstall.com/) のレッスン内容
+- Webフレームワークのチュートリアル
+- Webフレームワークの[ボイラーテンプレート](https://qiita.com/re-fort/items/0f0695fd30c80fc0a4b1)
+- オープンソースで公開されているライブラリへのコミット
+- 自作したオープンソースのライブラリ
+
+[IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) にも書いてありますが、現時点で自身の持てる最高のコードを書くように心がけて下さい。
+
+ただし極端に完璧主義に走るとコードを書く事自体にストレスを感じるようになります。
+
+あくまで自分が出来る範囲で大丈夫です。
+
+数ヶ月後に自分が書いた過去のコードを見て、それがダメだと感じるならば、自分が成長している証拠です。
+
+PRを細かい単位で出すように心がければ、1日30分程度の作業でも十分に続ける事が可能です。
+
+とにかく毎日継続する事が一番大切です。
+
+下記の記事も参考になるので是非読んでみて下さい。
+
+（参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
+（参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
 
 # 最後の言葉
