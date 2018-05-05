@@ -205,6 +205,7 @@ contributionが増える条件は [こちら](https://help.github.com/articles/w
 - Webフレームワークの[ボイラーテンプレート](https://qiita.com/re-fort/items/0f0695fd30c80fc0a4b1)
 - オープンソースで公開されているライブラリへのコミット
 - 自作したオープンソースのライブラリ
+- [til（Today I Leaned）](https://qiita.com/sta/items/c69d73fb1bb781fe6b9c#til) リポジトリを作成して学習記録を付ける
 
 [IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md) にも書いてありますが、現時点で自身の持てる最高のコードを書くように心がけて下さい。
 
