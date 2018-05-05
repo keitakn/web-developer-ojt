@@ -308,3 +308,7 @@ IT技術は進化のスピードが早いので、学習に終わりはありま
 その為には学習を習慣化する事が必要になります。
 
 毎日30分でも良いので、何らかの行動（記事を読む、書籍を読む、コードを書く）等を行いましょう。
+
+[学習を続けるコツ](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/HowToContinueLearning.md) という記事を書いてあります。
+
+こちらも参考に学習を継続する事を目指しましょう。
