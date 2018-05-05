@@ -221,8 +221,8 @@ PRを細かい単位で出すように心がければ、1日30分程度の作業
 
 下記の記事も参考になるので是非読んでみて下さい。
 
-（参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
-（参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
+- （参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
+- （参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
 
 # アンチパターン
 
