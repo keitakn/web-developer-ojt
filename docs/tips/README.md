@@ -12,6 +12,7 @@
 
 - [IT技術の学習方法](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ITSkillLearningMethod.md)
 - [学習方法のアンチパターン](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/AntipatternOfLearningMethod.md)
+- [学習を続けるコツ](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/HowToContinueLearning.md)
 - [オススメの書籍](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/RecommendedBooks.md)
 
 # 古い常識に囚われる事の危険性を書いた記事

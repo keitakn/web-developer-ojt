@@ -78,7 +78,7 @@ Twitterやブログで情報発信を行っている時点で学習している�
 
 一日の学習を終えてから見る等、ある程度時間を区切る事が必要不可欠です。
 
-## 無駄な仕事ばかりさせる会社は辞めてしまう
+### 無駄な仕事ばかりさせる会社は辞めてしまう
 
 会社の仕事をこなすだけで疲弊して学習を出来ないくらいなら辞めてしまいましょう。
 
@@ -131,7 +131,7 @@ Twitterやブログで情報発信を行っている時点で学習している�
 
 学習を続けられるかどうかは自分自身を信じ続けるかどうかも大きく影響してきます。
 
-## 絶対になりたくない状態を考えておく
+### 絶対になりたくない状態を考えておく
 
 「人生の目標を明確にする」とは逆のアプローチです。
 
@@ -221,8 +221,8 @@ PRを細かい単位で出すように心がければ、1日30分程度の作業
 
 下記の記事も参考になるので是非読んでみて下さい。
 
-（参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
-（参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
+- （参考）[毎日コードを書いてGitHubのcontributionを途切らせないようにしている](https://queryok.ikuwow.com/entry/everyday-commit/)
+- （参考）[Githubで草を生やし続けるためのコツ：目的編](https://findy-code.io/engineer-lab/github-kusa-kotsu-mokuteki)
 
 # アンチパターン
 
