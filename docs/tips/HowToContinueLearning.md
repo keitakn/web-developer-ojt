@@ -162,8 +162,8 @@ Twitterやブログで情報発信を行っている時点で学習している�
 
 例えば下記のような物です。
 
-- ブログやQiitaの記事
-- GitHub上のPR
+- ブログや [Qiita](https://qiita.com) の記事
+- [GitHub](https://github.com/keitakn) 上のPR
 
 何でも構いません、とにかく1日1アウトプットのルールを自分の中に作りましょう。
 
