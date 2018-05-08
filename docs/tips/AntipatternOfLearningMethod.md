@@ -162,3 +162,35 @@ Don't think. Take action.
 交流会も全否定ではありません。
 
 それが縁で仕事をゲット出来る場合もありますし、一緒に学習する仲間が出来る可能性もありますのでたまに参加するなら良いでしょう。
+
+## アンチパターン8「資格を取る事を学習だと勘違いする」
+
+これに関して良い記事があったので紹介します。
+
+まずは [ITエンジニアに資格は必要ない理由。勉強してる暇あったら発信しろ。](https://www.ryukke.com/?p=5418) という記事を見て下さい。
+
+記事の主張をまとめると以下の通りです。
+
+- アウトプットをする事はインプットにもなる
+- 資格の費用対効果は薄い
+- 資格の勉強をするくらいならGitHubでコードを書いたほうが良い
+
+この記事、少々言葉は荒いですが、私は共感出来る内容だと感じました。
+
+記事に載っていない事を補足すると、IT資格というのは基本的に暗記すれば合格出来るようになっています。
+
+`アンチパターンその1「暗記しようとする」` でも述べましたが、そもそも暗記自体がアンチパターンです。
+
+機械が出来る事をわざわざ人間が頑張る必要はありません。（把握するレベルの事は必要ですが）
+
+資格の勉強で得られるのは知識だけです。
+
+「知識だけ」の状態と「実際に動く物を作れる」という状態は天と地ほど差があります。
+
+資格はある種の権威になりますので権威主義者の中には資格に固執する人もいますが、個人的には完全にアンチパターンだと考えます。
+
+資格の勉強をするくらいならGItHubでコードを書いたり、自作アプリを公開したほうが学習効果の面でも営業効果の面でも有効でしょう。
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">イケてるIT企業は、どこも、ITの資格なんてゴミだと思ってますよ。彼らがなによりも信じているのは、GitHubに公開されたソースコードです。ソースコード＝実力で、それ以外のものはゴタクです。 <a href="https://twitter.com/hashtag/peing?src=hash&amp;ref_src=twsrc%5Etfw">#peing</a> <a href="https://twitter.com/hashtag/%E8%B3%AA%E5%95%8F%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw">#質問箱</a> <a href="https://t.co/6P2RJovnb6">https://t.co/6P2RJovnb6</a> <a href="https://t.co/INFhmqnsBo">pic.twitter.com/INFhmqnsBo</a></p>&mdash; ふろむだ🍀執筆中 (@fromdusktildawn) <a href="https://twitter.com/fromdusktildawn/status/971634576501047297?ref_src=twsrc%5Etfw">2018年3月8日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">中学卒業したばかりの15歳の女の子でも、GitHubに公開されたソースコードがすごかったら、年収800万で即採用するIT企業なんてたくさんある。GitHub採用主義というトレンドは、学歴偏重も性差別も年功序列も全てを吹き飛ばす究極に風通しのいい社会を創り出すすごい社会的イノベーションだと思う。</p>&mdash; ふろむだ🍀執筆中 (@fromdusktildawn) <a href="https://twitter.com/fromdusktildawn/status/971637800817717248?ref_src=twsrc%5Etfw">2018年3月8日</a></blockquote>
