@@ -51,6 +51,16 @@ ISBNとは書籍に必ず設定されている識別子のようなモノです�
 
 厳密にはISBNから出版社の情報や書名記号等が分かるようになっているのですが、サンプルコードを単純化する為、そのあたりの仕様は考慮に入れない事とします。
 
+クラス図で表すと次のようになります。
+
+![web-developer-ojt-oop](https://user-images.githubusercontent.com/11032365/40579336-34cca5ee-6160-11e8-806d-674989893140.jpg)
+
+クラス名が日本語で書いてありますが実際の実装は [こちら](https://github.com/keitakn/design-pattern-tips/tree/master/src/oop/basic) を参照して下さい。
+
+クラス図の見方ですが厳密に覚える必要はありません。
+
+[こちらのサイト](http://www.itsenka.com/contents/development/uml/class.html) に載っている事をざっくりと理解しているレベルで十分です。
+
 # オブジェクト指向の原則
 
 オブジェクト指向で設計出来ているかを判断する為には自分が書いたコードを見て下記の原則に当てはまっているかをチェックすると良いでしょう。
