@@ -270,6 +270,116 @@ export default class Author {
 
 ## カプセル化
 
+[オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e) の説明ではカプセル化は最も難しく最も理解が難しいとされています。
+
+カプセル化とは複雑なロジックを閉じ込めて、分かりやすいインターフェースだけを公開するという事です。
+
+プログラミング言語だけで説明しようと難しいのですが、現実世界を見渡すとカプセル化で溢れている事に気が付きます。
+
+例えば洗濯機を例に説明します。
+
+洗濯機を使う人間にとっては選択物を中に入れてボタンを押すだけで洗濯が完了します。
+
+洗濯機は中で色々複雑な動作を行っていますが、それを利用者である人間が知っている必要はありません。
+
+人間が意識しなければいけないのは以下の3点くらいです。
+
+- 洗濯物を入れる
+- 洗剤や柔軟剤を入れる
+- ボタンを押す
+
+人間は洗濯機の使い方だけ知っていれば良くて洗濯の方法は知りません。
+
+洗濯の方法は洗濯機だけが知っています。
+
+これがカプセル化です。
+
+サンプルコードを例に説明します。
+
+書籍オブジェクトが保持しているオブジェクトの1つに価格オブジェクトがあります。
+
+以下のような実装になっています。
+
+```typescript
+export default class Price {
+  private readonly _excludingTaxPrice: number;
+  private readonly _taxRate: number;
+
+  constructor(excludingTaxPrice: number, taxRate: number) {
+    this._excludingTaxPrice = excludingTaxPrice;
+    this._taxRate = taxRate;
+  }
+
+  get excludingTaxPrice(): number {
+    return this._excludingTaxPrice;
+  }
+
+  get taxRate(): number {
+    return this._taxRate;
+  }
+
+  /**
+   * 税込み価格を計算する
+   *
+   * @returns {number}
+   */
+  calculateIncludingTaxPrice(): number {
+    // taxRateを1.08のように設定すると誤差が出るので108のように渡す事
+    // （参考）https://qiita.com/jkr_2255/items/0ca7bc536d930f83a901
+    return Math.round(this.excludingTaxPrice * this.taxRate / 100);
+  }
+}
+```
+
+税込み価格を計算するには下記のようにします。
+
+```typescript
+const isbn = new Isbn("978-4-06-319239-1");
+const title = new Title("ちはやふる", "第1巻");
+const price = new Price(463, 108);
+const author = new Author("由紀", "末次");
+
+const comic = new Comic(isbn, title, price, author);
+
+// 税込み価格を表示する
+console.log(comic.price.calculateIncludingTaxPrice());
+```
+
+`Comic` クラスは税込み価格の計算方法を知りません。
+
+ただ、価格オブジェクトの `calculateIncludingTaxPrice` を呼び出したら税込み価格が計算されるという事は分かります。
+
+これが分かるのは `calculateIncludingTaxPrice` が公開（public）メソッドになっているからです。
+
+一方、価格クラスは税込み価格の計算方法を知っています。
+
+他のオブジェクトにその方法を教えるために `calculateIncludingTaxPrice` をpublicメソッドにしています。
+
+こうする事で他のオブジェクトは消費税の計算方法を知らなくても税込み価格が分かるようになります。
+
+カプセル化を意識する為には以下の2点を意識すると良いです。
+
+- クラスの役割は1つにする事（[単一責任の原則](https://qiita.com/gomi_ningen/items/02c42e2487d035f9c3c8)）
+- [良い名前をつける](https://qiita.com/tutinoco/items/85641c0819d813186f9d)
+
+クラスの役割が2つ以上あると他オブジェクトに公開するpublicメソッドが複雑になりがちです。
+
+操作が簡単で分かりやすいのは重要です。
+
+洗濯機の操作が複雑で熟練者しか扱えない物だとしたら誰も洗濯機を買わないでしょう。
+
+[オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e) に良い例えがあったので抜粋します。
+
+>十得ナイフは便利ですが、コンピュータの世界において十得ナイフは必要ありません。もし現実世界においても四次元ポケットが存在したら十得ナイフはいらなくなるでしょう。栓抜きを必要とした時、四次元ポケットから何を取り出すでしょうか？わざわざ十得ナイフを取り出して十得ナイフの栓抜きを使うようなことをするでしょうか？答えはNOです。四次元ポケットからは栓抜きを取り出して使います。
+
+>このようにコンピュータの世界は四次元ポケットが存在する世界なので「なんでもできる便利な道具」より「何ができるか明確な道具」の方が利便性が高まることになります。プログラミングの世界では欲しい時に欲しいものを手に入れることができるため、十得ナイフのような複数の異なる役割を持ったクラスやモジュールは必要ないのです。
+
+「良い名前をつける」事は使いやすいオブジェクトを作る上で重要です。
+
+`Price` という名前を見れば、価格に関する情報や振る舞いがある事を推測出来ます。
+
+もしも `Price` というクラスに作者の情報が入っていたら意味不明です。
+
 # オブジェクト指向で使えるデザインパターン
 
 # 参考資料
