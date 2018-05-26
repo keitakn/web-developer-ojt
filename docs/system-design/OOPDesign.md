@@ -69,6 +69,84 @@ ISBNとは書籍に必ず設定されている識別子のようなモノです�
 
 ## 継承
 
+プログラミング言語には継承の機能があります。
+
+`extends` という構文を利用する事で継承元の親クラスの機能を引き継ぐ事が出来ます。
+
+この機能を引き継ぐという部分に着目しがちですが、継承の本質はインターフェースになります。
+
+書籍（Book）の定義は下記のようになっています。
+
+```typescript
+import Isbn from "./Isbn";
+import Price from "./Price";
+import Title from "./Title";
+
+export default interface Book {
+  isbn: Isbn;
+  title: Title;
+  price: Price;
+}
+```
+
+このインターフェースを定義する事で「サンプルプログラムの仕様説明」にあった「書籍はISBN、タイトル、価格を持つ」という部分を表しています。
+
+例として雑誌を表すクラスの実装例を見てみましょう。
+
+```typescript
+import Book from "./Book";
+import Isbn from "./Isbn";
+import Title from "./Title";
+import Price from "./Price";
+
+export default class Magazine implements Book {
+  private readonly _isbn: Isbn;
+  private readonly _title: Title;
+  private readonly _price: Price;
+
+  constructor(isbn: Isbn, title: Title, price: Price) {
+    this._isbn = isbn;
+    this._title = title;
+    this._price = price;
+  }
+
+  get isbn(): Isbn {
+    return this._isbn;
+  }
+
+  get title(): Title {
+    return this._title;
+  }
+
+  get price(): Price {
+    return this._price;
+  }
+}
+```
+
+`implements Book` という部分が `Book` インターフェースを利用しますよという意味です。
+
+もしも `Book` がインターフェースではなくクラスであった場合は `extends` を使う事になります。
+
+どちらの場合も本質的には書籍（book）という抽象的なインターフェースを用意して漫画とか雑誌等のより具体的なオブジェクトを生成出来るようにしています。
+
+継承を理解する上で大切な概念があります。
+
+[is-a](https://ja.wikipedia.org/wiki/Is-a) という概念です。
+
+この場合だと以下の2つが成り立っています。
+
+- 書籍は漫画である
+- 漫画は書籍である
+
+こうして言葉にしてみると当たり前の事を言っているように聞こえます。
+
+しかし私はこの基本原則が守られていない現場を多く見た事があります。
+
+そのような現場では書籍クラスを継承して「ファイナルファンタジー」というゲームソフトクラスを作る等の [is-a](https://ja.wikipedia.org/wiki/Is-a) 原則を完全に無視した実装が平気で行われています。
+
+このような実装を行ってしまうと後で見た人（将来の自分も含む）が理解しにくいコードになってしまうので避けるようにしましょう。
+
 ## ポリモーフィズム
 
 ## カプセル化
