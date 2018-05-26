@@ -149,6 +149,125 @@ export default class Magazine implements Book {
 
 ## ポリモーフィズム
 
+継承の本質はインターフェイスという事を先程説明しました。
+
+ポリモーフィズムとはインターフェースに依存するようにプログラムを書きましょう。という事です。
+
+サンプルプログラムで説明します。
+
+先程はBookインターフェースを具象化した「雑誌クラス」を例に出しましたが今度は同じように作られている「漫画クラス」を例に説明します。
+
+漫画クラスの実装は下記になります。
+
+```typescript
+import Book from "./Book";
+import Isbn from "./Isbn";
+import Price from "./Price";
+import Title from "./Title";
+import Author from "./Author";
+
+/**
+ * 漫画クラス
+ */
+export default class Comic implements Book {
+  private readonly _isbn: Isbn;
+  private readonly _title: Title;
+  private readonly _price: Price;
+  private readonly _author: Author;
+
+  constructor(isbn: Isbn, title: Title, price: Price, author: Author) {
+    this._isbn = isbn;
+    this._title = title;
+    this._price = price;
+    this._author = author;
+  }
+
+  get isbn(): Isbn {
+    return this._isbn;
+  }
+
+  get title(): Title {
+    return this._title;
+  }
+
+  get price(): Price {
+    return this._price;
+  }
+
+  get author(): Author {
+    return this._author;
+  }
+
+  /**
+   * 作者のフルネームを取得する
+   *
+   * @returns {string}
+   */
+  extractAuthorFullName(): string {
+    return this.author.fullName(this.isbn);
+  }
+}
+```
+
+雑誌クラスとは違い「Author」という作者を表すオブジェクトを保持しています。
+
+作者クラスの実装は下記のようになります。
+
+```typescript
+import Isbn from "./Isbn";
+
+export default class Author {
+  private readonly _givenName: string;
+  private readonly _familyName: string;
+
+  constructor(givenName: string, familyName: string) {
+    this._givenName = givenName;
+    this._familyName = familyName;
+  }
+
+  get givenName(): string {
+    return this._givenName;
+  }
+
+  get familyName(): string {
+    return this._familyName;
+  }
+
+  /**
+   * 作者のフルネームを取得する
+   *
+   * @param {Isbn} isbn
+   * @returns {string}
+   */
+  fullName(isbn?: Isbn): string {
+    // 書籍の言語が日本語の場合だけ姓、名の順番で返す
+    if (isbn != null && isbn.extractLanguage() === "ja") {
+      return `${this.familyName} ${this.givenName}`;
+    }
+
+    return `${this.givenName} ${this.familyName}`;
+  }
+}
+```
+
+雑誌は特定の作者がいないので作者オブジェクトを保持していません。
+
+しかし漫画は通常、作者がいるので漫画クラスだけが作者オブジェクトを保持しているような実装になっています。
+
+前置きが長くなりましたがここからが本題です。
+
+例えば書籍を購入する処理を作るとします。
+
+その際、Bookインターフェースに定義されている情報のみに依存して作るのがポリモーフィズムです。
+
+「書籍を購入する」行為は「雑誌」と「漫画」両方で同じハズです。
+
+よって雑誌オブジェクト、漫画オブジェクトどちらでも同じように購入出来るのがベストです。
+
+もっと言うなら将来「参考書オブジェクト」が出てきても購入処理を修正しなくても良いのがベストです。
+
+「雑誌」や「漫画」等の具象化したモノではなく「書籍」という抽象（インターフェース）に依存するのが、ポリモーフィズムです。
+
 ## カプセル化
 
 # オブジェクト指向で使えるデザインパターン
