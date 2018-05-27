@@ -386,6 +386,22 @@ console.log(comic.price.calculateIncludingTaxPrice());
 
 # オブジェクト指向で使えるデザインパターン
 
+ここまでオブジェクト指向の原則を説明してきました。
+
+これらを実際のプログラムに落とし込む為には色々と試行錯誤が必要になります。
+
+既に先人達が作り上げている [デザインパターン](https://techacademy.jp/magazine/9195) を参考にすると良いでしょう。
+
+有名な物として [GoF](http://www.techscore.com/tech/DesignPattern/index.html/) や [ドメイン駆動設計](https://www.ogis-ri.co.jp/otc/hiroba/technical/DDDEssence/chap1.html) があります。
+
+これらのパターンを全て覚える必要はありません。
+
+重要なのはデザインパターンを覚える事ではなく、オブジェクト指向の原則に則って設計を行う事です。
+
+デザインパターンというのはあくまでも手段である事を忘れないようにしましょう。
+
+ここではサンプルプログラムで使っているデザインパターンを紹介します。
+
 # 参考資料
 - [オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
 - [ISBNとは？ 「978」から始まるISBNコードの意味](http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html)
