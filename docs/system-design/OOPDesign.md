@@ -634,6 +634,87 @@ console.log(priceEntity);
 
 GOFのBuilderパターンよりも実装が分かりやすいので個人的にはこちらを利用する事を推奨します。
 
+## [Factories（ファクトリ）パターン](https://www.ogis-ri.co.jp/otc/hiroba/technical/DDDEssence/chap2.html#Factories)
+
+オブジェクトを `new` 生成する処理をカプセル化する事で複雑性を閉じ込めるパターンです。
+
+業務ロジックが記載されているオブジェクトをドメインオブジェクトと呼びますが、業務ロジックが複雑になるとドメインオブジェクトの組み立ても複雑になる傾向が強いです。
+
+そんな時に利用するのがファクトリパターンです。
+
+以下のような実装例になります。
+
+```typescript
+import IsbnFactory, { IsbnCreateParams } from "./IsbnFactory";
+import TitleFactory, { TitleCreateParams } from "./TitleFactory";
+import PriceFactory, { PriceCreateParams } from "./PriceFactory";
+import AuthorFactory, { AuthorCreateParams } from "./AuthorFactory";
+import { Comic } from "../Comic";
+
+/**
+ * ComicFactory.create IF
+ */
+export interface ComicCreateParams {
+  isbnCreateParams: IsbnCreateParams;
+  titleCreateParams: TitleCreateParams;
+  priceCreateParams: PriceCreateParams;
+  authorCreateParams: AuthorCreateParams;
+}
+
+/**
+ * ComicFactory
+ */
+export default class ComicFactory {
+  /**
+   * 漫画オブジェクトを生成する
+   *
+   * @param {ComicCreateParams} params
+   * @returns {Comic.Entity}
+   */
+  static create(params: ComicCreateParams) {
+    const isbn = IsbnFactory.create(params.isbnCreateParams);
+    const title = TitleFactory.create(params.titleCreateParams);
+    const price = PriceFactory.create(params.priceCreateParams);
+    const author = AuthorFactory.create(params.authorCreateParams);
+
+    const comicBuilder = new Comic.Builder();
+    comicBuilder.isbn = isbn;
+    comicBuilder.title = title;
+    comicBuilder.author = author;
+    comicBuilder.price = price;
+
+    return comicBuilder.build();
+  }
+}
+```
+
+利用する時は下記のように利用します。
+
+```typescript
+const createParams = {
+  isbnCreateParams: { isbn: "978-1-40-127734-5" },
+  titleCreateParams: { mainTitle: "Batman", subTitle: "1" },
+  priceCreateParams: { excludingTaxPrice: 100, taxRate: 110 },
+  authorCreateParams: { givenName: "Bob", familyName: "Kane" }
+};
+
+const comic = ComicFactory.create(createParams);
+// Comicクラスのインスタンスが生成される
+console.log(comic);
+```
+
+それなりに複雑なオブジェクトの組み立ても比較的スッキリ書けている事が分かります。
+
+`new` する箇所が増えれば増えるほどオブジェクト同士の依存度は高くなりメンテナンス性が低下します。（ポリモーフィズムが守られなくなる）
+
+ファクトリパターンはそれを防ぐ役割を果たします。
+
+ちなみにファクトリパターンには [Factory Method](https://www.ogis-ri.co.jp/otc/hiroba/technical/DesignPatternsWithExample/chapter04.html) や [Abstract Factory](https://qiita.com/morimotof/items/67a9e2a8d7e15ea321d2) など種類がいくつか存在します。
+
+（参考）[Factory Method と Abstract Factory の違いを順に理解する](http://futurismo.biz/archives/2805/)
+
+初心者のうちは細かな違いではなく、オブジェクトの生成を一箇所に集約するパターンだと覚えておけば良いでしょう。
+
 # 参考資料
 - [オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
 - [ISBNとは？ 「978」から始まるISBNコードの意味](http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html)
