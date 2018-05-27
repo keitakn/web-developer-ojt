@@ -402,6 +402,82 @@ console.log(comic.price.calculateIncludingTaxPrice());
 
 ここではサンプルプログラムで使っているデザインパターンを紹介します。
 
+## [Value Objects（値オブジェクト）パターン](https://www.ogis-ri.co.jp/otc/hiroba/technical/DDDEssence/chap2.html#ValueObjects)
+
+`new` されたオブジェクトが後から変更出来ないように作る事です。
+
+このような性質をimmutableと言います。
+
+一度設定されたオブジェクトのプロパティを上書き出来ないようにすれば良いので以下のような形で実装します。
+
+- コンストラクタ（オブジェクトが生成される時に必ず呼ばれる処理）で生成に必要な値を全て受け取る
+- [getter／setter](https://qiita.com/katolisa/items/6cfd1a2a87058678d646) のsetterを実装しない
+
+実装例としては以下のような形です。
+
+```typescript
+/**
+ * 価格クラス
+ */
+export default class Price {
+  /**
+   * 税抜き価格
+   */
+  private readonly _excludingTaxPrice: number;
+
+  /**
+   * 税率
+   */
+  private readonly _taxRate: number;
+
+  /**
+   * @param {number} excludingTaxPrice
+   * @param {number} taxRate
+   */
+  constructor(excludingTaxPrice: number, taxRate: number) {
+    this._excludingTaxPrice = excludingTaxPrice;
+    this._taxRate = taxRate;
+  }
+
+  /**
+   * @returns {number}
+   */
+  get excludingTaxPrice(): number {
+    return this._excludingTaxPrice;
+  }
+
+  /**
+   * @returns {number}
+   */
+  get taxRate(): number {
+    return this._taxRate;
+  }
+
+  /**
+   * 税込み価格を計算する
+   *
+   * @returns {number}
+   */
+  calculateIncludingTaxPrice(): number {
+    // taxRateを1.08のように設定すると誤差が出るので108のように渡す事
+    // （参考）https://qiita.com/jkr_2255/items/0ca7bc536d930f83a901
+    return Math.round(this.excludingTaxPrice * this.taxRate / 100);
+  }
+}
+```
+
+`_excludingTaxPrice` と `_taxRate` を `constructor` で受け取り属性を `readonly` を設定する。
+
+さらに `setter` を実装しない事により `immutable` なオブジェクトを実現しています。
+
+私は基本的にオブジェクトは全て `immutable` にするべきと考えています。
+
+後で上書きが出来るオブジェクトはバグの温床になったり、マルチスレッドでプログラミングする際のバグの温床になるからです。
+
+ただコンストラクタで値を全て受け取る関係上、引数が増えてしまう事があります。
+
+その場合は別のデザインパターンで解決を行います。
+
 # 参考資料
 - [オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
 - [ISBNとは？ 「978」から始まるISBNコードの意味](http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html)
