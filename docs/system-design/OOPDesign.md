@@ -480,6 +480,160 @@ export default class Price {
 
 その場合は別のデザインパターンで解決を行います。
 
+# Builderパターン
+
+先程、Value Objects（値オブジェクト）パターンでオブジェクトは全て `immutable` にするべきという主張をしました。
+
+しかしそうすると、コンストラクタの引数が非常に多くなってしまう問題があります。
+
+引数が多いと引数の順番を意識しなければならかなったり、引数の順番を間違えて予期しない動作を招く事になりがちです。
+
+これらを解決する為に用いるのがBuilderパターンです。
+
+生成したいオブジェクトと対になるBuilderクラスを作成して、Builderクラスに必要な値を全てセットします。
+
+Builderクラスには必ず `build()` メソッドを実装します。
+
+生成したいオブジェクト本体はBuilderクラスだけをコンストラクタで受け取って必要な値を自身のプロパティにセットします。
+
+具体的な実装を見てみましょう。
+
+先程の `Price` クラスをBuilderパターンで実装すると下記のようになります。
+
+```typescript
+/**
+ * 価格
+ */
+export namespace Price {
+  /**
+   * Price Builder Class
+   */
+  export class Builder {
+    /**
+     * 税抜き価格
+     */
+    private _excludingTaxPrice: number;
+
+    /**
+     * 税率
+     */
+    private _taxRate: number;
+
+    /**
+     * PriceBuilder constructor
+     */
+    constructor() {
+      this._excludingTaxPrice = 100;
+      this._taxRate = 108;
+    }
+
+    /**
+     * @returns {number}
+     */
+    get excludingTaxPrice(): number {
+      return this._excludingTaxPrice;
+    }
+
+    /**
+     * @param {number} value
+     */
+    set excludingTaxPrice(value: number) {
+      this._excludingTaxPrice = value;
+    }
+
+    /**
+     * @returns {number}
+     */
+    get taxRate(): number {
+      return this._taxRate;
+    }
+
+    /**
+     * @param {number} value
+     */
+    set taxRate(value: number) {
+      this._taxRate = value;
+    }
+
+    /**
+     * @returns {Price.Entity}
+     */
+    build(): Entity {
+      return new Entity(this);
+    }
+  }
+
+  /**
+   * 価格クラス
+   */
+  export class Entity {
+    /**
+     * 税抜き価格
+     */
+    private readonly _excludingTaxPrice: number;
+
+    /**
+     * 税率
+     */
+    private readonly _taxRate: number;
+
+    /**
+     * @param {Price.Builder} builder
+     */
+    constructor(builder: Builder) {
+      this._excludingTaxPrice = builder.excludingTaxPrice;
+      this._taxRate = builder.taxRate;
+    }
+
+    /**
+     * @returns {number}
+     */
+    get excludingTaxPrice(): number {
+      return this._excludingTaxPrice;
+    }
+
+    /**
+     * @returns {number}
+     */
+    get taxRate(): number {
+      return this._taxRate;
+    }
+
+    /**
+     * 税込み価格を計算する
+     *
+     * @returns {number}
+     */
+    calculateIncludingTaxPrice(): number {
+      // taxRateを1.08のように設定すると誤差が出るので108のように渡す事
+      // （参考）https://qiita.com/jkr_2255/items/0ca7bc536d930f83a901
+      return Math.round(this.excludingTaxPrice * this.taxRate / 100);
+    }
+  }
+}
+```
+
+`Entity` というクラス名に特に意味はありません。好きな名前を付けてよいです。（[Entities（エンティティ）パターン](https://www.ogis-ri.co.jp/otc/hiroba/technical/DDDEssence/chap2.html#Entities) は関係ありません）
+
+利用時は下記のように利用します。
+
+```typescript
+const builder = new Price.Builder();
+builder.excludingTaxPrice = 100;
+builder.taxRate = 108;
+
+const priceEntity = builder.build();
+
+// immutableなPrice.Entityクラスが生成される
+console.log(priceEntity);
+```
+
+ちなみにこれは [GOFで定義されているBuilderパターン](Builder パターン) ではなく [Effective Java](https://www.amazon.co.jp/dp/0134685997) で紹介されていたBuilderパターンです。
+
+[こちらの記事](https://qiita.com/moroku0519/items/dd349a2d0a835c5c819b) に解説があります。
+
+GOFのBuilderパターンよりも実装が分かりやすいので個人的にはこちらを利用する事を推奨します。
+
 # 参考資料
 - [オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
 - [ISBNとは？ 「978」から始まるISBNコードの意味](http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html)
