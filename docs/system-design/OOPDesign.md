@@ -474,6 +474,8 @@ export default class Price {
 
 後で上書きが出来るオブジェクトはバグの温床になったり、マルチスレッドでプログラミングする際のバグの温床になるからです。
 
+[design-pattern-tips](https://github.com/keitakn/design-pattern-tips) で紹介しているクラス設計も全て `immutable` なオブジェクトを生成するようになっています。
+
 ただコンストラクタで値を全て受け取る関係上、引数が増えてしまう事があります。
 
 その場合は別のデザインパターンで解決を行います。
