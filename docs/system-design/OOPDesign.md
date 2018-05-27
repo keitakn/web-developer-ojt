@@ -739,6 +739,22 @@ console.log(comic);
 
 初心者のうちは細かな違いではなく、オブジェクトの生成を一箇所に集約するパターンだと覚えておけば良いでしょう。
 
+# オブジェクト指向をさらに学習する
+
+[オススメの書籍](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/RecommendedBooks.md) にも書いてありますが以下の書籍を読む事をオススメします。
+
+- [現場で役立つシステム設計の原則](https://www.amazon.co.jp/dp/477419087X)
+- [エリック・エヴァンスのドメイン駆動設計](https://www.amazon.co.jp/dp/4798121967)
+- [実践ドメイン駆動設計](https://www.amazon.co.jp/dp/479813161X)
+
+書籍を読むだけではなく実際にコードを書いて動かしてみる事が重要です。
+
+設計とは結局はプログラミングをする事でしか身につきません。
+
+[システム設計](https://github.com/keitakn/web-developer-ojt/tree/master/docs/system-design) でも触れましたが、Excelで作図をしていたり設計書を書く事は設計とは呼びません。
+
+試行錯誤の結果、最終的に出来上がったソースコードその物が設計の成果物である事を忘れないようにしましょう。
+
 # 参考資料
 - [オブジェクト指向と10年戦ってわかったこと](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
 - [ISBNとは？ 「978」から始まるISBNコードの意味](http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html)
