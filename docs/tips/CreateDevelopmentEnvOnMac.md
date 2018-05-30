@@ -121,3 +121,9 @@ Alfredは無料で使える高機能なランチャーアプリです。
 ## GoogleChrome（Webブラウザ）
 
 [Chrome DevTools](https://saruwakakun.com/html-css/basic/chrome-dev-tool) の使い勝手やPluginの豊富さ、情報量等あらゆる面で他のブラウザを上回っているのでWeb開発ではGoogleChromeを使う事を推奨します。
+
+## Clipy（スニペットアプリ）
+これは、クリップボートを遡ってペーストしたり、定型文をコピーしておけるMacOS用のスニペットアプリです。
+![](https://clipy-app.com/img/screenshot1.png)
+
+公式：https://clipy-app.com/
