@@ -153,4 +153,12 @@ Googleが提唱する [マテリアルデザイン](https://qiita.com/nogson/ite
 
 また近年ではインターネットの中心は完全にスマートフォン等のモバイル端末に移行していますので、[レスポンシブウェブデザイン](https://liginc.co.jp/369022/) や [AMP](https://digitalidentity.co.jp/blog/seo/amp/what-is-amp.html) 等の手法にも目を通して行きましょう。
 
+最近見た記事で「恐竜に教える現代のCSS」という記事が良かったので載せておきます。
+
+モダンなCSSの手法が一通り紹介されていますので目を通しておく事をオススメします。
+
+- [恐竜に教える現代のCSS – Part 1](https://postd.cc/actualize-networkmodern-css-explained-for-dinosaurs/)
+- [恐竜に教える現代のCSS – Part 2](https://postd.cc/modern-css-explained-for-dinosaurs-2/)
+- [恐竜に教える現代のCSS – Part 3](https://postd.cc/actualize-networkmodern-css-explained-for-dinosaurs-3/)
+
 他にも覚える事が多いのであまり時間を掛けすぎずに、ある程度やったら、次のステップに進む事をオススメします。
