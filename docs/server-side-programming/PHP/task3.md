@@ -74,6 +74,8 @@
 
 また余裕がある場合は [こんな会員制システムにはユーザー登録したくない（ID・パスワードの扱い/入力画面）](https://qiita.com/otagaisama-1/items/18effbe525572eb71ce6) を読んでユーザーが使いやすい仕様を考えて実装してみるのも良いでしょう。
 
+この設計が [課題4（ユーザー情報を表示させる）](https://github.com/keitakn/web-developer-ojt/blob/master/docs/server-side-programming/PHP/task4.md) にも大きく影響するので先にある程度仕様を見ておくと良いでしょう。
+
 ## メンター向け
 
 セキュリティ面で問題ないかを重点的にレビューして下さい。
