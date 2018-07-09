@@ -37,6 +37,16 @@
 - [問題点ばかり！部活制度が学生に社畜根性を植えつけている](http://www.amamiyashion.com/entry/2016/09/23/200000)
 - [日本の教育は社畜を生産する洗脳教育](https://www.ino-kawa.com/?p=130)
 
+また、学校教育の問題点を指摘したTweetで実に的を得ていると思った物をいくつか載せておきます。
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">まあさ。学校なんてのは、個性をなくすための場所なんですよ。よく言うじゃないですか。「高校生らしい服装を〜」とか。なんですか。高校生らしい、って。要するに、平均化しろってことでしょう。なんだか、ぼくには学校が「鳥から尻尾を切って、飛べなくさせる」場所にしか、もう見えないんですよね。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1004691708326510592?ref_src=twsrc%5Etfw">2018年6月7日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">でもさ。いまどこかしらの分野で活躍している日本人を見ると、ほとんどが「教育工場の最高傑作」というよりも、むしろ、「教育工場で弾かれた欠陥品」みたいなタイプばかりのような気がして、ああ、そういうことね、って思っちゃうよね。結局は、あそこを素早くドロップアウトしたもん勝ちなとこある。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1008727335342751744?ref_src=twsrc%5Etfw">2018年6月18日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">あと「授業中スマホを使うから悪い」みたいなコメントもあって驚きますね<br><br>「だから非常時にスマホを取り上げる必要性」になんら結びついてない…<br><br>「権力者には絶対服従、疑問も抱いてはならない、いかなる時も」という奴隷の掟があるようですね…</p>&mdash; まいのこ💛デザインと心理研究 (@CreamyMainoko) <a href="https://twitter.com/CreamyMainoko/status/1009736564954415104?ref_src=twsrc%5Etfw">2018年6月21日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">その通りですね…。<br>基本的に学校という場所は子供の心と思考力を長年かけて潰す最悪の洗脳施設だと思ってます<br><br>「大人になってよかったこと」の1番か2番目に「もう学校に行かなくていい」が来るくらい酷い強制収容所でした</p>&mdash; まいのこ💛デザインと心理研究 (@CreamyMainoko) <a href="https://twitter.com/CreamyMainoko/status/1010082676349419522?ref_src=twsrc%5Etfw">2018年6月22日</a></blockquote>
+
 日本の教育を簡単にまとめると下記のような点を重視していると言えます。
 
 - 暗記を重視した受験勉強
@@ -240,6 +250,8 @@
 - （参考）[「体育会の部活型組織」に未来はない](http://dennou-kurage.hatenablog.com/entry/2013/04/05/211550)
 - （参考）[管理をなくせばなくすほど生産性が高まる新しい組織の形「ホラクラシー」その背景とメリット](https://kuranuki.sonicgarden.jp/2015/08/holacracy.html)
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">なにかを評価するとき、最もやってはいけないのは「●●が言っていたから」を軸にすることですね。だれかの評価をそのまま鵜呑みにするのは、とても危険な考え方。評価というのは、じぶんで見たもの、そしてそこから感じたものを軸にして行われるべきだし、その過程を通ったものしか評価とは呼べない。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1014604489406365696?ref_src=twsrc%5Etfw">2018年7月4日</a></blockquote>
+
 ## 精神論による弊害
 
 プロジェクトの遅延原因は様々なモノがありそれらの原因を取り除く事でしか問題解決は不可能です。
@@ -285,6 +297,8 @@
 - （参考）[日本の同調圧力は異常すぎる|これでは誰も幸せになれない](https://kaihoudebut.jp/retire/retiremind/7812/)
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「みんな本当は嫌だけど、我慢してやってるからお前も我慢してやれ」というのは最悪のロジックだと思う。これはもはやロジックとは言わず、思考停止というのでは。</p>&mdash; 日野瑛太郎 (@dennou_kurage) <a href="https://twitter.com/dennou_kurage/status/961090246820626444?ref_src=twsrc%5Etfw">2018年2月7日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">そもそも「わかり合える！わかり合おう！」を相手に強要すること自体が暴力的なんですよね。ひとは絶対にわかり合えない。なのに、そういう人達は、ひとの気持ちの中に土足で上がり込んで、ぐちゃぐちゃにして帰っていく。ほんとうに大事なのは、「わかり合えない！認め合おう！」なんだとおもいます。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1000212499646447616?ref_src=twsrc%5Etfw">2018年5月26日</a></blockquote>
 
 ## 社畜にならない為にはどうすべきか
 
