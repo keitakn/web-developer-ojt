@@ -288,6 +288,8 @@
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「みんな本当は嫌だけど、我慢してやってるからお前も我慢してやれ」というのは最悪のロジックだと思う。これはもはやロジックとは言わず、思考停止というのでは。</p>&mdash; 日野瑛太郎 (@dennou_kurage) <a href="https://twitter.com/dennou_kurage/status/961090246820626444?ref_src=twsrc%5Etfw">2018年2月7日</a></blockquote>
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">そもそも「わかり合える！わかり合おう！」を相手に強要すること自体が暴力的なんですよね。ひとは絶対にわかり合えない。なのに、そういう人達は、ひとの気持ちの中に土足で上がり込んで、ぐちゃぐちゃにして帰っていく。ほんとうに大事なのは、「わかり合えない！認め合おう！」なんだとおもいます。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1000212499646447616?ref_src=twsrc%5Etfw">2018年5月26日</a></blockquote>
+
 ## 社畜にならない為にはどうすべきか
 
 社畜思想を避ける事はエンジニアとして成長する為に必要不可欠であると私は考えます。
