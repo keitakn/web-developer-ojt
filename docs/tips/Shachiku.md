@@ -37,6 +37,16 @@
 - [問題点ばかり！部活制度が学生に社畜根性を植えつけている](http://www.amamiyashion.com/entry/2016/09/23/200000)
 - [日本の教育は社畜を生産する洗脳教育](https://www.ino-kawa.com/?p=130)
 
+また、学校教育の問題点を指摘したTweetで実に的を得ていると思った物をいくつか載せておきます。
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">まあさ。学校なんてのは、個性をなくすための場所なんですよ。よく言うじゃないですか。「高校生らしい服装を〜」とか。なんですか。高校生らしい、って。要するに、平均化しろってことでしょう。なんだか、ぼくには学校が「鳥から尻尾を切って、飛べなくさせる」場所にしか、もう見えないんですよね。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1004691708326510592?ref_src=twsrc%5Etfw">2018年6月7日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">でもさ。いまどこかしらの分野で活躍している日本人を見ると、ほとんどが「教育工場の最高傑作」というよりも、むしろ、「教育工場で弾かれた欠陥品」みたいなタイプばかりのような気がして、ああ、そういうことね、って思っちゃうよね。結局は、あそこを素早くドロップアウトしたもん勝ちなとこある。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1008727335342751744?ref_src=twsrc%5Etfw">2018年6月18日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">あと「授業中スマホを使うから悪い」みたいなコメントもあって驚きますね<br><br>「だから非常時にスマホを取り上げる必要性」になんら結びついてない…<br><br>「権力者には絶対服従、疑問も抱いてはならない、いかなる時も」という奴隷の掟があるようですね…</p>&mdash; まいのこ💛デザインと心理研究 (@CreamyMainoko) <a href="https://twitter.com/CreamyMainoko/status/1009736564954415104?ref_src=twsrc%5Etfw">2018年6月21日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">その通りですね…。<br>基本的に学校という場所は子供の心と思考力を長年かけて潰す最悪の洗脳施設だと思ってます<br><br>「大人になってよかったこと」の1番か2番目に「もう学校に行かなくていい」が来るくらい酷い強制収容所でした</p>&mdash; まいのこ💛デザインと心理研究 (@CreamyMainoko) <a href="https://twitter.com/CreamyMainoko/status/1010082676349419522?ref_src=twsrc%5Etfw">2018年6月22日</a></blockquote>
+
 日本の教育を簡単にまとめると下記のような点を重視していると言えます。
 
 - 暗記を重視した受験勉強
