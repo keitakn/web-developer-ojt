@@ -240,6 +240,8 @@
 - （参考）[「体育会の部活型組織」に未来はない](http://dennou-kurage.hatenablog.com/entry/2013/04/05/211550)
 - （参考）[管理をなくせばなくすほど生産性が高まる新しい組織の形「ホラクラシー」その背景とメリット](https://kuranuki.sonicgarden.jp/2015/08/holacracy.html)
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">なにかを評価するとき、最もやってはいけないのは「●●が言っていたから」を軸にすることですね。だれかの評価をそのまま鵜呑みにするのは、とても危険な考え方。評価というのは、じぶんで見たもの、そしてそこから感じたものを軸にして行われるべきだし、その過程を通ったものしか評価とは呼べない。</p>&mdash; プロ奢ラレヤー🍣 (@taichinakaj) <a href="https://twitter.com/taichinakaj/status/1014604489406365696?ref_src=twsrc%5Etfw">2018年7月4日</a></blockquote>
+
 ## 精神論による弊害
 
 プロジェクトの遅延原因は様々なモノがありそれらの原因を取り除く事でしか問題解決は不可能です。
