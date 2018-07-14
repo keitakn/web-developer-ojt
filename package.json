@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/keita-nishimoto/web-developer-ojt#readme",
   "devDependencies": {
-    "textlint": "^10.0.1",
+    "textlint": "^10.2.1",
     "textlint-rule-max-ten": "^2.0.3",
     "textlint-rule-no-mix-dearu-desumasu": "^3.0.3",
-    "textlint-rule-preset-ja-technical-writing": "^2.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^3.0.1",
     "textlint-rule-preset-jtf-style": "^2.3.1"
   }
 }
