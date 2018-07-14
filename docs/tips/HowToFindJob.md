@@ -90,6 +90,8 @@ GitHubを作ったは良いが、ずっと真っ白な状態が続いている�
 
 それはエンジニアが主導しているエージェント組織を選ぶ事です。
 
+例えば下記のような会社です。
+
 - [Findy Freelance](https://freelance.findy-code.io/)
 - [CODEAL](https://www.codeal.work/)
 - [シューマツワーカー](https://shuuumatu-worker.jp/)
