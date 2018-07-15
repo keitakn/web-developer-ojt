@@ -1,6 +1,13 @@
 # 仕事の選び方
 
+[仕事の探し方](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/HowToFindJob.md) を実践するとそれなりに仕事を探せるようになりますが、ここでは受けたほうが良い案件と避けたほうが良い案件を見極める方法をまとめます。
+
 ## 対象読者
+
+- 正社員就業中で副業（複業）を探している方
+- フリーランスエンジニアで案件を探している方
+
+正社員で就業する予定の方は [転職マニュアル](https://github.com/keitakn/web-developer-ojt/blob/master/docs/tips/ChangeJobManual.md) を参照して下さい。
 
 ## 選んではいけない案件
 
