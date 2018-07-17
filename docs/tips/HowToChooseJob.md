@@ -254,6 +254,16 @@ React未経験でしたが、GitHubの成果物を見せるのと、バックエ
 
 その為、以下のような技術も習得しておいて損はないです。
 
+これらはリファクタリングを行いキレイな設計を行う為に必要な技術です。
+
+- [オブジェクト指向の基礎](https://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
+- [関数型プログラミングの考え方](https://qiita.com/tail-island/items/1782e4c1e7b620a4f9c0)
+- [ドメイン駆動設計](https://www.ogis-ri.co.jp/otc/hiroba/technical/DDDEssence/chap1.html) やそれに伴うデザインパターン
+
+これらは特定の言語に依存した技術ではない（明らかに向いていない言語とかもあるので一概には言えませんが）一度習得すると長く役に立つのも特徴です。
+
+下記は環境構築やオペレーションを自動化する技術です。
+
 - [Terraform](https://www.terraform.io/)
   - Cloud環境の構成管理を自動化する
 - [Ansible](https://www.ansible.com/)
