@@ -240,7 +240,11 @@
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">日本の働き方がいびつなのは出社時間には厳しいけど退社時間にはゆるいところ。働き方改革では退社時間を厳しくする方向になっているけど、エンジニアのようなアウトプットを重視する職種の場合、退社時間の厳格化ではなく出社時間の寛容化のほうがパフォーマンスは上がると思う。</p>&mdash; ひさじゅ@すたてく社長（PG） (@hisaju01) <a href="https://twitter.com/hisaju01/status/983853956991369216?ref_src=twsrc%5Etfw">2018年4月10日</a></blockquote>
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">働き方をもっと自由にしたかったら遅刻も含めた「勤務態度」というばかげた評価項目をなくせばいい。勤務態度のような項目はプロセスでしかなく、結果が出ない人のプロセス改善として使う程度にとどめ、評価項目を結果のみにすれば時間で縛る必要がなくなる。</p>&mdash; ひさじゅ@すたてく社長（PG） (@hisaju01) <a href="https://twitter.com/hisaju01/status/1019369909715734528?ref_src=twsrc%5Etfw">2018年7月17日</a></blockquote>
+
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">社員を性悪説で管理しなくてはいけないような会社はマネジメント能力が足りてないか採用が間違ってるかのどっちかだな。営業の売り上げ目標も開発の納期もキツキツにしないで3年トラブルも退職者もないよ。</p>&mdash; INST石野@29日は大原イサキ (@ishiko618) <a href="https://twitter.com/ishiko618/status/968603938411835392?ref_src=twsrc%5Etfw">2018年2月27日</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">日経の働き方改革、イクメン応援の記事で違和感。19時消灯や勤務時間が15分短くなった話を賞賛してる。<br><br>そろそろ帰る時間をみんなで決めるの止めるのはどうだろうか。<br><br>保育園のお迎え担当の日は早く、働きたい時は働くなど、メリハリを個人が自由につければ良いのでは。多様な働き方を賞賛してほしい</p>&mdash; ふぃりっぷ@Findyの中の人 (@yuichiro826) <a href="https://twitter.com/yuichiro826/status/1018722369722961920?ref_src=twsrc%5Etfw">2018年7月16日</a></blockquote>
 
 ## マネジメントで生きるという選択肢について
 
