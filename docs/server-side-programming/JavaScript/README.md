@@ -152,6 +152,29 @@ const myName = 'K';
 
 内容盛りだくさんなので、ストックしておいてざっと眺めておくと良いでしょう。
 
+### [2018年に見直した現代的なJavaScriptの記法を紹介するぜ](https://ics.media/entry/17262)
+
+最新の言語仕様を分かりやすく解説している良記事です。
+
+### 非同期処理に関する記事
+
+JavaScriptでは非同期処理が非常に重要です。
+
+非同期処理の核となる `Promise` の理解は必須です。
+
+参考になりそうな記事を載せておきます。
+
+- [JavaScriptの同期、非同期、コールバック、プロミス辺りを整理してみる](https://qiita.com/YoshikiNakamura/items/732ded26c85a7f771a27)
+- [Promise と async/await の理解度をもう1段階上げる](https://qiita.com/SotaSuzuki/items/f23199e864cba47455ce)
+
+`async/await` は Promiseをより簡潔に書けるようにした仕組みです。
+まずは [async function](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function) を見て概要を理解しておきましょう。
+
+下記の記事も分かりやすく解説されているのでオススメです。
+
+- [async await の使い方](https://qiita.com/niusounds/items/37c1f9b021b62194e077)
+- [async関数においてtry/catchではなくawait/catchパターンを活用する](https://qiita.com/akameco/items/cc73afcdb5ac5d0774bc)
+
 ## コーディング規約について
 
 様々なコーディング規約がありますが、私のオススメは [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) です。
@@ -165,3 +188,9 @@ GitHub上でも多くのスターを獲得しています。
 [日本語版](http://mitsuruog.github.io/javascript-style-guide/README.md) もあります。
 
 ちなみに [JavaScript初級者のためのコーディングガイド](https://qiita.com/raccy/items/bf590d3c10c3f1a2846b) でもAirbnbのスタイルを推しています。
+
+最近では [Prettier](https://github.com/prettier/prettier) や [ESLint](https://eslint.org/) といったツールを利用しコードを整形するのが主流です。
+
+コーディング規約を理解する事は大事ですが、実際のコード整形はツールに任せてしまったほうがミスがないので確実です。
+
+- [Prettier 入門 ～ESLintとの違いを理解して併用する～](https://qiita.com/soarflat/items/06377f3b96964964a65d)
