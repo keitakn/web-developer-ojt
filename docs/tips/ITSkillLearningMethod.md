@@ -325,6 +325,7 @@ IT技術の習得は手を動かす事が最も重要です。
 
 - [勉強会聴講：「エンジニアとしてこの先生きのこるために」](https://qiita.com/sakaizay/items/e4ae74bfecd026925e3b)
 - [エンジニアの次のステップへの勉強法](https://qiita.com/newta/items/f4aff8cdd8706d5d08c5)
+- [エンジニアになる覚悟](https://speakerdeck.com/yosuke_furukawa/enzinianinarujue-wu)
 
 以下は動画です。
 
