@@ -637,6 +637,8 @@ sudo service mysqld restart
 
 （参考）[MySQL 5.7 インストールと設定メモ](https://blog.apar.jp/linux/6769/)
 
+[Amazon Aurora](https://aws.amazon.com/jp/rds/aurora/) を利用する場合は [公式のベストプラクティス](https://aws.amazon.com/jp/blogs/news/best-practices-for-amazon-aurora-mysql-database-configuration/) も参考にすると良いでしょう。
+
 ## データベースとユーザーの作成
 
 次にデータベースとユーザーを作成します。
