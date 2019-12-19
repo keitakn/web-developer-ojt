@@ -61,7 +61,27 @@
 
 ### 1. HTML CSS基礎
 
+以下の資料を見て、HTML、CSSの概要を理解します。
+
+- [HTMLの基礎知識](https://github.com/keitakn/web-developer-ojt/blob/master/docs/html-css/html.md)
+- [CSSの基礎知識](https://github.com/keitakn/web-developer-ojt/blob/master/docs/html-css/css.md)
+
+その後 [Progate](https://prog-8.com/) や [ドットインストール](https://dotinstall.com/) で実際に手を動かします。
+
+最終的に自身の自己紹介ページを作成して完了とします。
+
+この時点ではあまり拘らずに概要を理解したら速やかに次のステップに進みましょう。
+
 ### 2. Linuxの基礎
+
+[linux](https://github.com/keitakn/web-developer-ojt/tree/master/docs/linux) 配下の資料を見てLinuxの概要とコマンドに慣れます。
+
+ここには載っていませんが、[Git](https://git-scm.com/) と呼ばれるバージョン管理システムに対する理解も重要です。
+
+以下のサイトを参考にGitやGitHubの使い方を理解しましょう。
+
+- [サルでもわかるGit入門](https://backlog.com/ja/git-tutorial/)
+- [GitHub超初心者入門](https://qiita.com/nnahito/items/565f8755e70c51532459)
 
 ### 3. ネットワークの基礎
 
