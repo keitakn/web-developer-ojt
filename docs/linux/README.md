@@ -83,6 +83,4 @@ OSの中核となる部分でハードウェアと直接やり取りするもっ
 
 無料でダウンロードが可能です。
 
-それから下記のサイトがかなり分かりやすかったです。
-
-https://eng-entrance.com/category/linux
+最近公開された [Linuxの基礎用語を完全理解するためにエンジニアが作成した「10のミニプロジェクト」](https://gigazine.net/news/20210220-getting-better-linux-10-project/) もオススメです。
